@@ -15,7 +15,7 @@ class User extends Authenticatable
 	 * @var array
 	 */
 	protected $fillable = [
-		'name', 'email', 'password',
+		'username', 'name', 'email', 'password',
 	];
 
 	/**
@@ -41,7 +41,7 @@ class User extends Authenticatable
 		return $this->hasMany(Meal::class);
 	}
 
-	public function totalIntake($allMeals)
+	public function totalIntake($meals)
 	{
 		$totalIntake = [
 			'energy' => 0,
@@ -50,7 +50,7 @@ class User extends Authenticatable
 			'carbs' => 0,
 		];
 
-		foreach ($allMeals as $meal) {
+		foreach ($meals as $meal) {
 			$totalIntake['energy'] += $meal['energy'];
 			$totalIntake['protein'] += $meal['protein'];
 			$totalIntake['fat'] += $meal['fat'];
@@ -58,5 +58,9 @@ class User extends Authenticatable
 		}
 
 		return $totalIntake;
+	}
+
+	public function mealsPerDate()
+	{
 	}
 }

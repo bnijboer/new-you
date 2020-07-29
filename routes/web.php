@@ -14,12 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
-Route::get('/meals', 'MealController@index');
-Route::post('/meals', 'MealController@store');
-Route::get('/meals/{meal}', 'MealController@show');
-Route::get('/meals/{meal}/edit', 'MealController@edit');
-Route::put('/meals/{meal}', 'MealController@update');
-Route::delete('/meals/{meal}', 'MealController@destroy');
+Route::middleware('auth')->group(function () {
+	Route::get('/meals', 'MealController@index')->name('dashboard');
+	Route::post('/meals', 'MealController@store');
+	Route::get('/meals/{meal}', 'MealController@show');
+	Route::get('/meals/{meal}/edit', 'MealController@edit');
+	Route::put('/meals/{meal}', 'MealController@update');
+	Route::delete('/meals/{meal}', 'MealController@destroy');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
