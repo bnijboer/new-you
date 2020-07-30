@@ -26,6 +26,12 @@ Route::middleware('auth')->group(function () {
 	Route::delete('/meals/{meal}', 'MealController@destroy');
 });
 
+Route::middleware('auth')->group(function () {
+	// Route::get('/products', 'ProductController@index');
+	Route::get('/products/create', 'ProductController@create');
+	Route::post('/products', 'ProductController@store');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

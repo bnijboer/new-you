@@ -8,34 +8,20 @@ class MealController extends Controller
 {
 	public function index()
 	{
-		$allMeals = auth()->user()->meals()->get()->toArray();
+		$meals = auth()->user()->meals()->get();
 
 		return view('meals.index', [
-			'allMeals' => $allMeals,
-			'totalIntake' => auth()->user()->totalIntake($allMeals)
+			'meals' => $meals
 		]);
 	}
 
 	public function store()
 	{
-		$attributes = request()->validate([
-			'name' => 'required',
-			'energy' => 'required',
-			'protein' => 'required',
-			'fat' => 'required',
-			'carbohydrates' => 'required'
-		]);
+		$meal = new Meal($this->validateMeal());
+		$meal->user_id = auth()->id();
+		$meal->save();
 
-		// $this->validateMeal();
-
-		Meal::create([
-			'user_id' => auth()->id(),
-			'name' => $attributes['name'],
-			'energy' => $attributes['energy'],
-			'protein' => $attributes['protein'],
-			'fat' => $attributes['fat'],
-			'carbs' => $attributes['carbohydrates']
-		]);
+		$meal->products()->attach(App\Product::find(1));
 
 		return redirect()->route('dashboard');
 	}
@@ -71,11 +57,7 @@ class MealController extends Controller
 	protected function validateMeal()
 	{
 		return request()->validate([
-			'name' => 'required',
-			'energy' => 'required',
-			'protein' => 'required',
-			'fat' => 'required',
-			'carbs' => 'required'
+			'name' => 'required'
 		]);
 	}
 }

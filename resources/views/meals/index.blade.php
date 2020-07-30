@@ -1,112 +1,77 @@
-<x-master>
-    <div style="display: flex">
-        <div style="border: 1px solid black; width: 50%">
+<x-app>
 
-            <div>
-                <h1>All meals</h1>
-
-                @foreach ($allMeals as $meal)
-                <h4>{{ $meal['name'] }}:</h4>
-
-                <ul>
-                    <li>Energy: {{ $meal['energy'] }} kcal</li>
-                    <li>Protein: {{ $meal['protein'] }} g</li>
-                    <li>Fat: {{ $meal['fat'] }} g</li>
-                    <li>Carbohydrate: {{ $meal['carbs'] }} g</li>
-                </ul>
-
-                <form action="/meals/{{ $meal['id'] }}/edit" method="GET">
-                    @csrf
-                    <button type="submit">Edit</button>
-                </form>
-
-                <form action="/meals/{{ $meal['id'] }}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button type="submit">Delete</button>
-                </form>
-
-                <br>
-                @endforeach
+    <div class="flex">
+        <div class="w-1/2 bg-pink-300 p-4 m-4">
+            <div class="text-center text-2xl pb-5">
+                All Meals
             </div>
 
-            <div>
-                <h1>Add meal</h1>
-                <form action="/meals" method="POST">
-                    @csrf
-
-                    <input type="text" name="name" placeholder="Product name" value="{{ old('name') }}">
-                    @error('name')
-                    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
-                    @enderror
-
-                    <input type="number" name="energy" placeholder="Caloric value" value="{{ old('energy') }}">
-                    @error('energy')
-                    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
-                    @enderror
-
-                    <input type="number" name="protein" placeholder="Protein value" value="{{ old('protein') }}">
-                    @error('protein')
-                    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
-                    @enderror
-
-                    <input type="number" name="fat" placeholder="Fat value" value="{{ old('fat') }}">
-                    @error('fat')
-                    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
-                    @enderror
-
-                    <input type="number" name="carbohydrates" placeholder="Carbohydrate value"
-                        value="{{ old('carbs') }}">
-                    @error('carbohydrates')
-                    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
-                    @enderror
-
-                    <button type="submit">Add</button>
-                </form>
+            <div class="flex font-bold">
+                <div class="text-center w-1/6 bg-gray-500 py-3 rounded-tl-lg">
+                    Name
+                </div>
+                <div class="text-center w-1/6 bg-gray-400 py-3">
+                    Energy (cal)
+                </div>
+                <div class="text-center w-1/6 bg-gray-500 py-3">
+                    Protein (g)
+                </div>
+                <div class="text-center w-1/6 bg-gray-400 py-3">
+                    Fat (g)
+                </div>
+                <div class="text-center w-1/6 bg-gray-500 py-3">
+                    Carbohydrates (g)
+                </div>
+                <div class="text-center w-1/6 bg-gray-400 py-3 rounded-tr-lg"></div>
             </div>
+
+            @forelse ($meals as $meal)
+
+            <div class="flex">
+                <div class="text-center w-1/6 bg-gray-500 py-2 {{ $loop->last ? 'rounded-bl-lg' : '' }}">
+                    {{ $meal->name }}
+                </div>
+                <div class="text-center w-1/6 bg-gray-400 py-2">
+                    {{ totalValue($meal->products, 'energy') }}
+                </div>
+                <div class="text-center w-1/6 bg-gray-500 py-2">
+                    {{ totalValue($meal->products, 'protein') }}
+                </div>
+                <div class="text-center w-1/6 bg-gray-400 py-2">
+                    {{ totalValue($meal->products, 'fat') }}
+                </div>
+                <div class="text-center w-1/6 bg-gray-500 py-2">
+                    {{ totalValue($meal->products, 'carbs') }}
+                </div>
+                <div class="text-center w-1/6 bg-gray-400 py-2 {{ $loop->last ? 'rounded-br-lg' : '' }}">
+                    <div class="flex justify-around">
+                        <div>
+                            <form action="/meals/{{ $meal['id'] }}/edit" method="GET">
+                                <button type="submit">Edit</button>
+                            </form>
+                        </div>
+                        <div>
+                            <form action="/meals/{{ $meal['id'] }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @empty
+            <div class="w-full text-center p-3">
+                No meals logged so far.
+            </div>
+            @endforelse
 
         </div>
 
-        <div style="border: 1px solid black; width: 50%">
-            <h3>Total intake:</h3>
-            <ul>
-                <li>Energy: {{ $totalIntake['energy'] }} kcal</li>
-                <li>Protein: {{ $totalIntake['protein'] }} g</li>
-                <li>Fat: {{ $totalIntake['fat'] }} g</li>
-                <li>Carbohydrate: {{ $totalIntake['carbs'] }} g</li>
-            </ul>
-
-            <div style="width: 600px; height: 600px">
-                <canvas id="myChart" width="100" height="100"></canvas>
-            </div>
+        <div class="w-1/2 bg-orange-300">
+            kanker
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
-        <script>
-            var totalIntake = <?= json_encode($totalIntake) ?> ;
-
-            var ctx = document.getElementById('myChart').getContext('2d');
-
-            var myPieChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: ['Protein', 'Fat', 'Carbohydrate'],
-                    datasets: [{
-                        backgroundColor: [
-                            'rgb(255, 99, 132)',
-                            'rgb(10, 230, 40)',
-                            'rgb(155, 99, 232)'
-                        ],
-                        data: [
-                            totalIntake['protein'],
-                            totalIntake['fat'],
-                            totalIntake['carbs']
-                        ]
-                    }]
-                },
-                options: {}
-            });
-        </script>
     </div>
-</x-master>
+
+</x-app>

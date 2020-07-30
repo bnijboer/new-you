@@ -1,4 +1,4 @@
-<x-master>
+<x-app>
     <div>
         <h1>Edit Meal</h1>
 
@@ -6,12 +6,8 @@
             @csrf
             @method('put')
 
-            <h4><input type="text" name="name" value="{{ $meal->name }}">:</h4>
-            <input type="number" name="energy" value="{{ $meal->energy }}">kcal
-            <input type="number" name="protein" value="{{ $meal->protein }}">g protein
-            <input type="number" name="fat" value="{{ $meal->fat }}">g fat
-            <input type="number" name="carbs" value="{{ $meal->carbs }}">g carbohydrates
+            <input type="text" name="name" value="{{ $meal->name }}">
             <button type="submit">Update</button>
         </form>
     </div>
-</x-master>
+</x-app>
