@@ -43,6 +43,7 @@
 
 <body>
 
+    <!-- NAVBAR -->
     <div id="app">
         <div class="bg-red-500">
 
