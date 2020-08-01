@@ -23,5 +23,5 @@
 @endsection -->
 
 <x-app>
-    <h1>HOI DIT IS DE LANDING</h1>
+    <h1>HOI DIT IS DE HOME OFZO IK WEET NIET PRECIES</h1>
 </x-app>
