@@ -4,7 +4,7 @@
     </div>
 
     <div class="m-3">
-        <div class="flex font-bold mt-8">
+        <div class="flex text-lg mt-8">
             <div class="text-center w-1/6 bg-gray-500 py-3 rounded-tl-lg">
                 Name
             </div>
@@ -18,7 +18,7 @@
                 Fat (g)
             </div>
             <div class="text-center w-1/6 bg-gray-500 py-3">
-                Carbohydrates (g)
+                Carbs (g)
             </div>
             <div class="text-center w-1/6 bg-gray-400 py-3 rounded-tr-lg"></div>
         </div>
@@ -26,7 +26,7 @@
         @forelse ($meals as $meal)
         <div class="flex">
             <div class="text-center w-1/6 bg-gray-500 py-2 {{ $loop->last ? 'rounded-bl-lg' : '' }}">
-                {{ $meal->name }}
+                <a href="/meals/{{ $meal->id }}">{{ $meal->name }}</a>
             </div>
             <div class="text-center w-1/6 bg-gray-400 py-2">
                 {{ $meal->totalValue('energy') }}
@@ -44,7 +44,9 @@
                 <div class="flex justify-around">
                     <div>
                         <form action="/meals/{{ $meal['id'] }}/edit" method="GET">
-                            <button type="submit"><i class="fas fa-edit"></i></button>
+                            <button type="submit">
+                                <i class="fas fa-edit"></i>
+                            </button>
                         </form>
                     </div>
                     <div>
@@ -56,15 +58,34 @@
                             </button>
                         </form>
                     </div>
-                    <!-- <div>
-                        <button type="button" class="collapsible">Expand</button>
-                        <div id="1" class="content">
-            <               p>Lorem ipsum...</p>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
+        @forelse ($meal->products as $product)
+        <div class="flex">
+            <div class="text-center w-1/6 bg-gray-300 py-2">
+                {{ $product->name }}
+            </div>
+            <div class="text-center w-1/6 bg-gray-200 py-2">
+                {{ $product->energy }}
+            </div>
+            <div class="text-center w-1/6 bg-gray-300 py-2">
+                {{ $product->protein }}
+            </div>
+            <div class="text-center w-1/6 bg-gray-200 py-2">
+                {{ $product->fat }}
+            </div>
+            <div class="text-center w-1/6 bg-gray-300 py-2">
+                {{ $product->carbs }}
+            </div>
+        </div>
+        @empty
+        <div class="flex">
+            <div class="text-center w-full bg-gray-200 p-3">
+                This meal doesn't contain any products yet!.
+            </div>
+        </div>
+        @endforelse
         @empty
         <div class="w-full text-center p-3">
             No meals logged so far.
