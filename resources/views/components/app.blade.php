@@ -90,9 +90,16 @@
         </div>
 
 
-        <main class="w-screen">
-            {{ $slot }}
+        <main class="flex w-screen mt-8">
+            <div class="w-5/6">
+                {{ $slot }}
+            </div>
+            <div class="w-1/6">
+                @include ('_sidebar')
+            </div>
+
         </main>
+
     </div>
 
 </body>

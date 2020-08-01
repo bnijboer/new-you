@@ -6,8 +6,6 @@
 
         @include ('_intake-overview')
 
-        @include ('_sidebar')
-
     </div>
 
 </x-app>

@@ -2,7 +2,7 @@
 
     <div class="flex">
 
-        @include ('_add-product')
+        @include ('_all-products-overview')
 
     </div>
 

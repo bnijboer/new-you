@@ -1,6 +1,6 @@
-<div class="w-1/2 bg-pink-300 rounded-lg p-4 mx-4">
+<div class="w-5/6 bg-pink-300 rounded-lg p-4 mx-auto">
     <div class="text-center text-2xl py-2">
-        All Meals
+        All Products
     </div>
 
     <div class="m-3">
@@ -23,53 +23,48 @@
             <div class="text-center w-1/6 bg-gray-400 py-3 rounded-tr-lg"></div>
         </div>
 
-        @forelse ($meals as $meal)
+        @forelse ($products as $product)
         <div class="flex">
             <div class="text-center w-1/6 bg-gray-500 py-2 {{ $loop->last ? 'rounded-bl-lg' : '' }}">
-                {{ $meal->name }}
+                {{ $product->name }}
             </div>
             <div class="text-center w-1/6 bg-gray-400 py-2">
-                {{ $meal->totalValue('energy') }}
+                {{ $product->energy }}
             </div>
             <div class="text-center w-1/6 bg-gray-500 py-2">
-                {{ $meal->totalValue('protein') }}
+                {{ $product->protein }}
             </div>
             <div class="text-center w-1/6 bg-gray-400 py-2">
-                {{ $meal->totalValue('fat') }}
+                {{ $product->fat }}
             </div>
             <div class="text-center w-1/6 bg-gray-500 py-2">
-                {{ $meal->totalValue('carbs') }}
+                {{ $product->carbs }}
             </div>
             <div class="text-center w-1/6 bg-gray-400 py-2 {{ $loop->last ? 'rounded-br-lg' : '' }}">
                 <div class="flex justify-around">
                     <div>
-                        <form action="/meals/{{ $meal['id'] }}/edit" method="GET">
+                        <form action="/products/{{ $product['id'] }}/edit" method="GET">
                             <button type="submit"><i class="fas fa-edit"></i></button>
                         </form>
                     </div>
                     <div>
-                        <form action="/meals/{{ $meal['id'] }}" method="POST">
+                        <form action="/products/{{ $product['id'] }}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="submit" onclick="return confirm('Are you sure you want to delete this meal?');">
+                            <button type="submit" onclick="return confirm('Are you sure you want to delete this product?');">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </form>
                     </div>
-                    <!-- <div>
-                        <button type="button" class="collapsible">Expand</button>
-                        <div id="1" class="content">
-            <               p>Lorem ipsum...</p>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
         @empty
         <div class="w-full text-center p-3">
-            No meals logged so far.
+            There aren't any products in the database yet.
         </div>
         @endforelse
-
     </div>
+
+
 </div>

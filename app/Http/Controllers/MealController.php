@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Meal;
+use App\Product;
 
 class MealController extends Controller
 {
@@ -16,13 +17,18 @@ class MealController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('meals.create');
+    }
+
     public function store()
     {
         $meal = new Meal($this->validateMeal());
         $meal->user_id = auth()->id();
         $meal->save();
 
-        $meal->products()->attach(App\Product::find(1));
+        $meal->products()->attach(Product::find(7));
 
         return redirect()->route('dashboard');
     }

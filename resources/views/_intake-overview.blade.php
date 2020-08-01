@@ -1,10 +1,10 @@
-<div class="w-2/6 bg-orange-300 p-4 m-4">
+<div class="w-1/2 bg-orange-300 rounded-lg p-4 mx-4">
 
-    <div class="text-center text-2xl pb-5">
+    <div class="text-center text-2xl py-2">
         Intake Overview
     </div>
 
-    <div>
+    <div class="mt-8">
         <div class="mx-auto">
             <pie-chart :total-intake="{{ json_encode($totalIntake) }}"></pie-chart>
         </div>

@@ -1,9 +1,9 @@
-<div class="w-1/3 bg-pink-300 rounded-lg p-4 mt-8 mx-auto">
+<div class="bg-pink-300 rounded-lg w-1/3 p-4 mx-auto">
     <div class="text-center text-2xl py-2">
         Add Product To Database
     </div>
 
-    <div class=" flex justify-center mt-8">
+    <div class="flex justify-center mt-8">
         <form action="/products" method="POST">
             @csrf
 

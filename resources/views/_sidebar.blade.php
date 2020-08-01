@@ -1,6 +1,9 @@
-<div class="w-1/6 bg-purple-300">
-    <div class="flex justify-end mt-8 mr-8">
+<div class="bg-purple-300 rounded-lg p-4 mx-4">
+    <div class="flex justify-end">
         <ul>
+            <li>
+                <a class="font-bold text-lg mb-4 block" href="/meals">Dashboard</a>
+            </li>
             <li>
                 <a class="font-bold text-lg mb-4 block" href="/products">All Products</a>
             </li>

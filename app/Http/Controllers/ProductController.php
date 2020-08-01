@@ -6,6 +6,15 @@ use App\Product;
 
 class ProductController extends Controller
 {
+    public function index()
+    {
+        $products = Product::all();
+
+        return view('products.index', [
+            'products' => $products
+        ]);
+    }
+
     public function create()
     {
         return view('products.create');
@@ -29,6 +38,13 @@ class ProductController extends Controller
             'carbs' => $attributes['carbohydrates']
         ]);
 
-        return back();
+        return redirect()->route('products');
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return redirect()->route('products');
     }
 }
