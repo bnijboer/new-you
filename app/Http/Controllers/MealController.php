@@ -28,7 +28,7 @@ class MealController extends Controller
         $meal->user_id = auth()->id();
         $meal->save();
 
-        $meal->products()->attach(Product::find(9));
+        $meal->products()->attach(Product::find(1));
 
         return redirect()->route('dashboard');
     }

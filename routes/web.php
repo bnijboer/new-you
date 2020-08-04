@@ -14,22 +14,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/meals', 'MealController@index')->name('dashboard');
-    Route::get('/meals/create', 'MealController@create');
-    Route::post('/meals', 'MealController@store');
-    Route::get('/meals/{meal}', 'MealController@show');
-    Route::get('/meals/{meal}/edit', 'MealController@edit');
-    Route::put('/meals/{meal}', 'MealController@update');
-    Route::delete('/meals/{meal}', 'MealController@destroy');
+	Route::get('/profile/create', 'ProfileController@create');
+	Route::post('/profile', 'ProfileController@store');
+	Route::get('/profile/{profile}', 'ProfileController@show')->name('profile');
+	Route::get('/profile/{profile}/edit', 'ProfileController@edit');
+	Route::put('/profile/{profile}', 'ProfileController@update');
 
-    Route::get('/products', 'ProductController@index')->name('products');
-    Route::get('/products/create', 'ProductController@create');
-    Route::post('/products', 'ProductController@store');
-    Route::delete('/products/{product}', 'ProductController@destroy');
+	Route::get('/meals', 'MealController@index')->name('dashboard');
+	Route::get('/meals/create', 'MealController@create');
+	Route::post('/meals', 'MealController@store');
+	Route::get('/meals/{meal}', 'MealController@show');
+	Route::get('/meals/{meal}/edit', 'MealController@edit');
+	Route::put('/meals/{meal}', 'MealController@update');
+	Route::delete('/meals/{meal}', 'MealController@destroy');
+
+	Route::get('/products', 'ProductController@index')->name('products');
+	Route::get('/products/create', 'ProductController@create');
+	Route::post('/products', 'ProductController@store');
+	Route::delete('/products/{product}', 'ProductController@destroy');
 });
 
 Auth::routes();

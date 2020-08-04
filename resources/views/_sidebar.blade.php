@@ -5,6 +5,9 @@
                 <a class="font-bold text-lg mb-4 block" href="/meals">Dashboard</a>
             </li>
             <li>
+                <a class="font-bold text-lg mb-4 block" href="/profile/{{ auth()->id() }}">Profile</a>
+            </li>
+            <li>
                 <a class="font-bold text-lg mb-4 block" href="/products">All Products</a>
             </li>
             <li>

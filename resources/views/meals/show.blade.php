@@ -46,7 +46,7 @@
                 @empty
                 <div class="flex">
                     <div class="w-full bg-gray-200 p-3">
-                        This meal doesn't contain any products yet!.
+                        This meal doesn't contain any products yet!
                     </div>
                 </div>
                 @endforelse
@@ -73,8 +73,8 @@
                 <div class="flex justify-end">
                     <div class="mr-3">
                         <form action="/meals/{{ $meal->id }}/edit" method="GET">
-                            @csrf
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                type="submit">
                                 <i class="fas fa-edit"></i>
                             </button>
                         </form>
@@ -83,7 +83,8 @@
                         <form action="/meals/{{ $meal->id }}" method="POST">
                             @csrf
                             @method('delete')
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                type="submit">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </form>
