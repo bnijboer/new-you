@@ -19,7 +19,7 @@
                     <div class="w-1/5 bg-gray-600 py-3">
                         Fat (g)
                     </div>
-                    <div class="w-1/5 bg-gray-600 py-3">
+                    <div class="w-1/5 bg-gray-600 py-3 rounded-tr-lg">
                         Carbs (g)
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                 </div>
                 @endforelse
                 <div class="flex font-bold text-lg">
-                    <div class="w-1/5 bg-gray-500 py-2">
+                    <div class="w-1/5 bg-gray-500 py-2 rounded-bl-lg">
                         Totals:
                     </div>
                     <div class="w-1/5 bg-gray-500 py-2">
@@ -63,7 +63,7 @@
                     <div class="w-1/5 bg-gray-500 py-2">
                         {{ $meal->totalValue('fat') }}
                     </div>
-                    <div class="w-1/5 bg-gray-500 py-2">
+                    <div class="w-1/5 bg-gray-500 py-2 rounded-br-lg">
                         {{ $meal->totalValue('carbs') }}
                     </div>
                 </div>
