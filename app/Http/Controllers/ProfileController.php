@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Profile;
+use App\User;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -67,5 +69,11 @@ class ProfileController extends Controller
 
 	public function destroy()
 	{
+		$user = User::find(Auth::user()->id);
+
+		Auth::logout();
+		$user->delete();
+
+		return redirect()->route('register');
 	}
 }

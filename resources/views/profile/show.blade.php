@@ -90,6 +90,17 @@
                                 </button>
                             </form>
                         </div>
+                        <div class="mr-3">
+                            <form action="/profile/{{ $profile->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                    type="submit"
+                                    onclick="return confirm('Are you sure you want to delete your account? This action cannot be reversed.');">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 

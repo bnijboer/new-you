@@ -82,9 +82,9 @@
                     <div class="mr-3">
                         <form action="/meals/{{ $meal->id }}" method="POST">
                             @csrf
-                            @method('delete')
+                            @method('DELETE')
                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                type="submit">
+                                type="submit" onclick="return confirm('Are you sure you want to delete this meal?');">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </form>

@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-	return view('welcome');
-});
+	return view('landing');
+})->name('landing');
 
 Route::middleware('auth')->group(function () {
 	Route::get('/profile/create', 'ProfileController@create');
@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 	Route::get('/profile/{profile}', 'ProfileController@show')->name('profile');
 	Route::get('/profile/{profile}/edit', 'ProfileController@edit');
 	Route::put('/profile/{profile}', 'ProfileController@update');
+	Route::delete('/profile/{profile}', 'ProfileController@destroy');
 
 	Route::get('/meals', 'MealController@index')->name('dashboard');
 	Route::get('/meals/create', 'MealController@create');
@@ -39,5 +40,3 @@ Route::middleware('auth')->group(function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -7,7 +7,7 @@
     <div class="mt-8">
         <div class="mx-auto">
             @if (! $meals->isEmpty())
-            <pie-chart :total-intake="{{ json_encode($totalIntake) }}"></pie-chart>
+            <pie-chart :total-intake=@json($totalIntake)></pie-chart>
             @endif
         </div>
     </div>
