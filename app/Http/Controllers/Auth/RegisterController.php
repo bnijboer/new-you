@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
-	/*
+    /*
 	|--------------------------------------------------------------------------
 	| Register Controller
 	|--------------------------------------------------------------------------
@@ -22,54 +22,70 @@ class RegisterController extends Controller
 	|
 	*/
 
-	use RegistersUsers;
+    use RegistersUsers;
 
-	/**
-	 * Where to redirect users after registration.
-	 *
-	 * @var string
-	 */
-	protected $redirectTo = RouteServiceProvider::PROFILE;
+    /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::HOME;
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('guest');
-	}
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
 
-	/**
-	 * Get a validator for an incoming registration request.
-	 *
-	 * @param  array  $data
-	 * @return \Illuminate\Contracts\Validation\Validator
-	 */
-	protected function validator(array $data)
-	{
-		return Validator::make($data, [
-			'username' => ['required', 'string', 'max:255', 'unique:users', 'alpha_dash'],
-			'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-			'password' => ['required', 'string', 'min:8', 'confirmed'],
-		]);
-	}
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'first_name' => ['required', 'string', 'max:50'],
+            'last_name' => ['required', 'string', 'max:50'],
+            'username' => ['required', 'string', 'max:50', 'unique:users', 'alpha_dash'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'gender' => ['required', 'string', 'max:6', 'alpha'],
+            'age' => ['required', 'numeric', 'digits_between:1,3', 'min:0', 'max:127'],
+            'height' => ['required', 'numeric', 'digits_between:1,3', 'min:0', 'max:300'],
+            'current_weight' => ['required', 'numeric', 'digits_between:1,3', 'min:1', 'max:700'],
+            'target_weight' => ['required', 'numeric', 'digits_between:1,3', 'min:1', 'max:700'],
+            'diet_intensity' => ['required', 'numeric', 'digits_between:1,2', 'min:1', 'max:10']
+        ]);
+    }
 
-	/**
-	 * Create a new user instance after a valid registration.
-	 *
-	 * @param  array  $data
-	 * @return \App\User
-	 */
-	protected function create(array $data)
-	{
-		return User::create([
-			'username' => $data['username'],
-			'email' => $data['email'],
-			'password' => Hash::make($data['password']),
-		]);
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function create(array $data)
+    {
+        return User::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'gender' => $data['gender'],
+            'age' => $data['age'],
+            'height' => $data['height'],
+            'current_weight' => $data['current_weight'],
+            'target_weight' => $data['target_weight'],
+            'diet_intensity' => $data['diet_intensity']
+        ]);
 
-		dd($data);
-	}
+        dd($data);
+    }
 }
