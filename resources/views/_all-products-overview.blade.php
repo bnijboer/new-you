@@ -24,45 +24,45 @@
         </div>
 
         @forelse ($products as $product)
-        <div class="flex">
-            <div class="text-center w-1/6 bg-gray-500 py-2 {{ $loop->last ? 'rounded-bl-lg' : '' }}">
-                {{ $product->name }}
-            </div>
-            <div class="text-center w-1/6 bg-gray-400 py-2">
-                {{ $product->energy }}
-            </div>
-            <div class="text-center w-1/6 bg-gray-500 py-2">
-                {{ $product->protein }}
-            </div>
-            <div class="text-center w-1/6 bg-gray-400 py-2">
-                {{ $product->fat }}
-            </div>
-            <div class="text-center w-1/6 bg-gray-500 py-2">
-                {{ $product->carbs }}
-            </div>
-            <div class="text-center w-1/6 bg-gray-400 py-2 {{ $loop->last ? 'rounded-br-lg' : '' }}">
-                <div class="flex justify-around">
-                    <div>
-                        <form action="/products/{{ $product['id'] }}/edit" method="GET">
-                            <button type="submit"><i class="fas fa-edit"></i></button>
-                        </form>
-                    </div>
-                    <div>
-                        <form action="/products/{{ $product['id'] }}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" onclick="return confirm('Are you sure you want to delete this product?');">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
+            <div class="flex">
+                <div class="text-center w-1/6 bg-gray-500 py-2 {{ $loop->last ? 'rounded-bl-lg' : '' }}">
+                    {{ $product->name }}
+                </div>
+                <div class="text-center w-1/6 bg-gray-400 py-2">
+                    {{ $product->energy }}
+                </div>
+                <div class="text-center w-1/6 bg-gray-500 py-2">
+                    {{ $product->protein }}
+                </div>
+                <div class="text-center w-1/6 bg-gray-400 py-2">
+                    {{ $product->fat }}
+                </div>
+                <div class="text-center w-1/6 bg-gray-500 py-2">
+                    {{ $product->carbs }}
+                </div>
+                <div class="text-center w-1/6 bg-gray-400 py-2 {{ $loop->last ? 'rounded-br-lg' : '' }}">
+                    <div class="flex justify-around">
+                        <div>
+                            <form action="/products/{{ $product['id'] }}/edit" method="GET">
+                                <button type="submit"><i class="fas fa-edit"></i></button>
+                            </form>
+                        </div>
+                        <div>
+                            <form action="/products/{{ $product['id'] }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" onclick="return confirm('Are you sure you want to delete this product?');">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         @empty
-        <div class="w-full text-center p-3">
-            There aren't any products in the database yet.
-        </div>
+            <div class="w-full text-center p-3">
+                There aren't any products in the database yet.
+            </div>
         @endforelse
     </div>
 

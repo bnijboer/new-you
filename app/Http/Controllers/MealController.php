@@ -9,11 +9,11 @@ class MealController extends Controller
 {
     public function index()
     {
-        $meals = auth()->user()->meals()->get();
+        $meals = currentUser()->meals()->get();
 
         return view('meals.index', [
             'meals' => $meals,
-            'totalIntake' => auth()->user()->totalIntake($meals)
+            'totalIntake' => currentUser()->totalIntake($meals)
         ]);
     }
 

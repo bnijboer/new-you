@@ -13,7 +13,7 @@
                         Username:
                     </div>
                     <div>
-                        {{ auth()->user()->username }}
+                        {{ currentUser()->username }}
                     </div>
                 </div>
 
@@ -22,7 +22,7 @@
                         Email
                     </div>
                     <div>
-                        {{ auth()->user()->email }}
+                        {{ currentUser()->email }}
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
                         Gender:
                     </div>
                     <div>
-                        {{ $profile->gender }}
+                        {{ currentUser()->gender }}
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@
                         Age:
                     </div>
                     <div>
-                        {{ $profile->age }}
+                        {{ currentUser()->age }}
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@
                         Height:
                     </div>
                     <div>
-                        {{ $profile->height }} cm
+                        {{ currentUser()->height }} cm
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@
                         Current weight:
                     </div>
                     <div>
-                        {{ $profile->current_weight }} kg
+                        {{ currentUser()->current_weight }} kg
                     </div>
                 </div>
 
@@ -67,7 +67,7 @@
                         Target weight:
                     </div>
                     <div>
-                        {{ $profile->target_weight }} kg
+                        {{ currentUser()->target_weight }} kg
                     </div>
                 </div>
 
@@ -76,14 +76,14 @@
                         Diet intensity:
                     </div>
                     <div>
-                        {{ $profile->diet_intensity }}
+                        {{ currentUser()->diet_intensity }}
                     </div>
                 </div>
 
                 <div class="mt-6">
                     <div class="flex justify-end">
                         <div class="mr-3">
-                            <form action="/profile/{{ $profile->id }}/edit" method="GET">
+                            <form action="/profile/{{ currentUser()->id }}/edit" method="GET">
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                                     type="submit">
                                     <i class="fas fa-edit"></i>
@@ -91,7 +91,7 @@
                             </form>
                         </div>
                         <div class="mr-3">
-                            <form action="/profile/{{ $profile->id }}" method="POST">
+                            <form action="/profile/{{ currentUser()->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

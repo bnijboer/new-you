@@ -6,9 +6,9 @@
 
     <div class="mt-8">
         <div class="mx-auto">
-            @if (! $meals->isEmpty())
-            <pie-chart :total-intake=@json($totalIntake)></pie-chart>
-            @endif
+            <!-- @if (! $meals->isEmpty()) -->
+                <pie-chart :total-intake=@json($totalIntake)></pie-chart>
+            <!-- @endif -->
         </div>
     </div>
 

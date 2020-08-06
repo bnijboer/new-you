@@ -13,11 +13,11 @@
                 </div>
 
                 @error('name')
-                <div>
-                    <span class="text-red-500 text-sm">
-                        {{ $message }}
-                    </span>
-                </div>
+                    <div>
+                        <span class="text-red-500 text-sm">
+                            {{ $message }}
+                        </span>
+                    </div>
                 @enderror
             </div>
 
@@ -27,9 +27,9 @@
                 </div>
 
                 @error('energy')
-                <div>
-                    <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
-                </div>
+                    <div>
+                        <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
+                    </div>
                 @enderror
             </div>
 
@@ -39,9 +39,9 @@
                 </div>
 
                 @error('protein')
-                <div>
-                    <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
-                </div>
+                    <div>
+                        <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
+                    </div>
                 @enderror
             </div>
 
@@ -51,9 +51,9 @@
                 </div>
 
                 @error('fat')
-                <div>
-                    <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
-                </div>
+                    <div>
+                        <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
+                    </div>
                 @enderror
             </div>
 
@@ -63,9 +63,9 @@
                 </div>
 
                 @error('carbohydrates')
-                <div>
-                    <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
-                </div>
+                    <div>
+                        <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
+                    </div>
                 @enderror
             </div>
 

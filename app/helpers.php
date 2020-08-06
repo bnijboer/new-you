@@ -1,12 +1,17 @@
 <?php
 
-function totalValue($products, $type)
+// function totalValue($products, $type)
+// {
+// 	$totalValue = 0;
+
+// 	foreach ($products as $product) {
+// 		$totalValue += $product->$type;
+// 	}
+
+// 	return $totalValue;
+// }
+
+function currentUser()
 {
-	$totalValue = 0;
-
-	foreach ($products as $product) {
-		$totalValue += $product->$type;
-	}
-
-	return $totalValue;
+    return auth()->user();    
 }
