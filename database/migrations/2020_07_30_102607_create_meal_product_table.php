@@ -16,7 +16,8 @@ class CreateMealProductTable extends Migration
 		Schema::create('meal_product', function (Blueprint $table) {
 			$table->id();
 			$table->foreignId('meal_id');
-			$table->foreignId('product_id');
+            $table->foreignId('product_id');
+            $table->float('quantity', 5, 2);
 			$table->timestamps();
 
 			$table->unique(['meal_id', 'product_id']);

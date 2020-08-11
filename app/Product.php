@@ -12,4 +12,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Meal::class);
     }
+    
+    public function ingredient()
+    {
+        return $this->hasOne(Ingredient::class);
+    }
 }

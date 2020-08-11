@@ -8,6 +8,11 @@ class Meal extends Model
 {
 	protected $guarded = [];
 
+    public function ingredients()
+	{
+		return $this->hasMany(Ingredient::class);
+	}
+    
 	public function products()
 	{
 		return $this->belongsToMany(Product::class);

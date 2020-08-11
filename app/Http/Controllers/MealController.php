@@ -9,9 +9,12 @@ class MealController extends Controller
 {
     public function index()
     {
+        
+        $products = Product::all();
         $meals = currentUser()->meals()->get();
 
         return view('meals.index', [
+            'products' => $products,
             'meals' => $meals,
             'totalIntake' => currentUser()->totalIntake($meals)
         ]);
@@ -19,16 +22,32 @@ class MealController extends Controller
 
     public function create()
     {
-        return view('meals.create');
+        $products = Product::all();
+        
+        return view('meals.create', [
+            'products' => $products
+        ]);
     }
 
     public function store()
     {
+        // $ids = request()->id;
+        // dd($ids);
+        
+        $quantities = request()->quantity;
+        dd($quantities);
+        
+        // $productIds = request()->productId;
+        // dd(Product::find($productId[0]));
+        
         $meal = new Meal($this->validateMeal());
         $meal->user_id = auth()->id();
+        
+        // foreach ($productIds as $productId) {
+        //     $meal->products()->attach(Product::find($productId));
+        // }
+        
         $meal->save();
-
-        $meal->products()->attach(Product::find(1));
 
         return redirect()->route('dashboard');
     }

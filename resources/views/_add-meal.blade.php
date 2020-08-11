@@ -1,4 +1,4 @@
-<div class="bg-pink-300 rounded-lg w-1/3 p-4 mx-auto">
+<div class="w-1/6 bg-pink-300 rounded-lg p-4 mx-auto">
     <div class="text-center text-2xl py-2">
         Add Meal To Database
     </div>
@@ -13,11 +13,11 @@
                 </div>
 
                 @error('name')
-                <div>
-                    <span class="text-red-500 text-sm">
-                        {{ $message }}
-                    </span>
-                </div>
+                    <div>
+                        <span class="text-red-500 text-sm">
+                            {{ $message }}
+                        </span>
+                    </div>
                 @enderror
             </div>
 
@@ -28,3 +28,4 @@
         </form>
     </div>
 </div>
+

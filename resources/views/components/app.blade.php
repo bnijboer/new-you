@@ -1,10 +1,11 @@
+
 <x-master>
     @include('_navbar')
 
     <main class="w-screen flex">
 
         <div class="flex-1 bg-green-300">
-            {{ $slot }}
+            @yield('content')
         </div>
         
         <div class="bg-purple-300 rounded">

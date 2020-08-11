@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
 			$table->smallInteger('protein');
 			$table->smallInteger('fat');
 			$table->smallInteger('carbs');
+			$table->smallInteger('quantity');
 			$table->timestamps();
 		});
 	}

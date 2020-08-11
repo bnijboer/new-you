@@ -45,18 +45,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
-    }
-
+    
     public function meals()
     {
         return $this->hasMany(Meal::class);
     }
+    
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
 
-    public function totalIntake($meals)
+    public function totalIntake($logs)
     {
         $values = (object) [
             'energy' => 0,
@@ -65,11 +65,11 @@ class User extends Authenticatable
             'carbs' => 0
         ];
 
-        foreach ($meals as $meal) {
-            $values->energy += $meal->totalValue('energy');
-            $values->protein += $meal->totalValue('protein');
-            $values->fat += $meal->totalValue('fat');
-            $values->carbs += $meal->totalValue('carbs');
+        foreach ($logs as $log) {
+            $values->energy += $log->energy;
+            $values->protein += $log->protein;
+            $values->fat += $log->fat;
+            $values->carbs += $log->carbs;
         }
 
         return $values;
