@@ -1,13 +1,5 @@
 @tailwind base;
 
-h1 {
-    @apply text-2xl;
-}
-
-h2 {
-    @apply text-xl;
-}
-
 @tailwind components;
 
 @tailwind utilities;
