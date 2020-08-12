@@ -28,7 +28,6 @@ class LogController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'name' => 'required',
             'energy' => 'required',
             'protein' => 'required',
             'fat' => 'required',
@@ -38,7 +37,6 @@ class LogController extends Controller
         Log::create([
             'user_id' => auth()->id(),
             'product_id' => request()->product_id,
-            'name' => $attributes['name'],
             'energy' => round($attributes['energy']),
             'protein' => round($attributes['protein']),
             'fat' => round($attributes['fat']),

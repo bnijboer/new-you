@@ -30,21 +30,17 @@
                     <table class="table-auto">
                         <thead>
                             <tr>
-                                <th width="w-1/8">Name</th>
-                                <th width="w-1/8">Energy</th>
-                                <th width="w-1/8">Protein</th>
-                                <th width="w-1/8">Fat</th>
-                                <th width="w-1/8">Carbs</th>
-                                <th width="w-1/8">Quantity</th>
+                                <th width="w-1/6">Energy</th>
+                                <th width="w-1/6">Protein</th>
+                                <th width="w-1/6">Fat</th>
+                                <th width="w-1/6">Carbs</th>
+                                <th width="w-1/6">Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>
                                     <input type="hidden" id="product_id" name="product_id" value="{{ $product->id }}">
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="text" id="name" name="name" value="{{ $product->name }}">
-                                </td>
-                                <td>
                                     <input class="p-2 border border-gray-300 rounded-lg" type="number" id="energy" name="energy" value="{{ $product->energy }}">
                                 </td>
                                 <td>

@@ -13,8 +13,11 @@
 
             <div class="m-3">
                 <div class="flex font-bold mt-8">
-                    <div class="text-center w-1/6 bg-gray-500 py-3 rounded-tl-lg">
+                    <div class="text-center w-1/6 bg-gray-400 py-3 rounded-tl-lg">
                         Name
+                    </div>
+                    <div class="text-center w-1/6 bg-gray-500 py-3">
+                        Brand
                     </div>
                     <div class="text-center w-1/6 bg-gray-400 py-3">
                         Energy (cal)
@@ -33,7 +36,7 @@
 
                 @forelse ($products as $product)
                     <div class="flex">
-                        <div class="text-center w-1/6 bg-gray-500 py-2 {{ $loop->last ? 'rounded-bl-lg' : '' }}">
+                        <div class="text-center w-1/6 bg-gray-400 py-2 {{ $loop->last ? 'rounded-bl-lg' : '' }}">
                             <form action="/logs/create" method="POST">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $product['id'] }}">
@@ -42,6 +45,9 @@
                                 </button>
                             </form>
                         
+                        </div>
+                        <div class="text-center w-1/6 bg-gray-500 py-2">
+                            {{ $product->brand }}
                         </div>
                         <div class="text-center w-1/6 bg-gray-400 py-2">
                             {{ $product->energy }}

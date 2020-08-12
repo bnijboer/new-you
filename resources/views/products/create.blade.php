@@ -28,6 +28,18 @@
                             </div>
                         @enderror
                     </div>
+                    
+                    <div class="mt-6">
+                        <div>
+                            <input class="p-2 border border-gray-300 rounded-lg" type="text" name="brand" id="brand" placeholder="Brand name" value="{{ old('brand') }}">
+                        </div>
+
+                        @error('brand')
+                            <div>
+                                <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
+                            </div>
+                        @enderror
+                    </div>
 
                     <div class="mt-6">
                         <div>

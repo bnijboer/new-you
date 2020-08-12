@@ -24,6 +24,7 @@ class ProductController extends Controller
     {
         $attributes = request()->validate([
             'name' => 'required',
+            'brand' => 'required',
             'energy' => 'required',
             'protein' => 'required',
             'fat' => 'required',
@@ -33,6 +34,7 @@ class ProductController extends Controller
 
         Product::create([
             'name' => $attributes['name'],
+            'brand' => $attributes['brand'],
             'energy' => $attributes['energy'],
             'protein' => $attributes['protein'],
             'fat' => $attributes['fat'],

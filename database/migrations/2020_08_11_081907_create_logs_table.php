@@ -17,7 +17,6 @@ class CreateLogsTable extends Migration
             $table->id();
 			$table->foreignId('user_id');
 			$table->foreignId('product_id');
-			$table->string('name');
 			$table->smallInteger('energy');
 			$table->smallInteger('protein');
 			$table->smallInteger('fat');

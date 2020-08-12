@@ -12,27 +12,33 @@
 
             <div class="text-center m-3">
                 <div class="flex text-lg font-bold  mt-8">
-                    <div class="w-1/5 bg-gray-500 py-3 rounded-tl-lg">
+                    <div class="w-1/6 bg-gray-400 py-3 rounded-tl-lg">
                         Name
                     </div>
-                    <div class="w-1/5 bg-gray-400 py-3">
+                    <div class="w-1/6 bg-gray-500 py-3">
+                        Brand
+                    </div>
+                    <div class="w-1/6 bg-gray-400 py-3">
                         Energy (cal)
                     </div>
-                    <div class="w-1/5 bg-gray-500 py-3">
+                    <div class="w-1/6 bg-gray-500 py-3">
                         Protein (g)
                     </div>
-                    <div class="w-1/5 bg-gray-400 py-3">
+                    <div class="w-1/6 bg-gray-400 py-3">
                         Fat (g)
                     </div>
-                    <div class="w-1/5 bg-gray-500 py-3 rounded-tr-lg">
+                    <div class="w-1/6 bg-gray-500 py-3 rounded-tr-lg">
                         Carbs (g)
                     </div>
                 </div>
 
                 @forelse ($logs as $log)
                     <div class="flex">
+                        <div class="w-1/5 bg-gray-400 py-2">
+                            {{ $log->product->name }}
+                        </div>
                         <div class="w-1/5 bg-gray-500 py-2">
-                            {{ $log->name }}
+                            {{ $log->product->brand }}
                         </div>
                         <div class="w-1/5 bg-gray-400 py-2">
                             {{ $log->energy }}
