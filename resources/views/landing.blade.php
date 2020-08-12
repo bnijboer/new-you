@@ -18,7 +18,7 @@
 
         <div class="mt-16">
             <div>
-                Already a member?
+                Already have an account?
             </div>
             <div class="mt-4">
                 <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href="{{ route('login') }}">

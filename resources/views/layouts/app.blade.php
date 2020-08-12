@@ -1,4 +1,3 @@
-
 <x-master>
     @include('_navbar')
 

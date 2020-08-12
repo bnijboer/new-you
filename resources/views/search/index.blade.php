@@ -1,6 +1,6 @@
-@extends('components.app')
+@extends('layouts.app')
 
-@section('title', 'Browse Products')
+@section('title', 'Search Products')
 
 @section('content')
 
@@ -8,7 +8,7 @@
 
         <div class="bg-yellow-300 rounded-lg w-1/3 p-4 mx-auto">
             <div class="text-center text-2xl py-2">
-                Browse Products
+                Search Products
             </div>
 
             <div class="flex justify-center mt-8">

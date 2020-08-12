@@ -1,10 +1,10 @@
-@extends('components.app')
+@extends('layouts.app')
 
 @section('title', 'Create New Log')
 
 @section('content')
 
-    <div class="bg-blue-300 rounded-lg w-5/6 p-4 mx-auto">
+    <div class="bg-blue-300 rounded-lg w-full p-4 mx-auto">
         <div class="text-center text-2xl py-2">
             Add Intake Log
         </div>
@@ -30,12 +30,12 @@
                     <table class="table-auto">
                         <thead>
                             <tr>
-                                <th width="w-1/6">Name</th>
-                                <th width="w-1/6">Energy</th>
-                                <th width="w-1/6">Protein</th>
-                                <th width="w-1/6">Fat</th>
-                                <th width="w-1/6">Carbs</th>
-                                <th width="w-1/6">Quantity</th>
+                                <th width="w-1/8">Name</th>
+                                <th width="w-1/8">Energy</th>
+                                <th width="w-1/8">Protein</th>
+                                <th width="w-1/8">Fat</th>
+                                <th width="w-1/8">Carbs</th>
+                                <th width="w-1/8">Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
