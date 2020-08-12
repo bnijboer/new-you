@@ -18,10 +18,10 @@ class LogController extends Controller
         ]);
     }
     
-    public function create(Request $request)
+    public function create()
     {
         return view('logs.create', [
-            'product' => Product::find($request->id)
+            'product' => Product::find(request()->id)
         ]);
     }
     

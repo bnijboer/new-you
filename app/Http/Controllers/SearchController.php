@@ -14,20 +14,11 @@ class SearchController extends Controller
     
     public function search()
     {
-        $query = request()->input('product_name');
+        $query = request()->input('q');
         $products = Product::where('name','LIKE','%' . $query . '%')->get();
         
         return view('search.index', [
             'results' => $products
-        ]);
-    }
-    
-    public function store(Request $request)
-    {
-        $product = Product::find($request->id);
-        
-        return view('logs.create', [
-            'product' => $product
         ]);
     }
 }

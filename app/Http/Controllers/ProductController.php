@@ -2,20 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Product;
 
 class ProductController extends Controller
 {
-    // public function index()
-    // {
-    //     $products = Product::all();
-
-    //     return view('meals.test', [
-    //         'products' => $products
-    //     ]);
-    // }
-    
     public function index()
     {
         $products = Product::all();
@@ -58,22 +48,5 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('products');
-    }
-    
-    public function ajaxRequestPost(Request $request)
-    {
-        $input = $request->all();
-
-        return response()->json(['success'=>'Got Simple Ajax Request.']);
-    }
-    
-    public function search(Request $request)
-    {
-        $q = $request->input('product_name');
-        $products = Product::where('name','LIKE','%'.$q.'%')->get();
-        
-        return view('search.results', [
-            'products' => $products
-        ]);
     }
 }
