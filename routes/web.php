@@ -32,10 +32,10 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
 	Route::get('/profile/create', 'ProfileController@create');
 	Route::post('/profile', 'ProfileController@store');
-	Route::get('/profile/{profile}', 'ProfileController@show')->name('profile');
-	Route::get('/profile/{profile}/edit', 'ProfileController@edit');
-	Route::put('/profile/{profile}', 'ProfileController@update');
-    Route::delete('/profile/{profile}', 'ProfileController@destroy');
+	Route::get('/profile/{user}', 'ProfileController@show')->name('profile');
+	Route::get('/profile/{user}/edit', 'ProfileController@edit');
+	Route::patch('/profile/{user}', 'ProfileController@update');
+    Route::delete('/profile/{user}', 'ProfileController@destroy');
     
     Route::get('/logs', 'LogController@index')->name('dashboard');
     Route::post('/logs/create', 'LogController@create');

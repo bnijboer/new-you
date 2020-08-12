@@ -1,4 +1,8 @@
-<x-app>
+@extends('components.app')
+
+@section('title', 'Show Profile')
+
+@section('content')
 
     <div class="flex">
         <div class="bg-pink-300 rounded-lg w-1/3 p-4 mx-auto">
@@ -108,4 +112,4 @@
         </div>
     </div>
 
-</x-app>
+@endsection

@@ -12,13 +12,13 @@ class SearchController extends Controller
         return view('search.index');
     }
     
-    public function search(Request $request)
+    public function search()
     {
-        $q = $request->input('product_name');
-        $products = Product::where('name','LIKE','%'.$q.'%')->get();
+        $query = request()->input('product_name');
+        $products = Product::where('name','LIKE','%' . $query . '%')->get();
         
-        return view('search.results', [
-            'products' => $products
+        return view('search.index', [
+            'results' => $products
         ]);
     }
     

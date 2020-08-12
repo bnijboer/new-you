@@ -33,8 +33,8 @@ class ProfileController extends Controller
 		]);
 
 		$user->update($attributes);
-
-		return redirect()->route('profile', [$user]);
+		
+        return redirect()->route('profile', [$user]);
 	}
 
 	public function destroy(User $user)

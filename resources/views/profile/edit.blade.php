@@ -1,4 +1,8 @@
-<x-app>
+@extends('components.app')
+
+@section('title', 'Edit Profile')
+
+@section('content')
 
     <div class="flex">
         <div class="bg-pink-300 rounded-lg w-1/3 p-4 mx-auto">
@@ -9,7 +13,7 @@
             <div class="flex justify-center mt-8">
                 <form action="/profile/{{ currentUser()->id }}" method="POST">
                     @csrf
-                    @method('PUT')
+                    @method('patch')
 
                     <div>
                         <div>
@@ -106,4 +110,4 @@
         </div>
     </div>
 
-</x-app>
+@endsection
