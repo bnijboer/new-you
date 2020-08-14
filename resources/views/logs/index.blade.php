@@ -6,8 +6,13 @@
 
     <div class="flex">
         <div class="w-1/2 bg-pink-300 rounded-lg p-4 mx-4">
+            
             <div class="text-center text-2xl py-2">
-                All Intake Logs
+                Intake of:
+            </div>
+            
+            <div class="flex justify-center text-center text-2xl py-2">
+                {{ $shownDate }}
             </div>
 
             <div class="text-center m-3">

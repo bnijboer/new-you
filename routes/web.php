@@ -22,8 +22,11 @@ Route::middleware('auth')->group(function () {
 	Route::get('/profile/{user}/edit', 'ProfileController@edit');
 	Route::patch('/profile/{user}', 'ProfileController@update');
     Route::delete('/profile/{user}', 'ProfileController@destroy');
+        
+    Route::get('/testindex', 'DateController@index');
+    Route::get('/testshow', 'DateController@show');
     
-    Route::get('/logs', 'LogController@index')->name('dashboard');
+    Route::get('/logs/{date?}', 'LogController@index')->name('dashboard');
     Route::post('/logs/create', 'LogController@create');
 	Route::post('/logs', 'LogController@store');
 

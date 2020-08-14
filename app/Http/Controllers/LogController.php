@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Log;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class LogController extends Controller
 {
-    public function index()
+    public function index($shownDate = null)
     {
-        $logs = currentUser()->logs()->get();
+        if(!$shownDate) {
+            $shownDate = Carbon::now();
+        }
         
         return view('logs.index', [
-            'logs' => $logs,
-            'totalIntake' => currentUser()->totalIntake($logs)
+            'shownDate' => $shownDate,
+            'logs' => currentUser()->logsPerDate($shownDate),
+            'totalIntake' => currentUser()->totalIntake($shownDate)
         ]);
     }
     
