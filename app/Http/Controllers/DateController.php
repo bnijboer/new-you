@@ -25,11 +25,4 @@ class DateController extends Controller
             'dates' => $dates
         ]);
     }
-    
-    public function show()
-    {
-        $date = '2020-08-13';
-        
-        return redirect()->route('dashboard', $date);
-    }
 }

@@ -46,14 +46,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function logsPerDate($shownDate)
+    public function logsOnDate($shownDate)
     {
         return $this->logs()->whereDate('created_at', '=', $shownDate)->get();
-    }
-    
-    public function test()
-    {
-        dd('test');
     }
     
     public function logs()
@@ -61,9 +56,9 @@ class User extends Authenticatable
         return $this->hasMany(Log::class);
     }
 
-    public function totalIntake($shownDate)
+    public function intakeOnDate($shownDate)
     {
-        $logs = $this->logsPerDate($shownDate);
+        $logs = $this->logsOnDate($shownDate);
         
         $values = (object) [
             'energy' => 0,

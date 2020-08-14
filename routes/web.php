@@ -13,20 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function ()
+{
 	return view('landing');
 })->name('landing');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function ()
+{
 	Route::get('/profile/{user}', 'ProfileController@show')->name('profile');
 	Route::get('/profile/{user}/edit', 'ProfileController@edit');
 	Route::patch('/profile/{user}', 'ProfileController@update');
     Route::delete('/profile/{user}', 'ProfileController@destroy');
         
-    Route::get('/testindex', 'DateController@index');
-    Route::get('/testshow', 'DateController@show');
+    // Route::get('/testindex', 'DateController@index');
     
-    Route::get('/logs/{date?}', 'LogController@index')->name('dashboard');
+    Route::get('/logs', 'LogController@index')->name('dashboard');
     Route::post('/logs/create', 'LogController@create');
 	Route::post('/logs', 'LogController@store');
 

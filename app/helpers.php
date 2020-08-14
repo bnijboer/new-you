@@ -2,5 +2,5 @@
 
 function currentUser()
 {
-    return auth()->user();    
+    return auth()->user();
 }
