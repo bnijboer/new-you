@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function ()
         
     // Route::get('/testindex', 'DateController@index');
     
-    Route::get('/logs', 'LogController@index')->name('dashboard');
+    Route::get('/logs', 'LogController@index')->name('dashboard');    
     Route::post('/logs/create', 'LogController@create');
 	Route::post('/logs', 'LogController@store');
 

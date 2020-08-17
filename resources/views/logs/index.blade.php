@@ -12,14 +12,38 @@
                     <p>
                         Intake Overview
                     </p>
-                    <p>
-                        {{ $date->isoFormat('dddd, MMMM D, YYYY') }}
-                    </p>
+                    <div class="flex justify-center">
+                        <div>
+                            <form action="{{ route('dashboard') }}" method="GET">
+                                <button type="submit" name="previous" value="previous">
+                                    <
+                                </button>
+                            </form>
+                        </div>
+                        <div class="mx-6">
+                            {{ $shownDate->isoFormat('dddd, MMMM D, YYYY') }}
+                        </div>
+                        <div>
+                            <form action="{{ route('dashboard') }}" method="GET">
+                                <button type="submit" name="next" value="next">
+                                    >
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                        
                 </div>
                 <div class="my-4">
                     <label for="date-picker" class="block mb-2 uppercase font-bold text-xs text-gray-700">Previous Logs:</label>
                     <form action="{{ route('dashboard') }}" method="GET">
-                        <input class="p-1 text-center border border-gray-300 rounded-lg" type="date" id="date-picker" name="date" value="{{ $date->toDateString() }}">
+                        <input
+                            class="p-1 text-center border border-gray-300 rounded-lg"
+                            type="date"
+                            id="date-picker"
+                            name="date"
+                            value="{{ $shownDate->toDateString() }}"
+                            max="{{ currentDate()->toDateString() }}"
+                        >
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">View</button>
                     </form>
                 </div>

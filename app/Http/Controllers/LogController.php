@@ -16,16 +16,20 @@ class LogController extends Controller
                 'date' => ['required', 'date']
             ]);
             
-            $date = Carbon::createFromFormat('Y-m-d', $validated['date']);
+            $shownDate = Carbon::createFromFormat('Y-m-d', $validated['date']);
             
         } else {
-            $date = Carbon::now();
+            $shownDate = Carbon::now();
+        }
+        
+        if(request()->get('previous')) {
+            $shownDate->subDays(1);
         }
         
         return view('logs.index', [
-            'date' => $date,
-            'logs' => currentUser()->logsOnDate($date),
-            'totalIntake' => currentUser()->intakeOnDate($date)
+            'shownDate' => $shownDate,
+            'logs' => currentUser()->logsOnDate($shownDate),
+            'totalIntake' => currentUser()->intakeOnDate($shownDate)
         ]);
     }
     
