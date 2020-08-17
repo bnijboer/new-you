@@ -66,24 +66,6 @@
                     </div>
                 </div>
 
-                <div class="flex justify-between">
-                    <div class="font-bold">
-                        Target weight:
-                    </div>
-                    <div>
-                        {{ currentUser()->target_weight }} kg
-                    </div>
-                </div>
-
-                <div class="flex justify-between">
-                    <div class="font-bold">
-                        Diet intensity:
-                    </div>
-                    <div>
-                        {{ currentUser()->diet_intensity }}
-                    </div>
-                </div>
-
                 <div class="mt-6">
                     <div class="flex justify-end">
                         <div class="mr-3">

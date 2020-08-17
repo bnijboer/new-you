@@ -41,19 +41,19 @@
                             <tr>
                                 <td>
                                     <input type="hidden" id="product_id" name="product_id" value="{{ $product->id }}">
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="energy" name="energy" value="{{ $product->energy }}">
+                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="energy" name="energy" value="{{ $product->energy }}" required>
                                 </td>
                                 <td>
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="protein" name="protein" value="{{ $product->protein }}">
+                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="protein" name="protein" value="{{ $product->protein }}" required>
                                 </td>
                                 <td>
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="fat" name="fat" value="{{ $product->fat }}">
+                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="fat" name="fat" value="{{ $product->fat }}" required>
                                 </td>
                                 <td>
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="carbs" name="carbs" value="{{ $product->carbs }}">
+                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="carbs" name="carbs" value="{{ $product->carbs }}" required>
                                 </td>
                                 <td>
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="quantity" value="{{ $product->quantity }}">
+                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="quantity" value="{{ $product->quantity }}" required>
                                 </td>
                             </tr>
                         </tbody>

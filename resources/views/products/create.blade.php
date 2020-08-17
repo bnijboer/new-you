@@ -17,7 +17,7 @@
 
                     <div>
                         <div>
-                            <input class="p-2 border border-gray-300 rounded-lg" type="text" name="name" id="name" placeholder="Product name" value="{{ old('name') }}">
+                            <input class="p-2 border border-gray-300 rounded-lg" type="text" name="name" id="name" placeholder="Product name" value="{{ old('name') }}" required>
                         </div>
 
                         @error('name')
@@ -43,7 +43,7 @@
 
                     <div class="mt-6">
                         <div>
-                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="energy" id="energy" placeholder="Caloric value" value="{{ old('energy') }}">
+                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="energy" id="energy" placeholder="Caloric value" value="{{ old('energy') }}" required>
                         </div>
 
                         @error('energy')
@@ -55,7 +55,7 @@
 
                     <div class="mt-6">
                         <div>
-                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="protein" id="protein" placeholder="Protein value" value="{{ old('protein') }}">
+                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="protein" id="protein" placeholder="Protein value" value="{{ old('protein') }}" required>
                         </div>
 
                         @error('protein')
@@ -67,7 +67,7 @@
 
                     <div class="mt-6">
                         <div>
-                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="fat" id="fat" placeholder="Fat value" value="{{ old('fat') }}">
+                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="fat" id="fat" placeholder="Fat value" value="{{ old('fat') }}" required>
                         </div>
 
                         @error('fat')
@@ -79,7 +79,7 @@
 
                     <div class="mt-6">
                         <div>
-                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="carbs" id="carbs" placeholder="Carbohydrate value" value="{{ old('carbs') }}">
+                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="carbs" id="carbs" placeholder="Carbohydrate value" value="{{ old('carbs') }}" required>
                         </div>
 
                         @error('carbs')
@@ -91,7 +91,7 @@
                     
                     <div class="mt-6">
                         <div>
-                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="quantity" id="quantity" placeholder="Quantity, ex.: 100" value="{{ old('quantity') }}">
+                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="quantity" id="quantity" placeholder="Quantity, ex.: 100" value="{{ old('quantity') }}" required>
                         </div>
 
                         @error('quantity')

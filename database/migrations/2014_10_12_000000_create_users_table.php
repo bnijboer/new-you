@@ -15,8 +15,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -26,8 +24,8 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('age');
             $table->smallInteger('height');
             $table->smallInteger('current_weight');
-            $table->smallInteger('target_weight');
-            $table->tinyInteger('diet_intensity');
+            $table->smallInteger('bmr');
+            $table->smallInteger('tdee');
             $table->timestamps();
         });
     }

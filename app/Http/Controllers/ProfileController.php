@@ -23,16 +23,15 @@ class ProfileController extends Controller
 
 	public function update(User $user)
 	{
-		$attributes = request()->validate([
-			'gender' => 'required',
-			'age' => 'required',
-			'height' => 'required',
-			'current_weight' => 'required',
-			'target_weight' => 'required',
-			'diet_intensity' => 'required'
+		$validatedData = request()->validate([
+            'gender' => ['required', 'string', 'max:6', 'alpha'],
+            'age' => ['required', 'numeric', 'digits_between:1,3', 'min:0', 'max:127'],
+            'height' => ['required', 'numeric', 'digits_between:1,3', 'min:0', 'max:300'],
+            'current_weight' => ['required', 'numeric', 'digits_between:1,3', 'min:1', 'max:700'],
+			'activity_level' => ['required', 'numeric', 'digits_between:1,4', 'min:1', 'max:2']
 		]);
 
-		$user->update($attributes);
+		$user->update($validatedData);
 		
         return redirect()->route('profile', [$user]);
 	}

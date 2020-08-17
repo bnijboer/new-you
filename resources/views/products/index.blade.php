@@ -47,7 +47,9 @@
                         
                         </div>
                         <div class="text-center w-1/6 bg-gray-500 py-2">
-                            {{ $product->brand }}
+                            @isset($product->brand)
+                                {{ $product->brand }}
+                            @endisset
                         </div>
                         <div class="text-center w-1/6 bg-gray-400 py-2">
                             {{ $product->energy }}

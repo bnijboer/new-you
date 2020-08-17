@@ -66,7 +66,7 @@
                             Brand
                         </div>
                         <div class="w-1/6 bg-gray-400 py-3">
-                            Energy (cal)
+                            Energy (Cal)
                         </div>
                         <div class="w-1/6 bg-gray-500 py-3">
                             Protein (g)
@@ -85,7 +85,9 @@
                                 {{ $log->product->name }}
                             </div>
                             <div class="w-1/5 bg-gray-500 py-2">
-                                {{ $log->product->brand }}
+                                @isset($log->product->brand)
+                                    {{ $log->product->brand }}
+                                @endisset
                             </div>
                             <div class="w-1/5 bg-gray-400 py-2">
                                 {{ $log->energy }}

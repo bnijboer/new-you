@@ -37,7 +37,7 @@
                     <div class="mt-6">
                         <div>
                             <input class="p-2 border border-gray-300 rounded-lg" type="number" name="age"
-                                placeholder="Age" value="{{ currentUser()->age }}">
+                                placeholder="Age" value="{{ currentUser()->age }}" required>
                         </div>
 
                         @error('age')
@@ -50,7 +50,7 @@
                     <div class="mt-6">
                         <div>
                             <input class="p-2 border border-gray-300 rounded-lg" type="number" name="height"
-                                placeholder="Height in cm" value="{{ currentUser()->height }}">
+                                placeholder="Height in cm" value="{{ currentUser()->height }}" required>
                         </div>
 
                         @error('height')
@@ -63,37 +63,10 @@
                     <div class="mt-6">
                         <div>
                             <input class="p-2 border border-gray-300 rounded-lg" type="number" name="current_weight"
-                                placeholder="Current weight in kg" value="{{ currentUser()->current_weight }}">
+                                placeholder="Current weight in kg" value="{{ currentUser()->current_weight }}" required>
                         </div>
 
                         @error('current_weight')
-                            <div>
-                                <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
-                            </div>
-                        @enderror
-                    </div>
-
-                    <div class="mt-6">
-                        <div>
-                            <input class="p-2 border border-gray-300 rounded-lg" type="number" name="target_weight"
-                                placeholder="Target weight in kg" value="{{ currentUser()->target_weight }}">
-                        </div>
-
-                        @error('target_weight')
-                            <div>
-                                <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
-                            </div>
-                        @enderror
-                    </div>
-
-                    <div class="mt-6">
-                        <div>
-                            <label for="diet_intensity">Preferred diet intensity:</label>
-                            <input type="range" id="diet_intensity" name="diet_intensity" min="1" max="10"
-                                value="{{ currentUser()->diet_intensity }}">
-                        </div>
-
-                        @error('diet_intensity')
                             <div>
                                 <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
                             </div>

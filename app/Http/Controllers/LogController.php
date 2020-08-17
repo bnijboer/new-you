@@ -42,7 +42,7 @@ class LogController extends Controller
     
     public function store()
     {
-        $attributes = request()->validate([
+        $validatedData = request()->validate([
             'energy' => ['required', 'numeric', 'digits_between:1,5', 'min:0'],
             'protein' => ['required', 'numeric', 'digits_between:1,4', 'min:0'],
             'fat' => ['required', 'numeric', 'digits_between:1,4', 'min:0'],
@@ -52,10 +52,10 @@ class LogController extends Controller
         Log::create([
             'user_id' => auth()->id(),
             'product_id' => request()->product_id,
-            'energy' => $attributes['energy'],
-            'protein' => $attributes['protein'],
-            'fat' => $attributes['fat'],
-            'carbs' => $attributes['carbs']
+            'energy' => $validatedData['energy'],
+            'protein' => $validatedData['protein'],
+            'fat' => $validatedData['fat'],
+            'carbs' => $validatedData['carbs']
         ]);        
         
         return redirect()->route('dashboard');
