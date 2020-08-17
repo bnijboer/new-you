@@ -12,7 +12,7 @@ class DietController extends Controller
 			'current_weight' => ['required', 'numeric', 'digits_between:1,4', 'min:1', 'max:700'],
 			'target_weight' => ['required', 'numeric', 'digits_between:1,4', 'min:1', 'max:700'],
             'diet_intensity' => ['required', 'numeric', 'min:1', 'max:10'],
-			'activity_level' => ['required', 'numeric', 'digits_between:1,4', 'min:1', 'max:2']
+			'activity_level' => ['required', 'numeric', 'min:1']
 		]);
 
 		$user->update($validatedData);

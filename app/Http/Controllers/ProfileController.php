@@ -28,10 +28,10 @@ class ProfileController extends Controller
             'age' => ['required', 'numeric', 'digits_between:1,3', 'min:0', 'max:127'],
             'height' => ['required', 'numeric', 'digits_between:1,3', 'min:0', 'max:300'],
             'current_weight' => ['required', 'numeric', 'digits_between:1,3', 'min:1', 'max:700'],
-			'activity_level' => ['required', 'numeric', 'digits_between:1,4', 'min:1', 'max:2']
-		]);
+			'activity_level' => ['required', 'numeric', 'min:1']
+        ]);
 
-		$user->update($validatedData);
+        $user->update($validatedData);
 		
         return redirect()->route('profile', [$user]);
 	}

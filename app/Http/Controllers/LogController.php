@@ -29,7 +29,8 @@ class LogController extends Controller
         return view('logs.index', [
             'shownDate' => $shownDate,
             'logs' => currentUser()->logsOnDate($shownDate),
-            'totalIntake' => currentUser()->intakeOnDate($shownDate)
+            'totalIntake' => currentUser()->intakeOnDate($shownDate),
+            'requiredIntake' => currentUser()->requiredIntake(currentUser()->bmr())
         ]);
     }
     

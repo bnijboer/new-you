@@ -24,8 +24,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('age');
             $table->smallInteger('height');
             $table->smallInteger('current_weight');
-            $table->smallInteger('bmr');
-            $table->smallInteger('tdee');
+            $table->float('activity_level', 4, 3);
             $table->timestamps();
         });
     }

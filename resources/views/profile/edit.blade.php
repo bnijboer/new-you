@@ -11,7 +11,8 @@
             </div>
 
             <div class="flex justify-center mt-8">
-                <form action="/profile/{{ currentUser()->id }}" method="POST">
+                
+                <form action="/profile/{{ currentUser()->username }}" method="POST">
                     @csrf
                     @method('patch')
 
@@ -73,12 +74,36 @@
                         @enderror
                     </div>
 
+                    <div class="mt-6">
+                        <div>
+                            <label for="activity_level">Current activity level:</label>
+                            <select id="activity_level" name="activity_level" required>
+                                <option value="1.2">1: Little or no exercise</option>
+                                <option value="1.375">2: Light exercise or sports 1-3 days/week</option>
+                                <option value="1.55">3: Moderate exercise 3-5 days/week</option>
+                                <option value="1.725">4: Hard exercise 6-7 days/week</option>
+                                <option value="1.9">5: Very hard exercise and a physical job</option>
+                            </select>
+                        </div>
+
+                        @error('activity_level')
+                            <div>
+                                <span class="text-red-500 text-sm mt-2">{{ $message }}</span>
+                            </div>
+                        @enderror
+                    </div>
+
                     <div class="flex justify-end mt-6 mb-3">
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-                            type="submit">Save</button>
+                        <button
+                            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                            type="submit"
+                        >
+                            Save
+                        </button>
                     </div>
 
                 </form>
+                
             </div>
         </div>
     </div>

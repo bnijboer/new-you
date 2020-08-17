@@ -174,19 +174,19 @@
                             <tbody class="table-fixed border border-gray-700">
                                 <tr class="bg-gray-400">
                                     <td class=" w-3/4 p-3">Energy</td>
-                                    <td class="p-3">value1</td>
+                                    <td class="p-3">{{ $requiredIntake->energy - $totalIntake->energy }}</td>
                                 </tr>
                                 <tr class="bg-gray-500">
                                     <td class="p-3">Protein</td>
-                                    <td class="p-3">value2</td>
+                                    <td class="p-3">{{ $requiredIntake->protein - $totalIntake->protein  }}</td>
                                 </tr>
                                 <tr class="bg-gray-400">
                                     <td class="p-3">Fat</td>
-                                    <td class="p-3">value3</td>
+                                    <td class="p-3">{{ $requiredIntake->fat - $totalIntake->fat }}</td>
                                 </tr>
                                 <tr class="bg-gray-500">
                                     <td class="p-3">Carbs</td>
-                                    <td class="p-3">value4</td>
+                                    <td class="p-3">{{ $requiredIntake->carbs - $totalIntake->carbs }}</td>
                                 </tr>
                             </tbody>
                         </table>

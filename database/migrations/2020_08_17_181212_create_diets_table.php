@@ -18,8 +18,8 @@ class CreateDietsTable extends Migration
             $table->foreignId('user_id');
             $table->smallInteger('starting_weight');
             $table->smallInteger('target_weight');
+            $table->float('activity_level', 4, 3);
             $table->tinyInteger('diet_intensity');
-            $table->smallInteger('activity_level');
             $table->timestamps();
         });
     }

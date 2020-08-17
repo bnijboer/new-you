@@ -20,10 +20,10 @@ Route::get('/', function ()
 
 Route::middleware('auth')->group(function ()
 {
-	Route::get('/profile/{user}', 'ProfileController@show')->name('profile');
-	Route::get('/profile/{user}/edit', 'ProfileController@edit');
-	Route::patch('/profile/{user}', 'ProfileController@update');
-    Route::delete('/profile/{user}', 'ProfileController@destroy');
+	Route::get('/profile/{user:username}', 'ProfileController@show')->name('profile');
+	Route::get('/profile/{user:username}/edit', 'ProfileController@edit');
+	Route::patch('/profile/{user:username}', 'ProfileController@update');
+    Route::delete('/profile/{user:username}', 'ProfileController@destroy');
         
     // Route::get('/testindex', 'DateController@index');
     

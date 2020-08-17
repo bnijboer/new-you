@@ -15,8 +15,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
         'username',
         'email',
         'password',
@@ -24,8 +22,7 @@ class User extends Authenticatable
         'age',
         'height',
         'current_weight',
-        'target_weight',
-        'diet_intensity'
+        'activity_level'
     ];
 
     /**
@@ -45,6 +42,32 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function bmr()
+    {
+        switch ($this->gender) {
+            case "female":
+                return 10 * $this->current_weight + 6.25 * $this->height - 5 * $this->age - 161;
+                break;
+            case "male":
+                return 10 * $this->current_weight + 6.25 * $this->height - 5 * $this->age + 5;
+                break;
+        }
+    }
+    
+    public function requiredIntake($bmr)
+    {
+        $tdee = $bmr * $this->activity_level;
+        
+        $requiredIntake = (object) [
+            'energy' => round($tdee),
+            'protein' => round($tdee / 4  * 0.35),
+            'fat' => round($tdee / 9 * 0.25),
+            'carbs' => round($tdee / 4 * 0.4)
+        ];
+        
+        return $requiredIntake;
+    }
     
     public function logsOnDate($shownDate)
     {

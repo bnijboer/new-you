@@ -53,12 +53,11 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:50', 'unique:users', 'alpha_dash'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed'],
-            'gender' => ['required', 'string', 'max:6', 'alpha'],
+            'gender' => ['required', 'string', 'min:4', 'max:6', 'alpha'],
             'age' => ['required', 'numeric', 'digits_between:1,3', 'min:0', 'max:127'],
             'height' => ['required', 'numeric', 'digits_between:1,3', 'min:0', 'max:300'],
             'current_weight' => ['required', 'numeric', 'digits_between:1,3', 'min:1', 'max:700'],
-            'target_weight' => ['required', 'numeric', 'digits_between:1,3', 'min:1', 'max:700'],
-            'diet_intensity' => ['required', 'numeric', 'digits_between:1,2', 'min:1', 'max:10']
+			'activity_level' => ['required', 'numeric', 'min:1']
         ]);
     }
 
@@ -71,8 +70,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -80,8 +77,7 @@ class RegisterController extends Controller
             'age' => $data['age'],
             'height' => $data['height'],
             'current_weight' => $data['current_weight'],
-            'target_weight' => $data['target_weight'],
-            'diet_intensity' => $data['diet_intensity']
+            'activity_level' => $data['activity_level']
         ]);
 
         dd($data);

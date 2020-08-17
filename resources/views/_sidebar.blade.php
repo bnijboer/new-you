@@ -4,7 +4,7 @@
             <a class="font-bold text-lg mb-4 block" href="{{ route('dashboard') }}">Dashboard</a>
         </li>
         <li>
-            <a class="font-bold text-lg mb-4 block" href="{{ route('profile', currentUser()->id) }}">Profile</a>
+            <a class="font-bold text-lg mb-4 block" href="{{ route('profile', currentUser()->username) }}">Profile</a>
         </li>
         <li>
             <a class="font-bold text-lg mb-4 block" href="/products">All Products</a>

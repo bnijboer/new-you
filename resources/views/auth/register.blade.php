@@ -11,30 +11,6 @@
                     <div class="w-1/2 mr-16">
 
                         <div class="mb-6">
-                            <label for="first_name" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                                First Name
-                            </label>
-
-                            <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
-
-                            @error('first_name')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label for="last_name" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                                Last Name
-                            </label>
-
-                            <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
-
-                            @error('last_name')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
                             <label for="username" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                                 Username
                             </label>
@@ -42,7 +18,7 @@
                             <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
                             @error('username')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -54,7 +30,7 @@
                             <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                             @error('email')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -66,7 +42,7 @@
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="new-password" autofocus>
 
                             @error('password')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -78,7 +54,7 @@
                             <input id="password-confirm" type="password" class="form-control @error('password-confirm') is-invalid @enderror" name="password_confirmation" value="{{ old('password-confirm') }}" required autocomplete="new-password" autofocus>
 
                             @error('password-confirm')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -97,7 +73,7 @@
                             </div>
 
                             @error('gender')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -109,7 +85,7 @@
                             <input id="age" type="number" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus>
 
                             @error('age')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -121,7 +97,7 @@
                             <input id="height" type="number" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height') }}" required autocomplete="height" autofocus>
 
                             @error('height')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -133,31 +109,31 @@
                             <input id="current_weight" type="number" class="form-control @error('current_weight') is-invalid @enderror" name="current_weight" value="{{ old('current_weight') }}" required autocomplete="current_weight" autofocus>
 
                             @error('current_weight')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="mb-6">
-                            <label for="target_weight" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                                Target weight in kg
-                            </label>
-
-                            <input id="target_weight" type="number" class="form-control @error('target_weight') is-invalid @enderror" name="target_weight" value="{{ old('target_weight') }}" required autocomplete="target_weight" autofocus>
-
-                            @error('target_weight')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="mb-16">
-                            <label for="diet_intensity" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                                Preferred diet intensity
+                            <label for="activity_level" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                                Current activity level
                             </label>
+                            <select
+                                class="form-control @error('activity_level') is-invalid @enderror"
+                                id="activity_level"
+                                name="activity_level"
+                                required
+                                autocomplete="activity_level"
+                                autofocus
+                            >
+                                <option value="1.2">1: Little or no exercise</option>
+                                <option value="1.375">2: Light exercise or sports 1-3 days/week</option>
+                                <option value="1.55">3: Moderate exercise 3-5 days/week</option>
+                                <option value="1.725">4: Hard exercise 6-7 days/week</option>
+                                <option value="1.9">5: Very hard exercise and a physical job</option>
+                            </select>
 
-                            <input id="diet_intensity" type="range" class="form-control @error('diet_intensity') is-invalid @enderror" name="diet_intensity" min="1" max="10" value="{{ old('diet_intensity') }}" required autocomplete="diet_intensity" autofocus>
-
-                            @error('diet_intensity')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @error('activity_level')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
