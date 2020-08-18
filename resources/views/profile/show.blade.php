@@ -17,7 +17,7 @@
                         Username:
                     </div>
                     <div>
-                        {{ currentUser()->username }}
+                        {{ $user->username }}
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                         Email
                     </div>
                     <div>
-                        {{ currentUser()->email }}
+                        {{ $user->email }}
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                         Gender:
                     </div>
                     <div>
-                        {{ currentUser()->gender }}
+                        {{ $user->gender }}
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                         Age:
                     </div>
                     <div>
-                        {{ currentUser()->age }}
+                        {{ $user->age }}
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@
                         Height:
                     </div>
                     <div>
-                        {{ currentUser()->height }} cm
+                        {{ $user->height }} cm
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@
                         Current weight:
                     </div>
                     <div>
-                        {{ currentUser()->current_weight }} kg
+                        {{ $user->current_weight }} kg
                     </div>
                 </div>
 
@@ -71,14 +71,14 @@
                         Activity level:
                     </div>
                     <div>
-                        {{ currentUser()->activity_level }}
+                        {{ formatActivityLevel($user->activity_level) }}
                     </div>
                 </div>
 
                 <div class="mt-6">
                     <div class="flex justify-end">
                         <div class="mr-3">
-                            <form action="/profile/{{ currentUser()->username }}/edit" method="GET">
+                            <form action="/profile/{{ $user->username }}/edit" method="GET">
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                                     type="submit">
                                     <i class="fas fa-edit"></i>
@@ -86,7 +86,7 @@
                             </form>
                         </div>
                         <div class="mr-3">
-                            <form action="/profile/{{ currentUser()->username }}" method="POST">
+                            <form action="/profile/{{ $user->username }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

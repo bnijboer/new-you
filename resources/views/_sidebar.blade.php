@@ -15,5 +15,8 @@
         <li>
             <a class="font-bold text-lg mb-4 block" href="/search">New Log</a>
         </li>
+        <li>
+            <a class="font-bold text-lg mb-4 block" href="/diets/create">New Diet</a>
+        </li>
     </ul>
 </div>

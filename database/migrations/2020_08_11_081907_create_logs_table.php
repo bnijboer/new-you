@@ -15,8 +15,8 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-			$table->foreignId('user_id');
-			$table->foreignId('product_id');
+			$table->foreignId('user_id')->constrained();
+			$table->foreignId('product_id')->constrained();
 			$table->smallInteger('energy');
 			$table->smallInteger('protein');
 			$table->smallInteger('fat');

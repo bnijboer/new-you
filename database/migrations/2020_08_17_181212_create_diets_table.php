@@ -15,12 +15,13 @@ class CreateDietsTable extends Migration
     {
         Schema::create('diets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->unique()->constrained();
             $table->smallInteger('starting_weight');
             $table->smallInteger('target_weight');
             $table->float('activity_level', 4, 3);
             $table->tinyInteger('diet_intensity');
             $table->timestamps();
+            $table->timestamp('ends_at', 0);
         });
     }
 

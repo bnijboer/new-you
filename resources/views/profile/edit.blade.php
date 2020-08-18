@@ -12,15 +12,15 @@
 
             <div class="flex justify-center mt-8">
                 
-                <form action="/profile/{{ currentUser()->username }}" method="POST">
+                <form action="/profile/{{ $user->username }}" method="POST">
                     @csrf
                     @method('patch')
 
                     <div>
                         <div>
-                            <input type="radio" id="male" name="gender" value="male" @if(currentUser()->gender === 'male') {{ "checked" }} @endif>
+                            <input type="radio" id="male" name="gender" value="male" @if($user->gender === 'male') {{ "checked" }} @endif>
                             <label for="male">Male</label><br>
-                            <input type="radio" id="female" name="gender" value="female" @if(currentUser()->gender === 'female') {{ "checked" }} @endif>
+                            <input type="radio" id="female" name="gender" value="female" @if($user->gender === 'female') {{ "checked" }} @endif>
                             <label for="female">Female</label><br>
                         </div>
 
@@ -36,7 +36,7 @@
                     <div class="mt-6">
                         <div>
                             <input class="p-2 border border-gray-300 rounded-lg" type="number" name="age"
-                                placeholder="Age" value="{{ currentUser()->age }}" required>
+                                placeholder="Age" value="{{ $user->age }}" required>
                         </div>
 
                         @error('age')
@@ -49,7 +49,7 @@
                     <div class="mt-6">
                         <div>
                             <input class="p-2 border border-gray-300 rounded-lg" type="number" name="height"
-                                placeholder="Height in cm" value="{{ currentUser()->height }}" required>
+                                placeholder="Height in cm" value="{{ $user->height }}" required>
                         </div>
 
                         @error('height')
@@ -62,7 +62,7 @@
                     <div class="mt-6">
                         <div>
                             <input class="p-2 border border-gray-300 rounded-lg" type="number" name="current_weight"
-                                placeholder="Current weight in kg" value="{{ currentUser()->current_weight }}" required>
+                                placeholder="Current weight in kg" value="{{ $user->current_weight }}" required>
                         </div>
 
                         @error('current_weight')
@@ -75,12 +75,43 @@
                     <div class="mt-6">
                         <div>
                             <label for="activity_level">Current activity level:</label>
-                            <select id="activity_level" name="activity_level" required>
-                                <option value="1.2" @if(currentUser()->activity_level === 1.2) {{ "selected='selected'" }} @endif>1: Little or no exercise</option>
-                                <option value="1.375" @if(currentUser()->activity_level === 1.375) {{ "selected='selected'" }} @endif>2: Light exercise or sports 1-3 days/week</option>
-                                <option value="1.55" @if(currentUser()->activity_level === 1.55) {{ "selected='selected'" }} @endif>3: Moderate exercise 3-5 days/week</option>
-                                <option value="1.725" @if(currentUser()->activity_level === 1.725) {{ "selected='selected'" }} @endif>4: Hard exercise 6-7 days/week</option>
-                                <option value="1.9" @if(currentUser()->activity_level === 1.9) {{ "selected='selected'" }} @endif>5: Very hard exercise and a physical job</option>
+                            <select
+                                id="activity_level"
+                                name="activity_level"
+                                required
+                                autocomplete="activity_level"
+                                autofocus
+                            >
+                                <option
+                                    value="1.2"
+                                    @if($user->activity_level === 1.2) {{ "selected='selected'" }} @endif
+                                >
+                                    {{ formatActivityLevel(1.2) }}
+                                </option>
+                                <option
+                                    value="1.375"
+                                    @if($user->activity_level === 1.375) {{ "selected='selected'" }} @endif
+                                >
+                                    {{ formatActivityLevel(1.375) }}
+                                </option>
+                                <option
+                                    value="1.55"
+                                    @if($user->activity_level === 1.55) {{ "selected='selected'" }} @endif
+                                >
+                                    {{ formatActivityLevel(1.55) }}
+                                </option>
+                                <option
+                                    value="1.725"
+                                    @if($user->activity_level === 1.725) {{ "selected='selected'" }} @endif
+                                >
+                                    {{ formatActivityLevel(1.725) }}
+                                </option>
+                                <option
+                                    value="1.9"
+                                    @if($user->activity_level === 1.9) {{ "selected='selected'" }} @endif
+                                >
+                                    {{ formatActivityLevel(1.9) }}
+                                </option>
                             </select>
                         </div>
 

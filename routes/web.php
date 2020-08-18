@@ -24,6 +24,11 @@ Route::middleware('auth')->group(function ()
 	Route::get('/profile/{user:username}/edit', 'ProfileController@edit');
 	Route::patch('/profile/{user:username}', 'ProfileController@update');
     Route::delete('/profile/{user:username}', 'ProfileController@destroy');
+    
+    Route::get('/diets/{diet}', 'DietController@create');
+    Route::post('/diets', 'DietController@store');
+	Route::patch('/diets/{diet}', 'DietController@update');
+    Route::delete('/diets/{diet}', 'DietController@destroy');
         
     // Route::get('/testindex', 'DateController@index');
     

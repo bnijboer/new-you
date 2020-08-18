@@ -117,6 +117,7 @@
                             <label for="activity_level" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                                 Current activity level
                             </label>
+                            
                             <select
                                 class="form-control @error('activity_level') is-invalid @enderror"
                                 id="activity_level"
@@ -125,11 +126,36 @@
                                 autocomplete="activity_level"
                                 autofocus
                             >
-                                <option value="1.2" @if(old('activity_level') === '1.2') {{ "selected='selected'" }} @endif>1: Little or no exercise</option>
-                                <option value="1.375" @if(old('activity_level') === '1.375') {{ "selected='selected'" }} @endif>2: Light exercise or sports 1-3 days/week</option>
-                                <option value="1.55" @if(old('activity_level') === '1.55') {{ "selected='selected'" }} @endif>3: Moderate exercise 3-5 days/week</option>
-                                <option value="1.725" @if(old('activity_level') === '1.725') {{ "selected='selected'" }} @endif>4: Hard exercise 6-7 days/week</option>
-                                <option value="1.9" @if(old('activity_level') === '1.9') {{ "selected='selected'" }} @endif>5: Very hard exercise and a physical job</option>
+                                <option
+                                    value="1.2"
+                                    @if(old('activity_level') === '1.2') {{ "selected='selected'" }} @endif
+                                >
+                                    {{ formatActivityLevel(1.2) }}
+                                </option>
+                                <option
+                                    value="1.375"
+                                    @if(old('activity_level') === '1.375') {{ "selected='selected'" }} @endif
+                                >
+                                    {{ formatActivityLevel(1.375) }}
+                                </option>
+                                <option
+                                    value="1.55"
+                                    @if(old('activity_level') === '1.55') {{ "selected='selected'" }} @endif
+                                >
+                                    {{ formatActivityLevel(1.55) }}
+                                </option>
+                                <option
+                                    value="1.725"
+                                    @if(old('activity_level') === '1.725') {{ "selected='selected'" }} @endif
+                                >
+                                    {{ formatActivityLevel(1.725) }}
+                                </option>
+                                <option
+                                    value="1.9"
+                                    @if(old('activity_level') === '1.9') {{ "selected='selected'" }} @endif
+                                >
+                                    {{ formatActivityLevel(1.9) }}
+                                </option>
                             </select>
 
                             @error('activity_level')

@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
 use App\Log;
-use Carbon\Carbon;
 
 class LogController extends Controller
 {
@@ -16,10 +14,10 @@ class LogController extends Controller
                 'date' => ['required', 'date']
             ]);
             
-            $shownDate = Carbon::createFromFormat('Y-m-d', $validated['date']);
+            $shownDate = \Carbon\Carbon::createFromFormat('Y-m-d', $validated['date']);
             
         } else {
-            $shownDate = Carbon::now();
+            $shownDate = currentDate();
         }
         
         if(request()->get('previous')) {
@@ -37,28 +35,29 @@ class LogController extends Controller
     public function create()
     {
         return view('logs.create', [
-            'product' => Product::find(request()->id)
+            'product' => App\Product::find(request()->id)
         ]);
     }
     
     public function store()
     {
-        $validatedData = request()->validate([
+        $log = Log::make($this->validateLog());
+        
+        $log->user_id = auth()->id();
+        $log->product_id = request()->product_id;
+        
+        $log->save();
+        
+        return redirect()->route('dashboard');
+    }
+    
+    private function validateLog()
+    {
+        return request()->validate([
             'energy' => ['required', 'numeric', 'digits_between:1,5', 'min:0'],
             'protein' => ['required', 'numeric', 'digits_between:1,4', 'min:0'],
             'fat' => ['required', 'numeric', 'digits_between:1,4', 'min:0'],
             'carbs' => ['required', 'numeric', 'digits_between:1,4', 'min:0']
-        ]);
-
-        Log::create([
-            'user_id' => auth()->id(),
-            'product_id' => request()->product_id,
-            'energy' => $validatedData['energy'],
-            'protein' => $validatedData['protein'],
-            'fat' => $validatedData['fat'],
-            'carbs' => $validatedData['carbs']
-        ]);        
-        
-        return redirect()->route('dashboard');
+		]);
     }
 }

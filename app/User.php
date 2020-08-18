@@ -99,4 +99,9 @@ class User extends Authenticatable
 
         return $values;
     }
+    
+    public function diet()
+    {
+        return $this->hasOne(Diet::class);
+    }
 }
