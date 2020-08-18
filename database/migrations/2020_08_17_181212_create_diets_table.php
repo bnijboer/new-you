@@ -15,7 +15,7 @@ class CreateDietsTable extends Migration
     {
         Schema::create('diets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->unique()->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->smallInteger('starting_weight');
             $table->smallInteger('target_weight');
             $table->float('activity_level', 4, 3);

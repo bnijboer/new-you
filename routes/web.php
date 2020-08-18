@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function ()
     Route::post('/diets', 'DietController@store');
 	Route::patch('/diets/{diet}', 'DietController@update');
     Route::delete('/diets/{diet}', 'DietController@destroy');
-        
+    
     // Route::get('/testindex', 'DateController@index');
     
     Route::get('/logs', 'LogController@index')->name('dashboard');    

@@ -19,15 +19,10 @@ class DietController extends Controller
         $diet->ends_at = $diet->endDate();
         
         $diet->save();
-		
+        
+        $diet->toggleActive();
+        
         return redirect()->route('dashboard');
-    }
-    
-    public function update(User $user)
-	{
-		$user->update($this->validateDiet());
-		
-        return redirect()->route('profile', [$user]);
     }
     
     private function validateDiet()

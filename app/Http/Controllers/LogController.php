@@ -35,7 +35,7 @@ class LogController extends Controller
     public function create()
     {
         return view('logs.create', [
-            'product' => App\Product::find(request()->id)
+            'product' => \App\Product::find(request()->id)
         ]);
     }
     
