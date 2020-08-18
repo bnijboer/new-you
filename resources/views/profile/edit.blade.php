@@ -18,11 +18,9 @@
 
                     <div>
                         <div>
-                            <input type="radio" id="male" name="gender" value="male" {{ (currentUser()->gender === 'male') ?
-                            "checked" : '' }}>
+                            <input type="radio" id="male" name="gender" value="male" @if(currentUser()->gender === 'male') {{ "checked" }} @endif>
                             <label for="male">Male</label><br>
-                            <input type="radio" id="female" name="gender" value="female" {{ (currentUser()->gender ===
-                            'female') ? "checked" : '' }}>
+                            <input type="radio" id="female" name="gender" value="female" @if(currentUser()->gender === 'female') {{ "checked" }} @endif>
                             <label for="female">Female</label><br>
                         </div>
 
@@ -78,11 +76,11 @@
                         <div>
                             <label for="activity_level">Current activity level:</label>
                             <select id="activity_level" name="activity_level" required>
-                                <option value="1.2">1: Little or no exercise</option>
-                                <option value="1.375">2: Light exercise or sports 1-3 days/week</option>
-                                <option value="1.55">3: Moderate exercise 3-5 days/week</option>
-                                <option value="1.725">4: Hard exercise 6-7 days/week</option>
-                                <option value="1.9">5: Very hard exercise and a physical job</option>
+                                <option value="1.2" @if(currentUser()->activity_level === 1.2) {{ "selected='selected'" }} @endif>1: Little or no exercise</option>
+                                <option value="1.375" @if(currentUser()->activity_level === 1.375) {{ "selected='selected'" }} @endif>2: Light exercise or sports 1-3 days/week</option>
+                                <option value="1.55" @if(currentUser()->activity_level === 1.55) {{ "selected='selected'" }} @endif>3: Moderate exercise 3-5 days/week</option>
+                                <option value="1.725" @if(currentUser()->activity_level === 1.725) {{ "selected='selected'" }} @endif>4: Hard exercise 6-7 days/week</option>
+                                <option value="1.9" @if(currentUser()->activity_level === 1.9) {{ "selected='selected'" }} @endif>5: Very hard exercise and a physical job</option>
                             </select>
                         </div>
 

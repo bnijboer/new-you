@@ -64,11 +64,11 @@
                             <div class="flex">
                                 <div>
                                     <label for="male" class="block mb-2 uppercase font-bold text-xs text-gray-700">Male</label>
-                                    <input type="radio" id="male" name="gender" value="male">
+                                    <input type="radio" id="male" name="gender" value="male" @if(old('gender') === 'male') {{ "checked" }} @endif>
                                 </div>
                                 <div class="ml-6">
                                     <label for="female" class="block mb-2 uppercase font-bold text-xs text-gray-700">Female</label>
-                                    <input type="radio" id="female" name="gender" value="female">
+                                    <input type="radio" id="female" name="gender" value="female" @if(old('gender') === 'female') {{ "checked" }} @endif>
                                 </div>
                             </div>
 
@@ -125,11 +125,11 @@
                                 autocomplete="activity_level"
                                 autofocus
                             >
-                                <option value="1.2">1: Little or no exercise</option>
-                                <option value="1.375">2: Light exercise or sports 1-3 days/week</option>
-                                <option value="1.55">3: Moderate exercise 3-5 days/week</option>
-                                <option value="1.725">4: Hard exercise 6-7 days/week</option>
-                                <option value="1.9">5: Very hard exercise and a physical job</option>
+                                <option value="1.2" @if(old('activity_level') === '1.2') {{ "selected='selected'" }} @endif>1: Little or no exercise</option>
+                                <option value="1.375" @if(old('activity_level') === '1.375') {{ "selected='selected'" }} @endif>2: Light exercise or sports 1-3 days/week</option>
+                                <option value="1.55" @if(old('activity_level') === '1.55') {{ "selected='selected'" }} @endif>3: Moderate exercise 3-5 days/week</option>
+                                <option value="1.725" @if(old('activity_level') === '1.725') {{ "selected='selected'" }} @endif>4: Hard exercise 6-7 days/week</option>
+                                <option value="1.9" @if(old('activity_level') === '1.9') {{ "selected='selected'" }} @endif>5: Very hard exercise and a physical job</option>
                             </select>
 
                             @error('activity_level')
