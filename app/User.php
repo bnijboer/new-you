@@ -63,22 +63,21 @@ class User extends Authenticatable
         
         if ($this->onDiet()) {
             
-            $diet = Diet::find($this->diet_id);
-            
-            $netWeight = $diet->starting_weight - $diet->target_weight;
-        
-            // 1 kg of fat equals 77000 calories.
-            $netEnergy = $netWeight * 7700;
-            
-            // $dietIntensity serves as a 100x multiplier to set the 'strictness' of a diet.
-            // Ex: a $dietIntensity of 5 equals a heightened or lowered intake of 5 * 100 = 500 calories a day.
-            $dietLength = abs($netEnergy) / ($diet->diet_intensity * 100);
+            $diet = Diet::find($this->current_diet);
             
             $deficit = (object) [
-                'energy' => round($netEnergy / $dietLength),
-                'protein' => round($netEnergy / $dietLength / 4  * 0.3),
-                'fat' => round($netEnergy / $dietLength / 9 * 0.3),
-                'carbs' => round($netEnergy / $dietLength / 4 * 0.4)
+                'energy' => round(
+                    $diet->getNetEnergy() / $diet->getDuration()
+                ),
+                'protein' => round(
+                    $diet->getNetEnergy() / $diet->getDuration() / 4 * 0.3
+                ),
+                'fat' => round(
+                    $diet->getNetEnergy() / $diet->getDuration() / 9 * 0.3
+                ),
+                'carbs' => round(
+                    $diet->getNetEnergy() / $diet->getDuration() / 4 * 0.4
+                )
             ];
             
             $requiredIntake = (object) [
@@ -136,9 +135,9 @@ class User extends Authenticatable
         return $this->hasMany(Diet::class);
     }
     
-    public function toggleActive($diet)
-    {
-        $this->diet_id = $diet->id;
+    public function activateDiet($diet)
+    {        
+        $this->current_diet = $diet->id;
         $this->current_weight = $diet->starting_weight;
         $this->activity_level = $diet->activity_level;
         
@@ -147,11 +146,11 @@ class User extends Authenticatable
     
     public function onDiet()
     {
-        if (Diet::find($this->diet_id)) {
+        if (Diet::find($this->current_diet)) {
             return true;
         }
         
-        $this->diet_id = null;
+        $this->current_diet = null;
         $this->save();
         
         return false;

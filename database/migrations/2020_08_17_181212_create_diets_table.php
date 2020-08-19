@@ -20,8 +20,8 @@ class CreateDietsTable extends Migration
             $table->smallInteger('target_weight');
             $table->float('activity_level', 4, 3);
             $table->tinyInteger('diet_intensity');
+            $table->timestamp('ends_at', 0)->nullable();
             $table->timestamps();
-            $table->timestamp('ends_at', 0);
         });
     }
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class DateController extends Controller
 {
@@ -35,7 +34,7 @@ class DateController extends Controller
                 'previous' => ['required', 'date']
             ]);
             
-            $date = \Carbon\Carbon::createFromFormat('Y-m-d', $validated['previous']);
+            $date = Carbon::createFromFormat('Y-m-d', $validated['previous']);
             $date->subDays(1);
             
         } elseif (request()->next) {
@@ -44,7 +43,7 @@ class DateController extends Controller
                 'next' => ['required', 'date']
             ]);
             
-            $date = \Carbon\Carbon::createFromFormat('Y-m-d', $validated['next']);
+            $date = Carbon::createFromFormat('Y-m-d', $validated['next']);
             
             if (! $date->isSameDay(currentDate())) {
                 $date->addDays(1);
@@ -56,7 +55,7 @@ class DateController extends Controller
                 'date' => ['required', 'date']
             ]);
             
-            $date = \Carbon\Carbon::createFromFormat('Y-m-d', $validated['date']);
+            $date = Carbon::createFromFormat('Y-m-d', $validated['date']);
         }
        
         return redirect()->route('dashboard', ['date' => $date->toDateString()]);
