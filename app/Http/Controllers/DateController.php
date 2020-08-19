@@ -6,25 +6,25 @@ use Carbon\Carbon;
 
 class DateController extends Controller
 {
-    public function index()
-    {
-        $oldestLogDate = currentUser()->logs()->orderByRaw('DATE_FORMAT(created_at, "%y-%m-%d")')->pluck('created_at')->first();
-        $currentDate = Carbon::now();
+    // public function index()
+    // {
+    //     $oldestLogDate = currentUser()->logs()->orderByRaw('DATE_FORMAT(created_at, "%y-%m-%d")')->pluck('created_at')->first();
+    //     $currentDate = Carbon::now();
         
-        $dates = [];
+    //     $dates = [];
         
-        while ($oldestLogDate->lte($currentDate)) {
-            $dates[] = $oldestLogDate->toDateString();
-            $oldestLogDate->addDay();
-        }
+    //     while ($oldestLogDate->lte($currentDate)) {
+    //         $dates[] = $oldestLogDate->toDateString();
+    //         $oldestLogDate->addDay();
+    //     }
         
-        $today = Carbon::now();
+    //     $today = Carbon::now();
         
-        return view('dates', [
-            'today' => $today,
-            'dates' => $dates
-        ]);
-    }
+    //     return view('dates', [
+    //         'today' => $today,
+    //         'dates' => $dates
+    //     ]);
+    // }
     
     public function store()
     {

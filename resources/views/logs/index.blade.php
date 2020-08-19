@@ -6,13 +6,14 @@
 
     <div>
         
-        <div class="bg-indigo-200 rounded-lg p-4 mx-4">
+        <div class="bg-indigo-200 rounded-lg p-4 m-4">
             <div class="text-center">
-                <div class="text-3xl py-2">
-                    <p>
+                <div class="py-2">
+                    <div class="text-3xl font-semibold">
                         Intake Overview
+                    </div>
                     </p>
-                    <div class="flex justify-center">
+                    <div class="text-2xl flex justify-center my-3">
                         <div>
                             <form action="/dates" method="POST">
                                 @csrf
@@ -49,7 +50,7 @@
                             value="{{ $shownDate->toDateString() }}"
                             max="{{ currentDate()->toDateString() }}"
                         >
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">View</button>
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" type="submit">View</button>
                     </form>
                 </div>
             </div>
@@ -58,12 +59,12 @@
         <div class="flex">
             <div class="w-1/2 bg-pink-300 rounded-lg p-4 mx-4">
                 
-                <div class="text-center text-2xl py-2">
+                <div class="text-center text-2xl font-semibold py-2">
                     Logs
                 </div>
 
                 <div class="text-center m-3">
-                    <div class="flex text-lg font-bold  mt-8">
+                    <div class="flex font-semibold  mt-8">
                         <div class="w-1/6 bg-gray-400 py-3 rounded-tl-lg">
                             Name
                         </div>
@@ -117,7 +118,7 @@
             
             <div class="w-1/2 bg-orange-300 rounded-lg p-4 mx-4">
 
-                <div class="text-center text-2xl py-2">
+                <div class="text-center text-2xl font-semibold py-2">
                     Total Intake
                 </div>
 
@@ -141,7 +142,7 @@
                                     <th colspan="2">Total Intake</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-fixed border border-gray-700">
+                            <tbody class="border border-gray-700">
                                 <tr class="bg-gray-400">
                                     <td class="w-3/4 p-3">Energy</td>
                                     <td class="p-3">
@@ -176,7 +177,7 @@
                                     <th colspan="2">Required Intake</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-fixed border border-gray-700">
+                            <tbody class="border border-gray-700">
                                 <tr class="bg-gray-400">
                                     <td class=" w-3/4 p-3">Energy</td>
                                     <td class="p-3">{{ $requiredIntake->energy - $totalIntake->energy }}</td>

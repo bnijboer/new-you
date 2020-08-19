@@ -63,7 +63,7 @@ class User extends Authenticatable
         
         if ($this->onDiet()) {
             
-            $diet = Diet::find($this->current_diet);
+            $diet = $this->diet();
             
             $deficit = (object) [
                 'energy' => round(
@@ -99,16 +99,6 @@ class User extends Authenticatable
         return $requiredIntake;
     }
     
-    public function logsOnDate($shownDate)
-    {
-        return $this->logs()->whereDate('created_at', '=', $shownDate)->get();
-    }
-    
-    public function logs()
-    {
-        return $this->hasMany(Log::class);
-    }
-
     public function intakeOnDate($shownDate)
     {
         $logs = $this->logsOnDate($shownDate);
@@ -130,9 +120,24 @@ class User extends Authenticatable
         return $values;
     }
     
+    public function logsOnDate($shownDate)
+    {
+        return $this->logs()->whereDate('created_at', '=', $shownDate)->get();
+    }
+    
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
+    
     public function diets()
     {
         return $this->hasMany(Diet::class);
+    }
+    
+    public function diet()
+    {
+        return Diet::find($this->current_diet);
     }
     
     public function activateDiet($diet)
@@ -146,7 +151,7 @@ class User extends Authenticatable
     
     public function onDiet()
     {
-        if (Diet::find($this->current_diet)) {
+        if ($this->diet()) {
             return true;
         }
         

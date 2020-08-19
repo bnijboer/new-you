@@ -10,6 +10,11 @@ function currentDate()
     return \Carbon\Carbon::now();
 }
 
+function currentDiet()
+{
+    return currentUser()->diet();
+}
+
 function previousDate($date)
 {
     $previousDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date->subDays(1)->toDateString());

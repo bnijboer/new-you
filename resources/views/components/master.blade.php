@@ -12,7 +12,7 @@
     @stack('scripts')
 </head>
 
-<body>
+<body class="bg-green-100">
     <div id="app">
         {{ $slot }}
     </div>
