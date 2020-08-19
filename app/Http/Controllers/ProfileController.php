@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Auth;
 
 class ProfileController extends Controller
 {
@@ -38,7 +37,7 @@ class ProfileController extends Controller
 
 	public function destroy(User $user)
 	{
-		Auth::logout();
+		\Auth::logout();
 		$user->delete();
 
 		return redirect()->route('landing');

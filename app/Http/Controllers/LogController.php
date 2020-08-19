@@ -8,7 +8,7 @@ class LogController extends Controller
 {
     public function index()
     {
-        if (request()->input('date') !== null) {
+        if (request()->has('date')) {
             
             $validated = request()->validate([
                 'date' => ['required', 'date']
@@ -18,10 +18,6 @@ class LogController extends Controller
             
         } else {
             $shownDate = currentDate();
-        }
-        
-        if(request()->get('previous')) {
-            $shownDate->subDays(1);
         }
         
         return view('logs.index', [

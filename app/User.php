@@ -136,6 +136,15 @@ class User extends Authenticatable
         return $this->hasMany(Diet::class);
     }
     
+    public function toggleActive($diet)
+    {
+        $this->diet_id = $diet->id;
+        $this->current_weight = $diet->starting_weight;
+        $this->activity_level = $diet->activity_level;
+        
+        return $this->update();
+    }
+    
     public function onDiet()
     {
         if (Diet::find($this->diet_id)) {

@@ -20,7 +20,7 @@ class DietController extends Controller
         
         $diet->save();
         
-        $diet->toggleActive();
+        $diet->user->toggleActive($diet);
         
         return redirect()->route('dashboard');
     }

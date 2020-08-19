@@ -14,9 +14,10 @@
                     </p>
                     <div class="flex justify-center">
                         <div>
-                            <form action="{{ route('dashboard') }}" method="GET">
-                                <button type="submit" name="previous" value="previous">
-                                    <
+                            <form action="{{ route('date') }}" method="POST">
+                                @csrf
+                                <button type="submit" name="previous" value="{{ $shownDate->toDateString() }}">
+                                    <i class="fas fa-angle-left bg-orange-200 rounded"></i>
                                 </button>
                             </form>
                         </div>
@@ -24,18 +25,22 @@
                             {{ $shownDate->isoFormat('dddd, MMMM D, YYYY') }}
                         </div>
                         <div>
-                            <form action="{{ route('dashboard') }}" method="GET">
-                                <button type="submit" name="next" value="next">
-                                    >
-                                </button>
-                            </form>
+                            @if (! $shownDate->isSameDay(currentDate()) )
+                                <form action="{{ route('date') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" name="next" value="{{ $shownDate->toDateString() }}">
+                                        <i class="fas fa-angle-right bg-orange-200 rounded"></i>
+                                    </button>
+                                </form>
+                            @endif
                         </div>
                     </div>
                         
                 </div>
                 <div class="my-4">
                     <label for="date-picker" class="block mb-2 uppercase font-bold text-xs text-gray-700">Previous Logs:</label>
-                    <form action="{{ route('dashboard') }}" method="GET">
+                    <form action="{{ route('date') }}" method="POST">
+                        @csrf
                         <input
                             class="p-1 text-center border border-gray-300 rounded-lg"
                             type="date"

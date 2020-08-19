@@ -29,14 +29,4 @@ class Diet extends Model
 
         return $endDate;
     }
-    
-    public function toggleActive()
-    {
-        $user = User::find($this->user_id);
-        $user->diet_id = $this['id'];
-        $user->current_weight = $this->starting_weight;
-        $user->activity_level = $this->activity_level;
-        
-        return $user->update();
-    }
 }
