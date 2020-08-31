@@ -53,7 +53,7 @@
                             End Date
                         </td>
                         <td class="w-1/3 p-3">
-                            {{ currentDiet()->getEndDate()->isoFormat('MMM. D, YYYY') }}
+                            {{ currentDiet()->ends_at->format('D, d M. Y') }}
                         </td>
                     </tr>
                     <tr class="bg-indigo-100">
@@ -69,7 +69,7 @@
                             Days Left
                         </td>
                         <td class="w-1/3 p-3">
-                            {{ currentDiet()->getEndDate()->diffInDays(currentDate()) }} days
+                            {{ currentDiet()->getDaysLeft() }} days
                         </td>
                     </tr>
                 </tbody>

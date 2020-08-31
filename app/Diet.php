@@ -9,6 +9,8 @@ class Diet extends Model
 {
     protected $guarded = [];
     
+    protected $dates = ['ends_at'];
+    
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -27,13 +29,20 @@ class Diet extends Model
     
     public function getDuration()
     {
-        // $dietIntensity serves as a 100x multiplier to set the caloric increase or deficit of a diet.
-        // Ex: a $dietIntensity of 5 equals a heightened or lowered intake of 5 * 100 = 500 calories a day.
+        // $dietIntensity serves as a 100x multiplier to set the caloric surplus or deficit of a diet.
+        // Ex.: a $dietIntensity of 5 equals an increased or decreased intake of 5 * 100 = 500 calories a day.
         return round(abs($this->getNetEnergy()) / ($this->diet_intensity * 100));
     }
     
-    public function getEndDate()
+    public function setEndDate()
     {
-        return currentDate()->addDays($this->getDuration());
+        return $this->ends_at = $this->created_at->addDays($this->getDuration());
+    }
+    
+    public function getDaysLeft()
+    {
+        $endDate = $this->ends_at;
+        $currentDate = currentDate();
+        return $endDate->diffInDays($currentDate);
     }
 }

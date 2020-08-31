@@ -151,7 +151,7 @@ class User extends Authenticatable
     
     public function onDiet()
     {
-        if ($this->diet()) {
+        if ($this->diet() && !\Carbon\Carbon::parse(currentDiet()->ends_at)->isToday()) {
             return true;
         }
         
