@@ -67,16 +67,16 @@ class User extends Authenticatable
             
             $deficit = (object) [
                 'energy' => round(
-                    $diet->getNetEnergy() / $diet->getDuration()
+                    $diet->netEnergy / $diet->duration
                 ),
                 'protein' => round(
-                    $diet->getNetEnergy() / $diet->getDuration() / 4 * 0.3
+                    $diet->netEnergy / $diet->duration / 4 * 0.3
                 ),
                 'fat' => round(
-                    $diet->getNetEnergy() / $diet->getDuration() / 9 * 0.3
+                    $diet->netEnergy / $diet->duration / 9 * 0.3
                 ),
                 'carbs' => round(
-                    $diet->getNetEnergy() / $diet->getDuration() / 4 * 0.4
+                    $diet->netEnergy / $diet->duration / 4 * 0.4
                 )
             ];
             
@@ -141,12 +141,12 @@ class User extends Authenticatable
     }
     
     public function activateDiet($diet)
-    {        
+    {
         $this->current_diet = $diet->id;
         $this->current_weight = $diet->starting_weight;
         $this->activity_level = $diet->activity_level;
-        
-        return $this->update();
+        // dd($this);
+        $this->save();
     }
     
     public function onDiet()

@@ -61,7 +61,7 @@
                             Total Duration
                         </td>
                         <td class="w-1/3 p-3">
-                            {{ currentDiet()->getDuration() }} days
+                            {{ currentDiet()->duration }} days
                         </td>
                     </tr>
                     <tr class="bg-indigo-200">
@@ -69,7 +69,7 @@
                             Days Left
                         </td>
                         <td class="w-1/3 p-3">
-                            {{ currentDiet()->getDaysLeft() }} days
+                            {{ currentDiet()->daysLeft }} days
                         </td>
                     </tr>
                 </tbody>

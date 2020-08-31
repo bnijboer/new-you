@@ -16,9 +16,12 @@ class DietController extends Controller
         $diet = Diet::make($this->validateDiet());
         
         $diet->user_id = auth()->id();
-        $diet->setEndDate();
         
         $diet->save();
+        
+        $diet->ends_at = $diet->endDate;
+        
+        $diet->update();
         
         currentUser()->activateDiet($diet);
         
