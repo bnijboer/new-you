@@ -45,7 +45,7 @@ class LogController extends Controller
         
         $log->save();
         
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('success', 'Log added!');
     }
     
     private function validateLog()

@@ -57,4 +57,13 @@ class Diet extends Model
         $currentDate = currentDate();
         return $endDate->diffInDays($currentDate);
     }
+    
+    public function activate()
+    {
+        $this->ends_at = $this->endDate;
+        
+        $this->update();
+        
+        currentUser()->activateDiet($this);
+    }
 }

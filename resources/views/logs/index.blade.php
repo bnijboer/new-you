@@ -57,62 +57,88 @@
         </div>
         
         <div class="flex">
-            <div class="w-1/2 bg-pink-300 rounded-lg p-4 mx-4">
-                
-                <div class="text-center text-2xl font-semibold py-2">
-                    Logs
-                </div>
-
-                <div class="text-center m-3">
-                    <div class="flex font-semibold  mt-8">
-                        <div class="w-1/6 bg-gray-400 py-3 rounded-tl-lg">
-                            Name
-                        </div>
-                        <div class="w-1/6 bg-gray-500 py-3">
-                            Brand
-                        </div>
-                        <div class="w-1/6 bg-gray-400 py-3">
-                            Energy (Cal)
-                        </div>
-                        <div class="w-1/6 bg-gray-500 py-3">
-                            Protein (g)
-                        </div>
-                        <div class="w-1/6 bg-gray-400 py-3">
-                            Fat (g)
-                        </div>
-                        <div class="w-1/6 bg-gray-500 py-3 rounded-tr-lg">
-                            Carbs (g)
-                        </div>
-                    </div>
-
-                    @forelse ($logs as $log)
-                        <div class="flex">
-                            <div class="w-1/5 bg-gray-400 py-2">
-                                {{ $log->product->name }}
+        
+            <div class="w-1/2 bg-pink-300 mx-4">
+                <div class="bg-white">
+                    <table class="w-full">
+                        <thead>
+                            <div class="bg-blue-400 text-center text-2xl font-bold text-white uppercase py-2">
+                                Logs
                             </div>
-                            <div class="w-1/5 bg-gray-500 py-2">
-                                @isset($log->product->brand)
-                                    {{ $log->product->brand }}
-                                @endisset
-                            </div>
-                            <div class="w-1/5 bg-gray-400 py-2">
-                                {{ $log->energy }}
-                            </div>
-                            <div class="w-1/5 bg-gray-500 py-2">
-                                {{ $log->protein }}
-                            </div>
-                            <div class="w-1/5 bg-gray-400 py-2">
-                                {{ $log->fat }}
-                            </div>
-                            <div class="w-1/5 bg-gray-500 py-2">
-                                {{ $log->carbs }}
-                            </div>
-                        </div>
-                    @empty
-                        <div class="w-full p-3">
-                            No logs so far.
-                        </div>
-                    @endforelse
+                        </thead>
+                        <tbody>
+                            @forelse ($logs as $log)
+                                <tr class="text-xl font-semibold text-gray-700">
+                                    <td class="w-1/6 text-center bg-blue-100 py-2">
+                                        {{ $log->created_at->isoFormat('HH:mm') }}
+                                    </td>
+                                    <td class="w-2/3 text-center bg-blue-200 py-2">
+                                        {{ $log->product->name }}
+                                        
+                                        @isset($log->product->brand)
+                                            ({{ $log->product->brand }})
+                                        @endisset
+                                    </td>
+                                    <td class="w-1/6 text-center text-white bg-blue-300 py-2">
+                                        <button class="toggler focus:outline-none">
+                                            <i class="fas fa-info"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <div>
+                                    <tr class="target hidden text-xl font-semibold text-gray-700">
+                                        <td class="w-1/6 text-center bg-blue-100 py-2"></td>
+                                        <td class="w-2/3 bg-blue-200 py-2 px-4">
+                                            <table class="w-full text-sm text-gray-600">
+                                                <tr>
+                                                    <td class="w-1/2">
+                                                        Energy:
+                                                    </td>
+                                                    <td class="w-1/2">
+                                                        {{ $log->energy }} kcal
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="w-1/2">
+                                                        Protein:
+                                                    </td>
+                                                    <td class="w-1/2">
+                                                        {{ $log->protein }} g
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="w-1/2">
+                                                        Fat:
+                                                    </td>
+                                                    <td class="w-1/2">
+                                                        {{ $log->fat }} g
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="w-1/2">
+                                                        Carbohydrates:
+                                                    </td>
+                                                    <td class="w-1/2">
+                                                        {{ $log->carbs }} g
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="w-1/6 text-center text-white bg-blue-300 py-2"></td>
+                                    </tr>
+                                </div>
+                            @empty
+                                <tr class="flex justify-center">
+                                    <td>
+                                    No logs so far.
+                                        
+                                    </td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                        
+                    </table>
                 </div>
             </div>
             

@@ -27,6 +27,9 @@ Route::middleware('auth')->group(function ()
     
     Route::get('/diets/{diet}', 'DietController@create');
     Route::post('/diets', 'DietController@store');
+    
+    Route::get('/diets/activate', 'DietController@activate')->name('activate');
+    
 	Route::patch('/diets/{diet}', 'DietController@update');
     Route::delete('/diets/{diet}', 'DietController@destroy');
     

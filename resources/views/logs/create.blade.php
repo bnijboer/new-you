@@ -8,19 +8,6 @@
         <div class="text-center text-2xl py-2">
             Add Intake Log
         </div>
-        
-        <!-- <div>
-            <form action="/search" method="POST" role="search">
-                @csrf
-                
-                <div>
-                    <input type="text" name="product_name" placeholder="Search products">
-                    <button type="submit">
-                        Search
-                    </button>
-                </div>
-            </form>
-        </div> -->
 
         @isset($product)
             <div class="flex justify-center mt-8">
