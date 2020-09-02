@@ -1,4 +1,4 @@
-<div class="p-4 mx-4">
+<div class="bg-purple-200 rounded p-4">
     <ul>
         <li>
             <a class="font-bold text-lg mb-4 block" href="{{ route('dashboard') }}">Dashboard</a>
