@@ -1,13 +1,13 @@
 <template>
-    <canvas id="pieChart"></canvas>
+    <canvas id="requiredPieChart"></canvas>
 </template>
 
 <script>
     export default {
-        name: 'pie-chart',
-        props: ['totalIntake'],
+        name: 'required-pie-chart',
+        props: ['requiredIntake'],
         mounted() {
-            var ctx = document.getElementById('pieChart').getContext('2d');
+            var ctx = document.getElementById('requiredPieChart').getContext('2d');
 
             var myPieChart = new Chart(ctx, {
                 type: 'pie',
@@ -15,14 +15,14 @@
                     labels: ['Protein', 'Fat', 'Carbohydrates'],
                     datasets: [{
                         backgroundColor: [
-                            'rgb(255, 99, 132)',
-                            'rgb(10, 230, 40)',
-                            'rgb(155, 99, 232)'
+                            '#F78079',
+                            '#E9F748',
+                            '#60AEF7'
                         ],
                         data: [
-                            this.totalIntake.protein,
-                            this.totalIntake.fat,
-                            this.totalIntake.carbs
+                            this.requiredIntake.protein,
+                            this.requiredIntake.fat,
+                            this.requiredIntake.carbs
                         ]
                     }]
                 },

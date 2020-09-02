@@ -19,7 +19,15 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('pie-chart', require('./components/PieChart.vue').default);
+Vue.component(
+    'required-pie-chart',
+    require('./components/RequiredPieChart.vue').default
+);
+
+Vue.component(
+    'total-pie-chart',
+    require('./components/TotalPieChart.vue').default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
