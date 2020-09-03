@@ -7,37 +7,33 @@
 
     <!-- DATE/TIME SELECT HEADER -->
     
-    <div class="bg-indigo-200 text-center rounded-lg mb-4">
-        <div class="py-2">
-            <div class="text-3xl font-semibold">
-                Nutritional Intake Of
+    <div class="bg-indigo-200 text-center rounded-lg py-4 mb-4">
+        <div class="text-3xl text-gray-800 font-semibold uppercase">
+            Nutritional Intake
+        </div>
+        <div class="flex justify-center text-2xl text-gray-700 my-3">
+            <form action="/dates" method="POST">
+                @csrf
+                <button class="focus:outline-none" type="submit" name="previous" value="{{ $shownDate->toDateString() }}">
+                    <i class="fas fa-angle-left"></i>
+                </button>
+            </form>
+            <div class="mx-6">
+                {{ $shownDate->isoFormat('dddd, MMMM D, YYYY') }}
             </div>
-            <div class="text-2xl flex justify-center my-3">
-                <div>
+            <div>
+                @if (! $shownDate->isSameDay(currentDate()) )
                     <form action="/dates" method="POST">
                         @csrf
-                        <button class="focus:outline-none" type="submit" name="previous" value="{{ $shownDate->toDateString() }}">
-                            <i class="fas fa-angle-left"></i>
+                        <button class="focus:outline-none" type="submit" name="next" value="{{ $shownDate->toDateString() }}">
+                            <i class="fas fa-angle-right"></i>
                         </button>
                     </form>
-                </div>
-                <div class="mx-6">
-                    {{ $shownDate->isoFormat('dddd, MMMM D, YYYY') }}
-                </div>
-                <div>
-                    @if (! $shownDate->isSameDay(currentDate()) )
-                        <form action="/dates" method="POST">
-                            @csrf
-                            <button class="focus:outline-none" type="submit" name="next" value="{{ $shownDate->toDateString() }}">
-                                <i class="fas fa-angle-right"></i>
-                            </button>
-                        </form>
-                    @endif
-                </div>
+                @endif
             </div>
         </div>
-        <div class="my-4">
-            <label for="date-picker" class="block mb-2 uppercase font-bold text-xs text-gray-700">Previous Logs:</label>
+        <div class="pt-4 pb-2">
+            <label for="date-picker" class="block mb-2 uppercase font-bold text-xs text-gray-600">Previous Logs:</label>
             <form action="/dates" method="POST">
                 @csrf
                 <input
@@ -65,20 +61,20 @@
                             Logs
                         </div>
                     </thead>
-                    <tbody class="bg-blue-100">
+                    <tbody>
                         @forelse ($logs as $log)
-                            <tr class="w-full text-xl text-center font-semibold text-gray-700 {{ $loop->even ? 'bg-blue-100' : 'bg-indigo-100' }}">
-                                <td class="w-1/6 py-4">
+                            <tr class="w-full text-xl text-center font-semibold text-gray-700">
+                                <td class="w-1/6 bg-blue-100 py-4">
                                     {{ $log->created_at->isoFormat('HH:mm') }}
                                 </td>
-                                <td class="w-2/3 py-4">
+                                <td class="w-2/3 bg-blue-200 py-4">
                                     {{ $log->product->name }}
                                     
                                     @isset($log->product->brand)
                                         ({{ $log->product->brand }})
                                     @endisset
                                 </td>
-                                <td class="w-1/6 text-white py-4">
+                                <td class="w-1/6 bg-blue-300 text-white py-4">
                                     <button class="toggler focus:outline-none">
                                         <i class="fas fa-info"></i>
                                     </button>
@@ -86,8 +82,8 @@
                             </tr>
                                 <tr class="target hidden">
                                     <td class="w-1/6 bg-blue-100 pb-2"></td>
-                                    <td class="w-2/3 pb-2 px-4">
-                                        <table class="font-semibold text-sm text-gray-600">
+                                    <td class="w-2/3 bg-blue-200 pb-2 px-4">
+                                        <table class="w-full font-semibold text-sm text-gray-600">
                                             <tr>
                                                 <td class="w-1/2">
                                                     Energy:
@@ -133,13 +129,6 @@
                             </tr>
                         @endforelse
                     </tbody>
-                    <tfoot class="bg-blue-100">
-                        <tr>
-                            <td class="w-1/2 py-6">
-                                <a href="/search" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">New Log</a>
-                            </td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
             

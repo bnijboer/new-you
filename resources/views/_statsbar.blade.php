@@ -9,10 +9,10 @@
             </thead>
             <tbody class="text-sm bg-white font-semibold text-gray-700">
                 <tr>
-                    <td class="w-32 p-3 font-bold">
+                    <td class="w-2/3 p-3 font-bold">
                         Goal
                     </td>
-                    <td class="p-3">
+                    <td class="w-1/3 p-3 text-gray-600">
                         
                         @if (currentDiet()->starting_weight - currentDiet()->target_weight > 0)
                             Lose 
@@ -25,50 +25,50 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="w-2/3 p-3 font-bold">
+                    <td class="p-3 font-bold">
                         Starting Weight
                     </td>
-                    <td class="w-1/3 p-3">
+                    <td class="p-3 text-gray-600">
                         {{ currentDiet()->starting_weight }} kg
                     </td>
                 </tr>
                 <tr>
-                    <td class="w-2/3 p-3 font-bold">
+                    <td class="p-3 font-bold">
                         Current Weight
                     </td>
-                    <td class="w-1/3 p-3">
+                    <td class="p-3 text-gray-600">
                         {{ currentUser()->current_weight }} kg
                     </td>
                 </tr>
                 <tr>
-                    <td class="w-2/3 p-3 font-bold">
+                    <td class="p-3 font-bold">
                         Target Weight
                     </td>
-                    <td class="w-1/3 p-3">
+                    <td class="p-3 text-gray-600">
                         {{ currentDiet()->target_weight }} kg
                     </td>
                 </tr>
                 <tr>
-                    <td class="w-2/3 p-3 font-bold">
+                    <td class="p-3 font-bold">
                         End Date
                     </td>
-                    <td class="w-1/3 p-3">
+                    <td class="p-3 text-gray-600">
                         {{ currentDiet()->ends_at->format('D, d M. Y') }}
                     </td>
                 </tr>
                 <tr>
-                    <td class="w-2/3 p-3 font-bold">
+                    <td class="p-3 font-bold">
                         Total Duration
                     </td>
-                    <td class="w-1/3 p-3">
+                    <td class="p-3 text-gray-600">
                         {{ currentDiet()->duration }} days
                     </td>
                 </tr>
                 <tr>
-                    <td class="w-2/3 p-3 font-bold">
+                    <td class="p-3 font-bold">
                         Days Left
                     </td>
-                    <td class="w-1/3 p-3">
+                    <td class="p-3 text-gray-600">
                         {{ currentDiet()->daysLeft }} days
                     </td>
                 </tr>
