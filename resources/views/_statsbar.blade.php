@@ -1,9 +1,9 @@
-<div class="justify-center border-2 border-green-400 bg-green-300 rounded-lg mt-4 p-2">
+<div class="justify-center border-2 border-green-400 bg-green-300 rounded-lg p-2">
 
     @if (currentDiet())
         <table class="table-fixed">
             <thead>
-                <div class="bg-green-300 text-center text-xl font-extrabold text-white uppercase py-2">
+                <div class="bg-green-300 text-center text-xl font-extrabold text-white uppercase pb-2">
                     Diet
                 </div>
             </thead>

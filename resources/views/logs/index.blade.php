@@ -75,7 +75,7 @@
                                     @endisset
                                 </td>
                                 <td class="w-1/6 bg-blue-300 text-white py-4">
-                                    <button class="toggler focus:outline-none">
+                                    <button class="log-info focus:outline-none">
                                         <i class="fas fa-info"></i>
                                     </button>
                                 </td>
@@ -137,7 +137,7 @@
         
         <!-- RATIO CHARTS AND TOTAL/REQUIRED INTAKE TABLES -->
         
-        <div class="w-1/2 border-2 border-blue-100 shadow-lg rounded-lg p-4">
+        <div class="w-1/2 bg-gray-100 border-2 border-blue-100 shadow-lg rounded-lg p-4">
             <div class="flex justify-around mx-auto">
                 @if (! $logs->isEmpty())
                     <div class="w-1/2">
