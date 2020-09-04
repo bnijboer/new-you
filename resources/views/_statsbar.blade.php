@@ -4,7 +4,7 @@
         <table class="table-fixed">
             <thead>
                 <div class="bg-green-300 text-center text-xl font-extrabold text-white uppercase pb-2">
-                    Diet
+                    Your Diet
                 </div>
             </thead>
             <tbody class="text-sm bg-white font-semibold text-gray-700">
@@ -14,11 +14,7 @@
                     </td>
                     <td class="w-1/3 p-3 text-gray-600">
                         
-                        @if (currentDiet()->starting_weight - currentDiet()->target_weight > 0)
-                            Lose 
-                        @else
-                            Gain 
-                        @endif
+                        {{ (currentDiet()->starting_weight - currentDiet()->target_weight > 0) ? 'Lose' : 'Gain' }}
                         
                         {{ abs(currentDiet()->starting_weight - currentDiet()->target_weight) }} kg
                         

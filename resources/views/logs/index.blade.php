@@ -2,52 +2,69 @@
 
 @section('title', 'Dashboard')
 
-@section('banner-text', 'Nutritional Intake')
+@section('banner-text', 'Dashboard')
 
 @section('content')
 
 
     <!-- DATE/TIME SELECT HEADER -->
     
-    <div class="bg-indigo-200 text-center rounded-lg py-4 mb-4">
-        <div class="flex justify-center text-2xl text-gray-700 my-3">
+    <div class="mt-4 mb-8">
+        <div class="w-1/3 mx-auto flex justify-between rounded-full border border-gray-200 text-2xl text-gray-700 overflow-hidden">
+            
             <form action="/dates" method="POST">
                 @csrf
-                <button class="focus:outline-none" type="submit" name="previous" value="{{ $shownDate->toDateString() }}">
-                    <i class="fas fa-angle-left"></i>
+                <button
+                    class="focus:outline-none"
+                    type="submit"
+                    name="previous"
+                    value="{{ $shownDate->toDateString() }}"
+                >
+                    <div class="bg-blue-300 hover:bg-blue-400 py-2 px-4">
+                        <i class="fas fa-angle-left"></i>
+                    </div>
                 </button>
             </form>
-            <div class="mx-6">
+                
+            <div class="py-2 mx-6">
                 {{ $shownDate->isoFormat('dddd, MMMM D, YYYY') }}
             </div>
-            <div>
-                @if (! $shownDate->isSameDay(currentDate()) )
-                    <form action="/dates" method="POST">
-                        @csrf
-                        <button class="focus:outline-none" type="submit" name="next" value="{{ $shownDate->toDateString() }}">
+            @if($shownDate->isSameDay(currentDate()))
+                <div class="py-2 px-4"></div>
+            @else
+                <form action="/dates" method="POST">
+                    @csrf
+                    <button
+                        class="focus:outline-none"
+                        type="submit"
+                        name="next"
+                        value="{{ $shownDate->toDateString() }}"
+                        {{ $shownDate->isSameDay(currentDate()) ? 'disabled' : '' }}
+                    >
+                        <div class="bg-blue-300 hover:bg-blue-400 py-2 px-4">
                             <i class="fas fa-angle-right"></i>
-                        </button>
-                    </form>
-                @endif
-            </div>
+                        </div>
+                    </button>
+                </form>
+            @endif
         </div>
-        <div class="pt-4 pb-2">
-            <label for="date-picker" class="block mb-2 uppercase font-bold text-xs text-gray-600">Previous Logs:</label>
+        
+        <div class="w-1/3 flex justify-center mx-auto mt-4">
+            <label for="date-picker" class="uppercase font-bold text-xs text-gray-600 mt-2 mr-3">Previous Logs:</label>
             <form action="/dates" method="POST">
                 @csrf
                 <input
-                    class="p-1 text-center border border-gray-300 rounded-lg"
+                    class="p-1 text-center border border-gray-300 rounded-md"
                     type="date"
                     id="date-picker"
                     name="date"
                     value="{{ $shownDate->toDateString() }}"
                     max="{{ currentDate()->toDateString() }}"
                 >
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" type="submit">View</button>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded-md" type="submit">View</button>
             </form>
         </div>
     </div>
-    
     
     <!-- LOG OVERVIEW -->
     
