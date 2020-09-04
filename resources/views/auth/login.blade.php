@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="flex justify-between mb-4">
-                    <a href="{{ route('landing') }}" class="bg-gray-500 hover:bg-gray-600 text-white rounded px-5 py-3">
+                    <a href="/" class="bg-gray-500 hover:bg-gray-600 text-white rounded px-5 py-3">
                         Back
                     </a>
 

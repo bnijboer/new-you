@@ -1,5 +1,7 @@
 <x-master>
 
+    @section('title', 'Start')
+
     <div class="container w-1/2 bg-blue-200 rounded-lg text-center mx-auto mt-20 p-4">
 
         <div class="text-2xl">

@@ -13,10 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function ()
-{
-	return view('landing');
-})->name('landing');
+Route::get('/', 'PagesController');
 
 Route::middleware('auth')->group(function ()
 {
@@ -28,15 +25,7 @@ Route::middleware('auth')->group(function ()
     Route::get('/diets/{diet}', 'DietController@create');
     Route::post('/diets', 'DietController@store');
     
-    Route::get('/diets/activate', 'DietController@activate')->name('activate');
-    
-	Route::patch('/diets/{diet}', 'DietController@update');
-    Route::delete('/diets/{diet}', 'DietController@destroy');
-    
-    
     Route::post('/dates', 'DateController@store')->name('date');
-    
-    // Route::get('/testindex', 'DateController@index');
     
     Route::get('/logs', 'LogController@index')->name('dashboard');    
     Route::post('/logs/create', 'LogController@create');
