@@ -2,15 +2,14 @@
 
 @section('title', 'Dashboard')
 
+@section('banner-text', 'Nutritional Intake')
+
 @section('content')
 
 
     <!-- DATE/TIME SELECT HEADER -->
     
     <div class="bg-indigo-200 text-center rounded-lg py-4 mb-4">
-        <div class="text-3xl text-gray-800 font-semibold uppercase">
-            Nutritional Intake
-        </div>
         <div class="flex justify-center text-2xl text-gray-700 my-3">
             <form action="/dates" method="POST">
                 @csrf
@@ -137,100 +136,105 @@
         
         <!-- RATIO CHARTS AND TOTAL/REQUIRED INTAKE TABLES -->
         
-        <div class="w-1/2 bg-gray-100 border-2 border-blue-100 shadow-lg rounded-lg p-4">
-            <div class="flex justify-around mx-auto">
-                @if (! $logs->isEmpty())
+        <div class="w-1/2 bg-gray-100 border-2 border-blue-100 shadow-lg rounded-lg">
+            <div class="bg-indigo-400 border border-indigo-500 text-center text-2xl text-white font-bold uppercase py-2">
+                Nutritional Intake
+            </div>
+            <div class="p-4">
+                <div class="flex justify-around mx-auto">            
+                    @if (! $logs->isEmpty())
+                        <div class="w-1/2">
+                            <div class="text-center text-2xl font-semibold py-4">
+                                Current Ratio
+                            </div>
+                            <div>
+                                <total-pie-chart :total-intake=@json($totalIntake)></total-pie-chart>
+                            </div>
+                        </div>
+                    @endif
+                    
                     <div class="w-1/2">
                         <div class="text-center text-2xl font-semibold py-4">
-                            Current Ratio
+                            Optimal Ratio
                         </div>
                         <div>
-                            <total-pie-chart :total-intake=@json($totalIntake)></total-pie-chart>
+                            <required-pie-chart :required-intake=@json($requiredIntake)></required-pie-chart>
                         </div>
                     </div>
-                @endif
+                </div>
                 
-                <div class="w-1/2">
-                    <div class="text-center text-2xl font-semibold py-4">
-                        Optimal Ratio
+                <div class="flex justify-around mt-5">
+                    <div class="w-1/3 m-6">
+                        <table class="w-full table-fixed border border-indigo-200 shadow-sm">
+                            <thead>
+                                <div class="bg-indigo-400 text-center text-xl font-bold text-white uppercase py-2">
+                                    Current Total
+                                </div>
+                            </thead>
+                            
+                            <tbody class="bg-indigo-100 text-sm font-semibold text-gray-700">
+                                <tr>
+                                    <td class="w-39 p-3">Energy</td>
+                                    <td class="p-3 text-gray-600">
+                                        {{ $totalIntake->energy }} kcal
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Protein</td>
+                                    <td class="p-3 text-gray-600">
+                                        {{ $totalIntake->protein }} g
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Fat</td>
+                                    <td class="p-3 text-gray-600">
+                                        {{ $totalIntake->fat }} g
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Carbohydrates</td>
+                                    <td class="p-3 text-gray-600">
+                                        {{ $totalIntake->carbs }} g
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div>
-                        <required-pie-chart :required-intake=@json($requiredIntake)></required-pie-chart>
+                    <div class="w-1/3 m-6">
+                        <table class="w-full table-fixed border border-indigo-200 shadow-sm">
+                            <thead>
+                                <div class="bg-indigo-400 text-center text-xl font-bold text-white uppercase py-2">
+                                    Required
+                                </div>
+                            </thead>
+                            <tbody class="bg-indigo-100 text-sm font-semibold text-gray-700">
+                                <tr>
+                                    <td class="w-39 p-3">Energy</td>
+                                    <td class="p-3 text-gray-600">
+                                        {{ $requiredIntake->energy - $totalIntake->energy }} kcal
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Protein</td>
+                                    <td class="p-3 text-gray-600">
+                                        {{ $requiredIntake->protein - $totalIntake->protein }} g
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Fat</td>
+                                    <td class="p-3 text-gray-600">
+                                        {{ $requiredIntake->fat - $totalIntake->fat }} g
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">Carbohydrates</td>
+                                    <td class="p-3 text-gray-600">
+                                        {{ $requiredIntake->carbs - $totalIntake->carbs }} g
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-            </div>
-            
-            <div class="flex justify-around mt-5">
-                <div class="w-1/3 m-6">
-                    <table class="w-full table-fixed border border-indigo-200 shadow-sm">
-                        <thead>
-                            <div class="bg-indigo-400 text-center text-xl font-bold text-white uppercase py-2">
-                                Total Intake
-                            </div>
-                        </thead>
-                        
-                        <tbody class="bg-indigo-100 text-sm font-semibold text-gray-700">
-                            <tr>
-                                <td class="w-39 p-3">Energy</td>
-                                <td class="p-3 text-gray-600">
-                                    {{ $totalIntake->energy }} kcal
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-3">Protein</td>
-                                <td class="p-3 text-gray-600">
-                                    {{ $totalIntake->protein }} g
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-3">Fat</td>
-                                <td class="p-3 text-gray-600">
-                                    {{ $totalIntake->fat }} g
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-3">Carbohydrates</td>
-                                <td class="p-3 text-gray-600">
-                                    {{ $totalIntake->carbs }} g
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="w-1/3 m-6">
-                    <table class="w-full table-fixed border border-indigo-200 shadow-sm">
-                        <thead>
-                            <div class="bg-indigo-400 text-center text-xl font-bold text-white uppercase py-2">
-                                Required Intake
-                            </div>
-                        </thead>
-                        <tbody class="bg-indigo-100 text-sm font-semibold text-gray-700">
-                            <tr>
-                                <td class="w-39 p-3">Energy</td>
-                                <td class="p-3 text-gray-600">
-                                    {{ $requiredIntake->energy - $totalIntake->energy }} kcal
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-3">Protein</td>
-                                <td class="p-3 text-gray-600">
-                                    {{ $requiredIntake->protein - $totalIntake->protein }} g
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-3">Fat</td>
-                                <td class="p-3 text-gray-600">
-                                    {{ $requiredIntake->fat - $totalIntake->fat }} g
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-3">Carbohydrates</td>
-                                <td class="p-3 text-gray-600">
-                                    {{ $requiredIntake->carbs - $totalIntake->carbs }} g
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
