@@ -1,6 +1,5 @@
-<div class="justify-center border-2 border-green-400 bg-green-300 rounded-lg p-2">
-
-    @if (currentDiet())
+@if (currentDiet())
+    <div class="justify-center border-2 border-green-400 bg-green-300 rounded-lg p-2">
         <table class="table-fixed">
             <thead>
                 <div class="bg-green-300 text-center text-xl font-extrabold text-white uppercase pb-2">
@@ -70,18 +69,21 @@
                 </tr>
             </tbody>
         </table>
-    @else
-        <div class="text-center text-md font-semibold pt-2 pb-4">
+    </div>
+@else
+    <div class="justify-center text-center border border-green-400 rounded-lg p-2 shadow-lg">
+        <div class="bg-green-100 font-semibold rounded-lg py-3">
             You are currently at maintenance.
         </div>
-        <div class="m-4 text-center">
+        <div class="pt-6 pb-3">
             <a
-                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full"
                 href="/diets/create"
             >
-                Start Diet
+                Create Diet
             </a>
         </div>
-    @endif
+    </div>
+@endif
 
 </div>

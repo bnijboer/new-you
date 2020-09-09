@@ -1,74 +1,152 @@
-<x-master>
-    <div class="mx-auto mt-12 flex justify-center">
-        <div class="px-12 py-4 bg-blue-200 border border-gray-300 rounded-lg">
-            <div class="font-bold text-center text-lg mb-4">{{ __('Register') }}</div>
+@extends('layouts.landing')
+    
+@section('title', 'Register')
 
+@section('content')
+
+    <div class="flex justify-center text-center">
+        <div class="w-1/3 rounded-lg">
+            @include('_logo')
+        </div>
+    </div>
+    
+    <div class="flex justify-center text-center mt-12">
+        <div class="w-1/3 bg-green-100 border border-gray-200 rounded-lg shadow-lg pt-5">
+        
+            <div class="text-xl font-semibold text-gray-700">
+                Create your account
+            </div>
+            
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-
-                <div class="flex">
-
-                    <div class="w-1/2 mr-16">
-
-                        <div class="mb-6">
-                            <label for="username" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                
+                <div class="flex justify-around pt-4">
+                    
+                    <div class="w-1/2 justify-center px-12">
+                        <div class="py-6">
+                            <label
+                                for="username"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
                                 Username
                             </label>
 
-                            <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
-
+                            <input
+                                class="border border-gray-400 p-2 w-full"
+                                type="text"
+                                name="username"
+                                id="username"
+                                autocomplete="username"
+                                value="{{ old('username') }}"
+                                required
+                            >
+                            
                             @error('username')
                                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
-
-                        <div class="mb-6">
-                            <label for="email" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                        
+                        <div class="pb-6">
+                            <label
+                                for="email"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
                                 Email
                             </label>
 
-                            <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input
+                                class="border border-gray-400 p-2 w-full"
+                                type="email"
+                                name="email"
+                                id="email"
+                                autocomplete="email"
+                                value="{{ old('email') }}"
+                                required
+                            >
 
                             @error('email')
                                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
 
-                        <div class="mb-6">
-                            <label for="password" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                        <div class="pb-6">
+                            <label
+                                for="password"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
                                 Password
                             </label>
 
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="new-password" autofocus>
+                            <input
+                                class="border border-gray-400 p-2 w-full"
+                                type="password"
+                                name="password"
+                                id="password"
+                                autocomplete="new-password"
+                                required
+                            >
 
                             @error('password')
                                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
-
-                        <div class="mb-6">
-                            <label for="password-confirm" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                        
+                        <div class="pb-6">
+                            <label
+                                for="password-confirm"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
                                 Confirm Password
                             </label>
 
-                            <input id="password-confirm" type="password" class="form-control @error('password-confirm') is-invalid @enderror" name="password_confirmation" value="{{ old('password-confirm') }}" required autocomplete="new-password" autofocus>
+                            <input
+                                class="border border-gray-400 p-2 w-full"
+                                type="password"
+                                name="password_confirmation"
+                                id="password-confirm"
+                                autocomplete="new-password"
+                                required
+                            >
 
                             @error('password-confirm')
                                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
-
-                    <div class="w-1/2">
-                        <div class="mb-6">
-                            <div class="flex">
+                    
+                    <div class="w-1/2 justify-center px-12">
+                        <div class="py-6">
+                            <div class="flex justify-center">
                                 <div>
-                                    <label for="male" class="block mb-2 uppercase font-bold text-xs text-gray-700">Male</label>
-                                    <input type="radio" id="male" name="gender" value="male" @if(old('gender') === 'male') {{ "checked" }} @endif>
+                                    <label
+                                        for="male"
+                                        class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                    >
+                                        Male
+                                    </label>
+                                    <input
+                                        type="radio"
+                                        id="male"
+                                        name="gender"
+                                        value="male"
+                                        @if(old('gender') === 'male') {{ "checked" }} @endif
+                                    >
                                 </div>
                                 <div class="ml-6">
-                                    <label for="female" class="block mb-2 uppercase font-bold text-xs text-gray-700">Female</label>
-                                    <input type="radio" id="female" name="gender" value="female" @if(old('gender') === 'female') {{ "checked" }} @endif>
+                                    <label
+                                        for="female"
+                                        class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                    >
+                                        Female
+                                    </label>
+                                    <input
+                                        type="radio"
+                                        class="border border-gray-400 p-2 w-full"
+                                        id="female"
+                                        name="gender"
+                                        value="female"
+                                        @if(old('gender') === 'female') {{ "checked" }} @endif
+                                    >
                                 </div>
                             </div>
 
@@ -76,55 +154,90 @@
                                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
-
+                        
+                        
                         <div class="mb-6">
-                            <label for="age" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                            <label
+                                for="age"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
                                 Age
                             </label>
 
-                            <input id="age" type="number" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus>
+                            <input
+                                id="age"
+                                type="number"
+                                class="border border-gray-400 p-2 w-full"
+                                name="age" value="{{ old('age') }}"
+                                autocomplete="age"
+                                required
+                            >
 
                             @error('age')
                                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
-
+                        
                         <div class="mb-6">
-                            <label for="height" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                            <label
+                                for="height"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
                                 Height in cm
                             </label>
 
-                            <input id="height" type="number" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height') }}" required autocomplete="height" autofocus>
+                            <input
+                                id="height"
+                                type="number"
+                                class="border border-gray-400 p-2 w-full"
+                                name="height"
+                                value="{{ old('height') }}"
+                                autocomplete="height"
+                                required
+                            >
 
                             @error('height')
                                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
-
+                        
                         <div class="mb-6">
-                            <label for="current_weight" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                            <label
+                                for="current_weight"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
                                 Current weight in kg
                             </label>
 
-                            <input id="current_weight" type="number" class="form-control @error('current_weight') is-invalid @enderror" name="current_weight" value="{{ old('current_weight') }}" required autocomplete="current_weight" autofocus>
+                            <input
+                                id="current_weight"
+                                type="number"
+                                class="border border-gray-400 p-2 w-full"
+                                name="current_weight"
+                                value="{{ old('current_weight') }}"
+                                autocomplete="current_weight"
+                                required
+                            >
 
                             @error('current_weight')
                                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
 
-                        <div class="mb-16">
-                            <label for="activity_level" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                        <div class="mb-8">
+                            <label
+                                for="activity_level"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
                                 Current activity level
                             </label>
                             
                             <select
-                                class="form-control @error('activity_level') is-invalid @enderror"
                                 id="activity_level"
                                 name="activity_level"
-                                required
+                                class="border border-gray-400 p-2 w-full"
                                 autocomplete="activity_level"
-                                autofocus
+                                required
                             >
                                 <option
                                     value="1.2"
@@ -164,18 +277,25 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="flex justify-between">
-                    <a href="{{ route('landing') }}" class="bg-gray-500 hover:bg-gray-600 text-white rounded px-5 py-3">
+        
+                <div class="flex justify-between mb-4 px-12">
+                    <a
+                        href="{{ route('landing') }}"
+                        class="bg-gray-500 hover:bg-gray-600 text-white font-bold rounded-full uppercase px-5 py-3 focus:outline-none"
+                    >
                         Back
                     </a>
-
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white rounded px-5 py-3">
-                        {{ __('Register') }}
+                    <button
+                        type="submit"
+                        class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-full uppercase px-5 py-3 focus:outline-none"
+                    >
+                        Register
                     </button>
                 </div>
-
+                
             </form>
+            
         </div>
     </div>
-</x-master>
+    
+@endsection

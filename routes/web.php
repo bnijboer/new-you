@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PagesController');
+Route::get('/', 'PagesController')->name('landing');
 
 Route::middleware('auth')->group(function ()
 {
