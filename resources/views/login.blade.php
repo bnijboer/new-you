@@ -19,7 +19,7 @@
                     class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-full uppercase px-5 py-3 focus:outline-none"
                     href="{{ route('register') }}"
                 >
-                    Register
+                    Sign Up
                 </a>
             </div>
             
@@ -110,7 +110,7 @@
                             type="submit"
                             class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-full uppercase px-5 py-3 focus:outline-none"
                         >
-                            Login
+                            Log In
                         </button>
                     </div>
                     

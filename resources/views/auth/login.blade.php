@@ -46,12 +46,12 @@
                 </div>
 
                 <div class="flex justify-between mb-4">
-                    <a href="/" class="bg-gray-500 hover:bg-gray-600 text-white rounded px-5 py-3">
+                    <a href="/" class="bg-gray-500 hover:bg-gray-600 text-white rounded-full px-5 py-3">
                         Back
                     </a>
 
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white rounded px-5 py-3">
-                        Submit
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-5 py-3">
+                        Log In
                     </button>
                 </div>
 

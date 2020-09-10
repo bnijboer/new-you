@@ -26,8 +26,19 @@
                 </button>
             </form>
                 
-            <div class="py-2 mx-6">
-                {{ $shownDate->isoFormat('dddd, MMMM D, YYYY') }}
+            <div>
+                <form action="/dates" method="POST">
+                    @csrf
+                    <input
+                        class="text-gray-600 hover:text-black focus:text-black focus:outline-none ml-16 mt-2"
+                        type="date"
+                        id="date-picker"
+                        name="date"
+                        value="{{ $shownDate->toDateString() }}"
+                        max="{{ currentDate()->toDateString() }}"
+                    >
+                    <input type="submit" hidden>
+                </form>
             </div>
             @if($shownDate->isSameDay(currentDate()))
                 <div class="py-2 px-4"></div>
@@ -47,22 +58,6 @@
                     </button>
                 </form>
             @endif
-        </div>
-        
-        <div class="w-1/3 flex justify-center mx-auto mt-4">
-            <label for="date-picker" class="uppercase font-bold text-xs text-gray-600 mt-2 mr-3">Previous Logs:</label>
-            <form action="/dates" method="POST">
-                @csrf
-                <input
-                    class="p-1 text-center border border-gray-300 rounded-md"
-                    type="date"
-                    id="date-picker"
-                    name="date"
-                    value="{{ $shownDate->toDateString() }}"
-                    max="{{ currentDate()->toDateString() }}"
-                >
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded-md" type="submit">View</button>
-            </form>
         </div>
     </div>
     
