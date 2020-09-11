@@ -36,8 +36,7 @@ Route::middleware('auth')->group(function ()
 	Route::post('/products', 'ProductController@store');
     Route::delete('/products/{product}', 'ProductController@destroy');
     
-    Route::get('/search', 'SearchController@index');
-    Route::get('/results', 'SearchController@search');
+    Route::get('/search', 'SearchController');
 });
 
 Auth::routes();

@@ -91,7 +91,7 @@
                                     </button>
                                 </td>
                             </tr>
-                                <tr class="target hidden">
+                                <tr class="hidden">
                                     <td class="w-1/6 bg-blue-100 pb-2"></td>
                                     <td class="w-2/3 bg-blue-200 pb-2 px-4">
                                         <table class="w-full font-semibold text-sm text-gray-600">
@@ -148,8 +148,8 @@
         
         <!-- RATIO CHARTS AND TOTAL/REQUIRED INTAKE TABLES -->
         
-        <div class="w-1/2 bg-gray-100 border-2 border-blue-100 shadow-lg rounded-lg">
-            <div class="bg-indigo-400 border border-indigo-500 text-center text-2xl text-white font-bold uppercase py-2">
+        <div class="w-1/2 bg-gray-100 rounded-lg shadow-lg">
+            <div class="bg-indigo-400 text-center text-2xl text-white font-bold uppercase py-2 rounded-t-lg">
                 Nutritional Intake
             </div>
             <div class="p-4">

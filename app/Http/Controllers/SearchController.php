@@ -6,18 +6,22 @@ use App\Product;
 
 class SearchController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
-        return view('search.index');
-    }
-    
-    public function search()
-    {
-        $query = request()->query('query');
-        $products = Product::where('name','LIKE','%' . $query . '%')->get();
+        $products = Product::all();
+        
+        if(request()->query()) {
+            $query = request()->query('query');
+            $results = Product::where('name','LIKE','%' . $query . '%')->get();
+            
+            return view('search.index', [
+                'results' => $results,
+                'products' => $products
+            ]);
+        }
         
         return view('search.index', [
-            'results' => $products
+            'products' => $products
         ]);
     }
 }
