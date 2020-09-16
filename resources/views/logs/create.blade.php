@@ -1,58 +1,144 @@
 @extends('layouts.app')
 
-@section('title', 'Create New Log')
+@section('title', 'Create Log')
+
+@section('banner-text', 'Create Log')
 
 @section('content')
 
-    <div class="bg-blue-300 rounded-lg w-full p-4 mx-auto">
-        <div class="text-center text-2xl py-2">
-            Add Intake Log
-        </div>
+    <div class="flex justify-center">
+        <div class="w-1/3">
+            <div class="bg-white rounded-lg shadow-lg">
+                <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
+                    Set Quantity
+                </div>
+                
+                @isset($product)
+                    <div class="py-6">
+                        <form action="/logs" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $product['id'] }}">
+                            <div class="flex py-4 px-6 text-left">
+                                <div class="w-1/2 text-gray-700 text-xl">
+                                
+                                    <input
+                                        type="hidden"
+                                        id="product_id"
+                                        name="product_id"
+                                        value="{{ $product->id }}"
+                                    >
+                                    
+                                    {{ $product->name }}
+                                    
+                                    @isset($product->brand)
+                                        ({{ $product->brand }})
+                                    @endisset
+                                    
+                                </div>
+                                <div class="w-1/2 text-gray-600 text-sm">
+                                    <div class="flex">
+                                        <div class="w-1/2">
+                                            Energy: 
+                                        </div>
+                                        <div class="w-1/4">
+                                            <input
+                                                class="w-full text-right focus:outline-none"
+                                                type="number"
+                                                id="energy"
+                                                name="energy"
+                                                value="{{ $product->energy }}"
+                                                readonly
+                                            >
+                                        </div>
+                                        <div class="w-1/4">
+                                            kcal
+                                        </div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="w-1/2">
+                                            Protein: 
+                                        </div>
+                                        <div class="w-1/4">
+                                            <input
+                                                class="w-full text-right focus:outline-none"
+                                                type="number"
+                                                id="protein" 
+                                                name="protein"
+                                                value="{{ $product->protein }}"
+                                                readonly
+                                            >
+                                        </div>
+                                        <div class="w-1/4">
+                                            g
+                                        </div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="w-1/2">
+                                            Fat: 
+                                        </div>
+                                        <div class="w-1/4 flex">
+                                            <input
+                                                class="w-full text-right focus:outline-none"
+                                                type="number"
+                                                id="fat"
+                                                name="fat"
+                                                value="{{ $product->fat }}"
+                                                readonly
+                                            >
+                                        </div>
+                                        <div class="w-1/4">
+                                            g
+                                        </div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="w-1/2">
+                                            Carbohydrates: 
+                                        </div>
+                                        <div class="w-1/4 flex">
+                                            <input
+                                                class="w-full text-right focus:outline-none"
+                                                type="number"
+                                                id="carbs"
+                                                name="carbs"
+                                                value="{{ $product->carbs }}"
+                                                readonly
+                                            >
+                                        </div>
+                                        <div class="w-1/4">
+                                            g
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="my-6 text-center">
+                                <label
+                                    for="quantity"
+                                    class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                >
+                                    Quantity
+                                </label>
 
-        @isset($product)
-            <div class="flex justify-center mt-8">
-                <form action="/logs" method="POST">
-                    @csrf
-                    
-                    <table class="table-auto">
-                        <thead>
-                            <tr>
-                                <th width="w-1/6">Energy</th>
-                                <th width="w-1/6">Protein</th>
-                                <th width="w-1/6">Fat</th>
-                                <th width="w-1/6">Carbs</th>
-                                <th width="w-1/6">Quantity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <input type="hidden" id="product_id" name="product_id" value="{{ $product->id }}">
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="energy" name="energy" value="{{ $product->energy }}" required>
-                                </td>
-                                <td>
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="protein" name="protein" value="{{ $product->protein }}" required>
-                                </td>
-                                <td>
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="fat" name="fat" value="{{ $product->fat }}" required>
-                                </td>
-                                <td>
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="carbs" name="carbs" value="{{ $product->carbs }}" required>
-                                </td>
-                                <td>
-                                    <input class="p-2 border border-gray-300 rounded-lg" type="number" id="quantity" value="{{ $product->quantity }}" required>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="flex justify-end mt-6 mb-3">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Add</button>
+                                <input
+                                    class="border border-gray-400 p-2 w-20"
+                                    type="number"
+                                    id="quantity"
+                                    value="{{ $product->quantity }}"
+                                    required
+                                >
+                            </div>
+                            <div class="flex justify-center mt-10">
+                                <button
+                                    type="submit"
+                                    class="w-32 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-full uppercase px-5 py-3 focus:outline-none"
+                                >
+                                    Add
+                                </button>
+                            </div>
+                        </form>
                     </div>
-
-                </form>
+                @endisset
             </div>
-        @endisset
+        </div>
     </div>
     
 @endsection

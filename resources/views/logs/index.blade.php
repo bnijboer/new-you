@@ -68,7 +68,7 @@
             <div class="bg-white border border-blue-500">
                 <table class="w-full">
                     <thead>
-                        <div class="bg-blue-400 text-center text-2xl text-white font-bold uppercase py-2">
+                        <div class="bg-blue-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2">
                             Logs
                         </div>
                     </thead>
@@ -149,7 +149,7 @@
         <!-- RATIO CHARTS AND TOTAL/REQUIRED INTAKE TABLES -->
         
         <div class="w-1/2 bg-gray-100 rounded-lg shadow-lg">
-            <div class="bg-indigo-400 text-center text-2xl text-white font-bold uppercase py-2 rounded-t-lg">
+            <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
                 Nutritional Intake
             </div>
             <div class="p-4">
@@ -254,5 +254,5 @@
 @endsection
 
 @push('scripts')
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 @endpush

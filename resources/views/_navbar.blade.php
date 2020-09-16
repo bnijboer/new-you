@@ -1,58 +1,68 @@
-<div class="sticky top-0 bg-gray-200 z-50 shadow-lg">
-    <ul class="flex justify-between">
-        <li>
-            <ul class="flex">
-                <li>
-                    <a class="inline-block" href="{{ route('dashboard') }}">
-                        <img class="h-16 w-full object-cover ml-3" style="object-position: 50% 40%" src="{{ asset('images/logo.png') }}">
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <ul class="flex">
-                <li class="text-gray-600 hover:text-blue-600 text-xl pt-4 px-4">
-                    <a class="outline-none" href="{{ route('profile', currentUser()->username) }}">
-                        <i class="fas fa-user"></i>
-                        {{ currentUser()->username }}
-                    </a>
-                </li>
-                <li>
-                    <button
-                        id="hamburger"
-                        class="inline-block text-2xl text-gray-600 hover:text-blue-600 focus:outline-none pt-4 px-4"
-                    >
-                        <i class="fa fa-bars"></i>
-                    </button>
-                </li>
-            </ul>
-            <div id="hamburgerLinks" class="hidden absolute right-0 bg-gray-100 border border-gray-300 bg-white text-gray-700 rounded-lg w-64 py-4">
-                <ul>
-                    <li class="hover:text-gray-800 hover:bg-blue-100 pl-16 py-2">
-                        <a class="font-bold text-lg focus:outline-none" href="{{ route('dashboard') }}">Dashboard</a>
-                    </li>
-                    <li class="hover:text-gray-800 hover:bg-blue-100 pl-16 py-2">
-                        <a class="font-bold text-lg focus:outline-none" href="{{ route('profile', currentUser()->username) }}">Profile</a>
-                    </li>
-                    <li class="hover:text-gray-800 hover:bg-blue-100 pl-16 py-2">
-                        <a class="font-bold text-lg focus:outline-none" href="/products">All Products</a>
-                    </li>
-                    <li class="hover:text-gray-800 hover:bg-blue-100 pl-16 py-2">
-                        <a class="font-bold text-lg focus:outline-none" href="/products/create">New Product</a>
-                    </li>
-                    <li class="hover:text-gray-800 hover:bg-blue-100 pl-16 py-2">
-                        <a class="font-bold text-lg focus:outline-none" href="/search">New Log</a>
-                    </li>
-                    <li class="hover:text-gray-800 hover:bg-blue-100 pl-16 py-2">
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button class="font-bold text-lg focus:outline-none">
-                                {{ __('Logout') }}
-                            </button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</div>
+<nav class="flex items-center bg-blue-800 p-3 flex-wrap">
+    <a
+        href="{{ route('dashboard') }}"
+        class="p-2 mr-4 inline-flex items-center"
+    >
+        <img
+            class="h-16 w-full object-cover ml-3"
+            style="object-position: 50% 40%"
+            src="{{ asset('images/logo.png') }}"
+        >
+    </a>
+    <button
+        class="nav-toggler text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto"
+        data-target="#navigation"
+    >
+        <i class="fa fa-bars"></i>
+    </button>
+    
+    <div
+        class="top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto hidden"
+        id="navigation"
+    >
+        <div class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
+            <a
+                href="{{ route('dashboard') }}"
+                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
+            >
+                Dashboard
+            </a>
+            <a
+                href="{{ route('profile', currentUser()->username) }}"
+                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
+            >
+                Profile
+            </a>
+            <a
+                href="/products"
+                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
+            >
+                All Products
+            </a>
+            <a
+                href="/products/create"
+                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
+            >
+                New Product
+            </a>
+            <a
+                href="/search"
+                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
+            >
+                New Log
+            </a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="lg:inline-flex lg:w-auto w-full text-left px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900">
+                    {{ __('Logout') }}
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+</nav>
+
+@push('scripts')
+    <script src="{{ asset('js/nav.js') }}"></script>
+@endpush

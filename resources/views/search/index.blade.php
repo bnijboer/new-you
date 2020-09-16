@@ -9,7 +9,7 @@
     <div class="flex justify-around">
         <div class="w-1/3 mr-4">
             <div class="bg-white rounded-lg shadow-lg">
-                <div class="bg-indigo-400 text-center text-2xl text-white font-bold uppercase py-2 rounded-t-lg">
+                <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
                     Search Products
                 </div>
                 
@@ -114,7 +114,7 @@
         
         <div class="w-1/3">
             <div class="bg-white rounded-lg shadow-lg">
-                <div class="bg-indigo-400 text-center text-2xl text-white font-bold uppercase py-2 rounded-t-lg">
+                <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
                     All Products
                 </div>
                 
