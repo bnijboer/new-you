@@ -7,10 +7,10 @@
 @section('content')
 
 
-    <!-- DATE/TIME SELECT HEADER -->
+    <!-- DATE/TIME BAR -->
     
-    <div class="mt-4 mb-8">
-        <div class="w-1/3 mx-auto flex justify-between rounded-full border border-gray-200 text-2xl text-gray-700 overflow-hidden">
+    <div class="mt-6 mb-8">
+        <div class="mx-auto md:w-1/2 xl:w-1/3 flex justify-between rounded-full border border-gray-200 text-2xl text-gray-700 overflow-hidden">
             
             <form action="/dates" method="POST">
                 @csrf
@@ -30,7 +30,7 @@
                 <form action="/dates" method="POST">
                     @csrf
                     <input
-                        class="text-gray-600 hover:text-black focus:text-black focus:outline-none ml-16 mt-2"
+                        class="text-gray-600 hover:text-black focus:text-black focus:outline-none ml-6 xl:ml-16 mt-2"
                         type="date"
                         id="date-picker"
                         name="date"
@@ -61,10 +61,11 @@
         </div>
     </div>
     
+    
     <!-- LOG OVERVIEW -->
     
-    <div class="flex">
-        <div class="w-1/2 mr-4">
+    <div class="lg:flex">
+        <div class="lg:w-1/2 mb-8 lg:mr-8">
             <div class="bg-white border border-blue-500">
                 <table class="w-full">
                     <thead>
@@ -74,7 +75,7 @@
                     </thead>
                     <tbody>
                         @forelse ($logs as $log)
-                            <tr class="w-full text-xl text-center font-semibold text-gray-700">
+                            <tr class="w-full xl:text-xl text-center font-semibold text-gray-700">
                                 <td class="w-1/6 bg-blue-100 py-4">
                                     {{ $log->created_at->isoFormat('HH:mm') }}
                                 </td>
@@ -121,7 +122,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="w-1/2">
-                                                    Carbohydrates:
+                                                    Carbs:
                                                 </td>
                                                 <td class="w-1/2">
                                                     {{ $log->carbs }} g
@@ -148,15 +149,15 @@
         
         <!-- RATIO CHARTS AND TOTAL/REQUIRED INTAKE TABLES -->
         
-        <div class="w-1/2 bg-gray-100 rounded-lg shadow-lg">
+        <div class="lg:w-1/2 bg-gray-100 rounded-lg shadow-lg">
             <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
                 Nutritional Intake
             </div>
             <div class="p-4">
-                <div class="flex justify-around mx-auto">            
+                <div class="md:flex md:justify-around mx-auto">            
                     @if (! $logs->isEmpty())
-                        <div class="w-1/2">
-                            <div class="text-center text-2xl font-semibold py-4">
+                        <div class="md:w-1/2 mb-6">
+                            <div class="text-center text-lg lg:text-2xl font-semibold py-4">
                                 Current Ratio
                             </div>
                             <div>
@@ -165,8 +166,8 @@
                         </div>
                     @endif
                     
-                    <div class="w-1/2">
-                        <div class="text-center text-2xl font-semibold py-4">
+                    <div class="md:w-1/2 mb-6">
+                        <div class="text-center text-lg lg:text-2xl font-semibold py-4">
                             Optimal Ratio
                         </div>
                         <div>
@@ -175,8 +176,8 @@
                     </div>
                 </div>
                 
-                <div class="flex justify-around mt-5">
-                    <div class="w-1/3 m-6">
+                <div class="xl:flex xl:justify-around my-5">
+                    <div class="w-2/3 xl:w-1/3 mt-10 mx-auto">
                         <table class="w-full table-fixed border border-indigo-200 shadow-sm">
                             <thead>
                                 <div class="bg-indigo-400 text-center text-xl font-bold text-white uppercase py-2">
@@ -186,25 +187,25 @@
                             
                             <tbody class="bg-indigo-100 text-sm font-semibold text-gray-700">
                                 <tr>
-                                    <td class="w-39 p-3">Energy</td>
+                                    <td class="w-39 p-3">Energy:</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $totalIntake->energy }} kcal
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Protein</td>
+                                    <td class="p-3">Protein:</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $totalIntake->protein }} g
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Fat</td>
+                                    <td class="p-3">Fat:</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $totalIntake->fat }} g
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Carbohydrates</td>
+                                    <td class="p-3">Carbs:</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $totalIntake->carbs }} g
                                     </td>
@@ -212,7 +213,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="w-1/3 m-6">
+                    <div class="w-2/3 xl:w-1/3 mt-10 mx-auto">
                         <table class="w-full table-fixed border border-indigo-200 shadow-sm">
                             <thead>
                                 <div class="bg-indigo-400 text-center text-xl font-bold text-white uppercase py-2">
@@ -221,25 +222,25 @@
                             </thead>
                             <tbody class="bg-indigo-100 text-sm font-semibold text-gray-700">
                                 <tr>
-                                    <td class="w-39 p-3">Energy</td>
+                                    <td class="w-39 p-3">Energy:</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $requiredIntake->energy - $totalIntake->energy }} kcal
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Protein</td>
+                                    <td class="p-3">Protein:</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $requiredIntake->protein - $totalIntake->protein }} g
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Fat</td>
+                                    <td class="p-3">Fat:</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $requiredIntake->fat - $totalIntake->fat }} g
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Carbohydrates</td>
+                                    <td class="p-3">Carbs:</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $requiredIntake->carbs - $totalIntake->carbs }} g
                                     </td>

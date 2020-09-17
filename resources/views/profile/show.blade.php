@@ -2,10 +2,12 @@
 
 @section('title', 'Show Profile')
 
+@section('banner-text', 'Your Profile')
+
 @section('content')
 
     <div class="flex">
-        <div class="bg-pink-300 rounded-lg w-1/3 p-4 mx-auto">
+        <div class="lg:w-1/3 bg-pink-300 rounded-lg p-4 mx-auto">
             <div class="text-center text-2xl py-2">
                 Your Profile
             </div>

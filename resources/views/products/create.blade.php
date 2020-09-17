@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="flex justify-center">
-        <div class="w-1/3 bg-blue-100 text-center rounded-lg shadow-lg pt-5">
+        <div class="w-5/6 md:w-1/3 bg-blue-100 text-center rounded-lg shadow-lg px-6 pt-5">
         
             <div class="text-xl font-semibold text-gray-700">
                 Enter Product Details
@@ -25,7 +25,7 @@
                             Product name
                         </label>
                         <input
-                            class="border border-gray-400 p-2 w-full"
+                            class="border border-gray-400 p-2"
                             type="text"
                             name="name"
                             id="name"

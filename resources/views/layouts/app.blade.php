@@ -9,13 +9,13 @@
     </section>
     
     <section>
-        <main class="flex m-4">
-            <div class="w-5/6 mr-4">
+        <main class="m-4">
+            <div>
                 @yield('content')
             </div>
-            <div class="w-1/6">
+            <!-- <div class="w-1/6">
                 @include('_statsbar')
-            </div>
+            </div> -->
             @if (session('success'))
                 <div class="sticky bottom-0 w-40 h-32 float-right">
                     <div class="pr-3">

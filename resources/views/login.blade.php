@@ -5,13 +5,13 @@
 @section('content')
 
     <div class="flex justify-center text-center">
-        <div class="w-1/3 rounded-lg">
+        <div>
             @include('_logo')
             
-            <div class="text-5xl text-white font-bold uppercase">
+            <div class="text-2xl md:text-4xl lg:text-5xl text-white font-bold uppercase">
                 Want to get in shape?
             </div>
-            <div class="text-lg font-semibold text-gray-300 py-4">
+            <div class="text-sm lg:text-lg font-semibold text-gray-300 py-4">
                 New You offers an easy way to track your nutritional intake!
             </div>
             <div class="pt-4 pb-8">
@@ -26,10 +26,10 @@
         </div>
     </div>
     
-    <div class="flex justify-center text-center mt-12">
-        <div class="w-1/4 bg-green-100 border border-gray-200 rounded-lg shadow-lg pt-5">
+    <div class="flex justify-center text-center">
+        <div class="w-3/4 md:w-1/2 lg:w-1/4 bg-green-100 border border-gray-200 rounded-lg shadow-lg pt-5 my-6">
 
-            <div class="text-xl font-semibold text-gray-700">
+            <div class="text-lg lg:text-xl font-semibold text-gray-700 px-4">
                 Already have an account?
             </div>
 

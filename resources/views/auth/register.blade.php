@@ -4,14 +4,12 @@
 
 @section('content')
 
-    <div class="flex justify-center text-center">
-        <div class="w-1/3 rounded-lg">
-            @include('_logo')
-        </div>
+    <div class="mx-auto">
+        @include('_logo')
     </div>
     
-    <div class="flex justify-center text-center mt-12">
-        <div class="w-1/3 bg-green-100 border border-gray-200 rounded-lg shadow-lg pt-5">
+    <div class="flex justify-center text-center mt-6 mx-4 pb-6">
+        <div class="xl:w-1/3 bg-green-100 border border-gray-200 rounded-lg shadow-lg pt-5">
         
             <div class="text-xl font-semibold text-gray-700">
                 Create your account
@@ -20,9 +18,9 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
                 
-                <div class="flex justify-around pt-4">
+                <div class="md:flex md:justify-around pt-4">
                     
-                    <div class="w-1/2 justify-center px-12">
+                    <div class="md:w-1/2 justify-center px-12">
                         <div class="py-6">
                             <label
                                 for="username"
@@ -114,8 +112,8 @@
                         </div>
                     </div>
                     
-                    <div class="w-1/2 justify-center px-12">
-                        <div class="py-6">
+                    <div class="md:w-1/2 justify-center px-12">
+                        <div class="mb-6 md:mt-6">
                             <div class="flex justify-center">
                                 <div>
                                     <label

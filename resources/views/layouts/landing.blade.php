@@ -1,12 +1,13 @@
 <x-master>
     
-    <div class="relative bg-blue-900 h-screen">
-        <img class="h-full w-full object-cover opacity-25" src="{{ asset('images/header.jpg') }}">
-        <div class="absolute top-0 w-full h-full z-1">
-        
+    <div
+        class="bg-fixed bg-cover bg-center h-full sm:h-screen"
+        style="background-image: url('../images/header.jpg')"
+    >
+        <div class="bg-blue-900 bg-opacity-75 h-full sm:h-screen">
             @yield('content')
-            
         </div>
     </div>
+
 
 </x-master>

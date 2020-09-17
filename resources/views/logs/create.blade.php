@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="flex justify-center">
-        <div class="w-1/3">
+        <div class="lg:w-1/3">
             <div class="bg-white rounded-lg shadow-lg">
                 <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
                     Set Quantity
@@ -19,7 +19,7 @@
                             @csrf
                             <input type="hidden" name="id" value="{{ $product['id'] }}">
                             <div class="flex py-4 px-6 text-left">
-                                <div class="w-1/2 text-gray-700 text-xl">
+                                <div class="w-1/2 text-gray-700 text-xl pr-4">
                                 
                                     <input
                                         type="hidden"
@@ -50,7 +50,7 @@
                                                 readonly
                                             >
                                         </div>
-                                        <div class="w-1/4">
+                                        <div class="w-1/4 pl-1">
                                             kcal
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                                 readonly
                                             >
                                         </div>
-                                        <div class="w-1/4">
+                                        <div class="w-1/4 pl-1">
                                             g
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
                                         <div class="w-1/2">
                                             Fat: 
                                         </div>
-                                        <div class="w-1/4 flex">
+                                        <div class="w-1/4">
                                             <input
                                                 class="w-full text-right focus:outline-none"
                                                 type="number"
@@ -86,15 +86,15 @@
                                                 readonly
                                             >
                                         </div>
-                                        <div class="w-1/4">
+                                        <div class="w-1/4 pl-1">
                                             g
                                         </div>
                                     </div>
                                     <div class="flex">
                                         <div class="w-1/2">
-                                            Carbohydrates: 
+                                            Carbs: 
                                         </div>
-                                        <div class="w-1/4 flex">
+                                        <div class="w-1/4">
                                             <input
                                                 class="w-full text-right focus:outline-none"
                                                 type="number"
@@ -104,7 +104,7 @@
                                                 readonly
                                             >
                                         </div>
-                                        <div class="w-1/4">
+                                        <div class="w-1/4 pl-1">
                                             g
                                         </div>
                                     </div>

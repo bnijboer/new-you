@@ -6,8 +6,8 @@
 
 @section('content')
 
-    <div class="flex justify-around">
-        <div class="w-1/3 mr-4">
+    <div class="lg:flex lg:justify-around">
+        <div class="lg:w-5/12 mb-6">
             <div class="bg-white rounded-lg shadow-lg">
                 <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
                     Search Products
@@ -57,13 +57,13 @@
                                             class="w-full hover:bg-green-300"
                                         >
                                             <div class="flex py-4 px-6 text-left">
-                                                <div class="w-1/2 text-gray-700 text-xl">
+                                                <div class="w-1/2 text-gray-700 lg:text-xl pr-4">
                                                     {{ $result->name }}
                                                     @isset($result->brand)
                                                         ({{ $result->brand }})
                                                     @endisset
                                                 </div>
-                                                <div class="w-1/2 text-gray-600 text-sm">
+                                                <div class="w-1/2 text-gray-600 text-xs lg:text-sm">
                                                     <div class="flex">
                                                         <div class="w-1/2">
                                                             Energy: 
@@ -90,7 +90,7 @@
                                                     </div>
                                                     <div class="flex">
                                                         <div class="w-1/2">
-                                                            Carbohydrates: 
+                                                            Carbs: 
                                                         </div>
                                                         <div class="w-1/2">
                                                             {{ $result->carbs }} g
@@ -112,72 +112,8 @@
             </div>
         </div>
         
-        <div class="w-1/3">
-            <div class="bg-white rounded-lg shadow-lg">
-                <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
-                    All Products
-                </div>
-                
-                @if (! $products->isEmpty())
-                    <div class="py-6">
-                        @foreach($products as $product)
-                            <form action="/logs/create" method="POST">
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $product['id'] }}">
-                                <button
-                                    type="submit"
-                                    class="w-full hover:bg-green-300"
-                                >
-                                    <div class="flex py-4 px-6 text-left">
-                                        <div class="w-1/2 text-gray-700 text-xl">
-                                            {{ $product->name }}
-                                            @isset($product->brand)
-                                                ({{ $product->brand }})
-                                            @endisset
-                                        </div>
-                                        <div class="w-1/2 text-gray-600 text-sm">
-                                            <div class="flex">
-                                                <div class="w-1/2">
-                                                    Energy: 
-                                                </div>
-                                                <div class="w-1/2">
-                                                    {{ $product->energy }} kcal
-                                                </div>
-                                            </div>
-                                            <div class="flex">
-                                                <div class="w-1/2">
-                                                    Protein: 
-                                                </div>
-                                                <div class="w-1/2">
-                                                    {{ $product->protein }} g
-                                                </div>
-                                            </div>
-                                            <div class="flex">
-                                                <div class="w-1/2">
-                                                    Fat: 
-                                                </div>
-                                                <div class="w-1/2">
-                                                    {{ $product->fat }} g
-                                                </div>
-                                            </div>
-                                            <div class="flex">
-                                                <div class="w-1/2">
-                                                    Carbohydrates: 
-                                                </div>
-                                                <div class="w-1/2">
-                                                    {{ $product->carbs }} g
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </button>
-                            </form>
-                        @endforeach
-                    </div>
-                @endif
-                
-            </div>
-        </div>
+        @include('_all-products')
+        
     </div>
 
 @endsection
