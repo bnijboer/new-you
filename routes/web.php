@@ -27,9 +27,12 @@ Route::middleware('auth')->group(function ()
     
     Route::post('/dates', 'DateController@store')->name('date');
     
-    Route::get('/logs', 'LogController@index')->name('dashboard');    
+    Route::get('/logs', 'LogController@index')->name('dashboard');
     Route::post('/logs/create', 'LogController@create');
 	Route::post('/logs', 'LogController@store');
+	Route::get('/logs/{log}/edit', 'LogController@edit');
+	Route::patch('/logs/{log}', 'LogController@update');
+	Route::delete('/logs/{log}', 'LogController@destroy');
 
 	Route::get('/products', 'ProductController@index')->name('products');
 	Route::get('/products/create', 'ProductController@create');

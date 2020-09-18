@@ -75,27 +75,52 @@
                     </thead>
                     <tbody>
                         @forelse ($logs as $log)
-                            <tr class="w-full xl:text-xl text-center font-semibold text-gray-700">
+                            <tr class="w-full text-sm md:text-md lg:text-lg xl:text-xl text-center font-semibold text-gray-700">
                                 <td class="w-1/6 bg-blue-100 py-4">
                                     {{ $log->created_at->isoFormat('HH:mm') }}
                                 </td>
-                                <td class="w-2/3 bg-blue-200 py-4">
+                                <td class="w-2/3 bg-blue-200 p-4">
                                     {{ $log->product->name }}
                                     
                                     @isset($log->product->brand)
                                         ({{ $log->product->brand }})
                                     @endisset
+                                    
+                                    - {{ $log->quantity }} g
                                 </td>
-                                <td class="w-1/6 bg-blue-300 text-white py-4">
-                                    <button class="log-info focus:outline-none">
-                                        <i class="fas fa-info"></i>
+                                <td class="w-1/6 bg-blue-300 text-gray-600 py-4">
+                                    <button class="log-info hover:text-white focus:text-white block xl:inline mx-auto mb-3">
+                                        <i class="fas fa-level-down-alt"></i>
                                     </button>
+                                    
+                                    <a
+                                        class="hover:text-orange-400 block xl:inline xl:px-3 mb-3"
+                                        href="/logs/{{ $log->id }}/edit"
+                                    >
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    
+                                    <form
+                                        action="/logs/{{ $log->id }}"
+                                        method="POST"
+                                        class="xl:inline"
+                                    >
+                                        @csrf
+                                        @method('delete')
+                                        <button
+                                            type="submit"
+                                            onclick="return confirm('Are you sure you want to delete this log?');"
+                                            class="hover:text-red-500"
+                                        >
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                                 <tr class="hidden">
                                     <td class="w-1/6 bg-blue-100 pb-2"></td>
                                     <td class="w-2/3 bg-blue-200 pb-2 px-4">
-                                        <table class="w-full font-semibold text-sm text-gray-600">
+                                        <table class="w-full font-semibold text-xs md:text-sm text-gray-600">
                                             <tr>
                                                 <td class="w-1/2">
                                                     Energy:

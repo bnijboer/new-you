@@ -17,7 +17,7 @@
                     <div class="py-6">
                         <form action="/logs" method="POST">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $product['id'] }}">
+                            <!-- <input type="hidden" name="id" value="{{ $product['id'] }}"> -->
                             <div class="flex py-4 px-6 text-left">
                                 <div class="w-1/2 text-gray-700 text-xl pr-4">
                                 
@@ -122,6 +122,7 @@
                                     class="border border-gray-400 p-2 w-20"
                                     type="number"
                                     id="quantity"
+                                    name="quantity"
                                     value="{{ $product->quantity }}"
                                     required
                                 >

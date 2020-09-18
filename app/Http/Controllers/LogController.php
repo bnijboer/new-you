@@ -48,13 +48,37 @@ class LogController extends Controller
         return redirect()->route('dashboard')->with('success', 'Log added!');
     }
     
+    public function edit(Log $log)
+    {
+        return view('logs.edit', [
+            'log' => $log
+        ]);
+    }
+    
+    public function update(Log $log)
+    {
+        $validatedData = $this->validateLog();
+        
+        $log->update($validatedData);
+		
+        return redirect()->route('dashboard');
+    }
+    
+    public function destroy(Log $log)
+    {
+        $log->delete();
+        
+        return redirect()->route('dashboard');
+    }
+    
     private function validateLog()
     {
         return request()->validate([
             'energy' => ['required', 'numeric', 'digits_between:1,5', 'min:0'],
             'protein' => ['required', 'numeric', 'digits_between:1,4', 'min:0'],
             'fat' => ['required', 'numeric', 'digits_between:1,4', 'min:0'],
-            'carbs' => ['required', 'numeric', 'digits_between:1,4', 'min:0']
+            'carbs' => ['required', 'numeric', 'digits_between:1,4', 'min:0'],
+            'quantity' => ['required', 'numeric', 'digits_between:1,4', 'min:0']
 		]);
     }
 }
