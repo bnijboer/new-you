@@ -17,7 +17,6 @@
                     <div class="py-6">
                         <form action="/logs" method="POST">
                             @csrf
-                            <!-- <input type="hidden" name="id" value="{{ $product['id'] }}"> -->
                             <div class="flex py-4 px-6 text-left">
                                 <div class="w-1/2 text-gray-700 text-xl pr-4">
                                 

@@ -51,7 +51,6 @@
                             name="brand"
                             id="brand"
                             value="{{ old('brand') }}"
-                            required
                         >
 
                         @error('brand')

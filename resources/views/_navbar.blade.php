@@ -34,22 +34,16 @@
                 Profile
             </a>
             <a
-                href="/products"
-                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
-            >
-                All Products
-            </a>
-            <a
                 href="/products/create"
                 class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
             >
-                New Product
+                Create Product
             </a>
             <a
-                href="/search"
+                href="{{ route('products') }}"
                 class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
             >
-                New Log
+                Create Log
             </a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf

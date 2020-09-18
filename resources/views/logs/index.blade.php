@@ -94,7 +94,7 @@
                                     </button>
                                     
                                     <a
-                                        class="hover:text-orange-400 block xl:inline xl:px-3 mb-3"
+                                        class="hover:text-orange-400 focus:text-orange-400 block xl:inline xl:px-3 mb-3"
                                         href="/logs/{{ $log->id }}/edit"
                                     >
                                         <i class="fas fa-edit"></i>
@@ -110,7 +110,7 @@
                                         <button
                                             type="submit"
                                             onclick="return confirm('Are you sure you want to delete this log?');"
-                                            class="hover:text-red-500"
+                                            class="hover:text-red-500 focus:text-red-500"
                                         >
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -179,7 +179,7 @@
                 Nutritional Intake
             </div>
             <div class="p-4">
-                <div class="md:flex md:justify-around mx-auto">            
+                <div class="md:flex md:justify-around mx-auto text-gray-700">            
                     @if (! $logs->isEmpty())
                         <div class="md:w-1/2 mb-6">
                             <div class="text-center text-lg lg:text-2xl font-semibold py-4">

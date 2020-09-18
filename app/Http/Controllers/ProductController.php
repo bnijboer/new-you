@@ -9,6 +9,16 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+        
+        if(request()->query()) {
+            $query = request()->query('query');
+            $results = Product::where('name','LIKE','%' . $query . '%')->get();
+            
+            return view('products.index', [
+                'results' => $results,
+                'products' => $products
+            ]);
+        }
 
         return view('products.index', [
             'products' => $products
