@@ -1,4 +1,4 @@
-<nav class="flex items-center bg-blue-800 p-3 flex-wrap">
+<nav class="flex items-center p-3 flex-wrap">
     <a
         href="{{ route('dashboard') }}"
         class="p-2 mr-4 inline-flex items-center"
@@ -10,7 +10,7 @@
         >
     </a>
     <button
-        class="nav-toggler text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto"
+        class="nav-toggler lg:hidden inline-flex p-3 text-gray-600 hover:text-gray-900 ml-auto"
         data-target="#navigation"
     >
         <i class="fa fa-bars"></i>
@@ -23,38 +23,48 @@
         <div class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
             <a
                 href="{{ route('dashboard') }}"
-                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
+                class="lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600"
             >
                 Dashboard
             </a>
             <a
-                href="{{ route('profile', currentUser()->username) }}"
-                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
-            >
-                Profile
-            </a>
-            <a
                 href="/products/create"
-                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
+                class="lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600"
             >
                 Create Product
             </a>
             <a
                 href="{{ route('products') }}"
-                class="lg:inline-flex lg:w-auto px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900"
+                class="lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600"
             >
                 Create Log
             </a>
+            <a
+                href="/diets/create"
+                class="lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600"
+            >
+                Create Diet
+            </a>
+            <a
+                href="/help"
+                class="lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600"
+            >
+                Assistance
+            </a>
+            <a
+                href="{{ route('profile', currentUser()->username) }}"
+                class="lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600"
+            >
+                Profile
+            </a>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button class="lg:inline-flex lg:w-auto w-full text-left px-3 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-900">
+                <button class="w-full text-left lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600">
                     {{ __('Logout') }}
                 </button>
             </form>
         </div>
     </div>
-
-
 </nav>
 
 @push('scripts')

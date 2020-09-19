@@ -2,6 +2,12 @@
     
     @include('_navbar')
     
+    @if (session('success'))
+        <div class="border-green-300 bg-green-200 tracking-wide text-center text-lg text-gray-800 font-semibold shadow-md py-4">
+            {{ session('success') }}
+        </div>
+    @endif
+    
     <section>
         <header>
             @include('_header')
@@ -16,20 +22,6 @@
             <!-- <div class="w-1/6">
                 @include('_statsbar')
             </div> -->
-            @if (session('success'))
-                <div class="sticky bottom-0 w-40 h-32 float-right">
-                    <div class="pr-3">
-                        <div class="text-center border-2 border-green-300 rounded-lg shadow-md p-5">
-                            <div class="text-3xl text-green-500">
-                                <i class="fas fa-thumbs-up"></i>
-                            </div>
-                            <div class="text-md font-semibold">
-                                {{ session('success') }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
         </main>
     </section>
 

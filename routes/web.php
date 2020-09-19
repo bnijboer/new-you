@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function ()
 	Route::patch('/profile/{user:username}', 'ProfileController@update');
     Route::delete('/profile/{user:username}', 'ProfileController@destroy');
     
-    Route::get('/diets/{diet}', 'DietController@create');
+    Route::get('/diets/create', 'DietController@create');
     Route::post('/diets', 'DietController@store');
     
     Route::post('/dates', 'DateController@store')->name('date');

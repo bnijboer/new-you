@@ -45,6 +45,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    // bmr = basal metabolic rate
+    // this is the outcome of a formula that determines your energy expenditure per day at rest
     public function bmr()
     {
         switch ($this->gender) {
@@ -57,6 +59,7 @@ class User extends Authenticatable
         }
     }
     
+    // tdee = total daily energy expenditure, this takes into account a user's level of activity
     public function requiredIntake($bmr)
     {
         $tdee = $bmr * $this->activity_level;
@@ -145,7 +148,7 @@ class User extends Authenticatable
         $this->current_diet = $diet->id;
         $this->current_weight = $diet->starting_weight;
         $this->activity_level = $diet->activity_level;
-        // dd($this);
+        
         $this->save();
     }
     

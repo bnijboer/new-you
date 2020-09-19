@@ -16,18 +16,6 @@ class Diet extends Model
         return $this->belongsTo(User::class);
     }
     
-    // getGoalAttribute
-    // getNetEnergyAttribute
-    // getDurationGoalAttribute
-    // getEndDateAttribute
-    // getDaysLeftAttribute
-    
-    // setGoalAttribute
-    // setNetEnergyAttribute
-    // setDurationGoalAttribute
-    // setEndDateAttribute
-    // setDaysLeftAttribute
-    
     public function getGoalAttribute()
     {
         return $this->starting_weight - $this->target_weight;
@@ -42,7 +30,7 @@ class Diet extends Model
     public function getDurationAttribute()
     {
         // $dietIntensity serves as a 100x multiplier to set the caloric surplus or deficit of a diet.
-        // Ex.: a $dietIntensity of 5 equals an increased or decreased intake of 5 * 100 = 500 calories a day.
+        // Ex.: a $dietIntensity of 5 equals a caloric deficit or surplus of 5 * 100 = 500 calories a day.
         return round(abs($this->netEnergy) / ($this->diet_intensity * 100));
     }
     

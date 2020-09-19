@@ -34,7 +34,7 @@ class ProductController extends Controller
     {
         Product::create($this->validateProduct());
 
-        return redirect()->route('products')->with('success', 'Product added!');
+        return redirect()->route('products')->with('success', 'Product added successfully!');
     }
 
     public function destroy(Product $product)

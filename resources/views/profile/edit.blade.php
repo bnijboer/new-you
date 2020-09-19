@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Profile')
+@section('title', 'Profile Settings')
+
+@section('banner-text', 'Profile Settings')
 
 @section('content')
 
