@@ -9,7 +9,7 @@ The gist of it is that a user can log their food intake and monitor the amount o
 By using the 'diet' feature, a user can set a 'weight goal', to which the app will calculate how long users will need to consume a certain number of calories/nutrients in order to achieve that goal.
 
 I've been trying to design this project according to the MVC model, using the lessons over at Laracasts as guidance.
-This project is meant to reflect most of what I've learned over the past half year, including CRUD, authentication, as well as basic frontend skills: JavaScript, jQuery and CSS frameworks (TailwindCSS in this case).
+This project is meant to reflect most of what I've learned over the past half year, including CRUD, authentication, as well as basic frontend skills: JavaScript, jQuery, responsive design and CSS frameworks (TailwindCSS in this case).
 
 As this is still work in progress, I have included some screenshots for now, but a deploy will soon follow. 
 
@@ -21,3 +21,5 @@ As this is still work in progress, I have included some screenshots for now, but
 ![Alt text](/screenshots/newyou2.jpg?raw=true "preview")
 
 ![Alt text](/screenshots/newyou3.jpg?raw=true "preview")
+
+![Alt text](/screenshots/newyou4.jpg?raw=true "preview")
