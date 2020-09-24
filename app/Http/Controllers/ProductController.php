@@ -36,13 +36,6 @@ class ProductController extends Controller
 
         return redirect()->route('products')->with('success', 'Product added successfully!');
     }
-
-    public function destroy(Product $product)
-    {
-        $product->delete();
-
-        return redirect()->route('products');
-    }
     
     private function validateProduct()
     {

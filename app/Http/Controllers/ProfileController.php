@@ -9,6 +9,8 @@ class ProfileController extends Controller
 {
 	public function show(User $user)
 	{
+        abort_if($user->isNot(currentUser()), 403);
+        
 		return view('profile.show', [
 			'user' => $user
 		]);
@@ -38,13 +40,5 @@ class ProfileController extends Controller
         $user->update($validatedData);
 		
         return redirect()->route('profile', [$user]);
-	}
-
-	public function destroy(User $user)
-	{
-		\Auth::logout();
-		$user->delete();
-
-		return redirect()->route('landing');
 	}
 }

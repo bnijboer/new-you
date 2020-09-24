@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Log;
 use Carbon\Carbon;
-use Illuminate\Validation\Rule;
 
 class LogController extends Controller
 {
