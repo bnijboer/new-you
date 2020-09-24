@@ -123,86 +123,61 @@
                 @if (! $products->isEmpty())
                     <div class="py-6">
                         @foreach($products as $product)
-                            <div class="flex">
-                                <div class="w-11/12">
-                                    <form action="/logs/create" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $product['id'] }}">
-                                        <button
-                                            type="submit"
-                                            class="w-full hover:bg-green-300 focus:bg-green-300"
-                                        >
-                                            <div class="flex py-4 px-6 text-left">
-                                                <div class="w-1/2 text-gray-700 lg:text-xl pr-4">
+                            <div>
+                                <form action="/logs/create" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $product['id'] }}">
+                                    <button
+                                        type="submit"
+                                        class="w-full hover:bg-green-300 focus:bg-green-300"
+                                    >
+                                        <div class="flex py-4 px-6 text-left">
+                                            <div class="w-1/2 text-gray-700 lg:text-xl pr-4">
+                                            
+                                                {{ $product->name }}
                                                 
-                                                    {{ $product->name }}
-                                                    
-                                                    @isset($product->brand)
-                                                        ({{ $product->brand }})
-                                                    @endisset
-                                                    
+                                                @isset($product->brand)
+                                                    ({{ $product->brand }})
+                                                @endisset
+                                                
+                                            </div>
+                                            <div class="w-1/2 text-gray-600 text-xs lg:text-sm">
+                                                <div class="flex">
+                                                    <div class="w-1/2">
+                                                        Energy: 
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        {{ $product->energy }} kcal
+                                                    </div>
                                                 </div>
-                                                <div class="w-1/2 text-gray-600 text-xs lg:text-sm">
-                                                    <div class="flex">
-                                                        <div class="w-1/2">
-                                                            Energy: 
-                                                        </div>
-                                                        <div class="w-1/2">
-                                                            {{ $product->energy }} kcal
-                                                        </div>
+                                                <div class="flex">
+                                                    <div class="w-1/2">
+                                                        Protein: 
                                                     </div>
-                                                    <div class="flex">
-                                                        <div class="w-1/2">
-                                                            Protein: 
-                                                        </div>
-                                                        <div class="w-1/2">
-                                                            {{ $product->protein }} g
-                                                        </div>
+                                                    <div class="w-1/2">
+                                                        {{ $product->protein }} g
                                                     </div>
-                                                    <div class="flex">
-                                                        <div class="w-1/2">
-                                                            Fat: 
-                                                        </div>
-                                                        <div class="w-1/2">
-                                                            {{ $product->fat }} g
-                                                        </div>
+                                                </div>
+                                                <div class="flex">
+                                                    <div class="w-1/2">
+                                                        Fat: 
                                                     </div>
-                                                    <div class="flex">
-                                                        <div class="w-1/2">
-                                                            Carbs: 
-                                                        </div>
-                                                        <div class="w-1/2">
-                                                            {{ $product->carbs }} g
-                                                        </div>
+                                                    <div class="w-1/2">
+                                                        {{ $product->fat }} g
+                                                    </div>
+                                                </div>
+                                                <div class="flex">
+                                                    <div class="w-1/2">
+                                                        Carbs: 
+                                                    </div>
+                                                    <div class="w-1/2">
+                                                        {{ $product->carbs }} g
                                                     </div>
                                                 </div>
                                             </div>
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="lg:flex w-1/12 mx-4">
-                                    <div class="my-2">
-                                        <a
-                                            class="text-gray-600 hover:text-orange-400 focus:text-orange-400"
-                                            href="/products/{{ $product['id'] }}/edit"
-                                        >
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                    </div>
-                                    <div class="my-2 lg:mx-3">
-                                        <form action="/products/{{ $product['id'] }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button
-                                                type="submit"
-                                                onclick="return confirm('Are you sure you want to delete this product?');"
-                                                class="text-gray-600 hover:text-red-500 focus:text-red-500"
-                                            >
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
+                                        </div>
+                                    </button>
+                                </form>
                             </div>
                         @endforeach
                     </div>

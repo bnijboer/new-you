@@ -16,12 +16,12 @@
                 @csrf
                 
                 <div class="flex my-6 items-center">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-4">
                         <label
                             for="starting_weight"
                             class="uppercase font-bold text-xs text-gray-700"
                         >
-                            Starting weight in kg
+                            Current Weight in kg
                         </label>
                     </div>
                     <div class="w-1/2">
@@ -41,12 +41,12 @@
                 </div>
                 
                 <div class="flex my-6 items-center">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-4">
                         <label
                             for="target_weight"
                             class="uppercase font-bold text-xs text-gray-700"
                         >
-                            Target weight in kg
+                            Target Weight in kg
                         </label>
                     </div>
                     <div class="w-1/2">
@@ -66,7 +66,7 @@
                 </div>
                 
                 <div class="flex my-6 items-center">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-4">
                         <label
                             for="activity_level"
                             class="uppercase font-bold text-xs text-gray-700"
@@ -120,7 +120,7 @@
                 </div>
                 
                 <div class="flex my-6 items-center">
-                    <div class="w-1/2">
+                    <div class="w-1/2 pr-4">
                         <label
                             for="diet_intensity"
                             class="uppercase font-bold text-xs text-gray-700"

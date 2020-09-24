@@ -18,7 +18,7 @@
                     @method('patch')
                     
                     <div class="flex my-6 items-center">
-                        <div class="w-1/2">
+                        <div class="w-1/2 pr-4">
                             <label
                                 for="username"
                                 class="uppercase font-bold text-xs text-gray-700"
@@ -43,7 +43,7 @@
                     </div>
                     
                     <div class="flex my-6 items-center">
-                        <div class="w-1/2">
+                        <div class="w-1/2 pr-4">
                             <label
                                 for="email"
                                 class="uppercase font-bold text-xs text-gray-700"
@@ -68,7 +68,7 @@
                     </div>
                     
                     <div class="flex my-6 items-center">
-                        <div class="w-1/2">
+                        <div class="w-1/2 pr-4">
                             <span class="uppercase font-bold text-xs text-gray-700">
                                 Gender
                             </span>
@@ -114,7 +114,7 @@
                     </div>
                     
                     <div class="flex my-6 items-center">
-                        <div class="w-1/2">
+                        <div class="w-1/2 pr-4">
                             <label
                                 for="age"
                                 class="block mb-2 uppercase font-bold text-xs text-gray-700"
@@ -139,7 +139,7 @@
                     </div>
                     
                     <div class="flex my-6 items-center">
-                        <div class="w-1/2">
+                        <div class="w-1/2 pr-4">
                             <label
                                 for="height"
                                 class="block mb-2 uppercase font-bold text-xs text-gray-700"
@@ -164,7 +164,7 @@
                     </div>
                     
                     <div class="flex my-6 items-center">
-                        <div class="w-1/2">
+                        <div class="w-1/2 pr-4">
                             <label
                                 for="current_weight"
                                 class="block mb-2 uppercase font-bold text-xs text-gray-700"
@@ -190,7 +190,7 @@
                     
                     @if(!$user->onDiet())
                         <div class="flex my-6">
-                            <div class="w-1/2">
+                            <div class="w-1/2 pr-4">
                                 <label
                                     for="activity_level"
                                     class="uppercase font-bold text-xs text-gray-700"
@@ -245,7 +245,7 @@
                     @endif
                     
                     <div class="flex my-6 items-center">
-                        <div class="w-1/2">
+                        <div class="w-1/2 pr-4">
                             <label
                                 for="password"
                                 class="block mb-2 uppercase font-bold text-xs text-gray-700"
@@ -255,7 +255,7 @@
                         </div>
                         <div class="w-1/2">
                             <input
-                                class="border border-gray-400 p-2"
+                                class="border border-gray-400 p-2 w-full"
                                 type="password"
                                 name="password"
                                 id="password"
@@ -269,7 +269,7 @@
                     </div>
                     
                     <div class="flex my-6 items-center">
-                        <div class="w-1/2">
+                        <div class="w-1/2 pr-4">
                             <label
                                 for="password_confirmation"
                                 class="block mb-2 uppercase font-bold text-xs text-gray-700"
@@ -279,7 +279,7 @@
                         </div>
                         <div class="w-1/2">
                             <input
-                                class="border border-gray-400 p-2"
+                                class="border border-gray-400 p-2 w-full"
                                 type="password"
                                 name="password_confirmation"
                                 id="password_confirmation"
