@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Log;
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 
 class LogController extends Controller
 {
@@ -50,6 +51,8 @@ class LogController extends Controller
     
     public function edit(Log $log)
     {
+        abort_if($log->user_id !== currentUser()->id, 403);
+        
         return view('logs.edit', [
             'log' => $log
         ]);

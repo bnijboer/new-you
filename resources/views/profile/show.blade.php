@@ -6,101 +6,92 @@
 
 @section('content')
 
-    <div class="flex">
-        <div class="lg:w-1/3 bg-pink-300 rounded-lg p-4 mx-auto">
-            <div class="text-center text-2xl py-2">
-                Your Profile
+    <div class="lg:w-1/3 mb-6 mx-auto">
+        <div class="bg-white rounded-lg shadow-lg">
+            <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
+                Profile of {{ $user->username }}
             </div>
-
-            <div class="mt-8">
-
-                <div class="flex justify-between">
-                    <div class="font-bold">
-                        Username:
+            
+            <div class="justify-center py-4 px-6 text-gray-600">
+                
+                <div class="my-6 flex">
+                    <div class="w-1/2">                    
+                        <span class="uppercase font-bold text-xs text-gray-700">
+                            Username
+                        </span>
                     </div>
-                    <div>
+                    <div class="w-1/2">
                         {{ $user->username }}
                     </div>
                 </div>
-
-                <div class="flex justify-between">
-                    <div class="font-bold">
-                        Email
+                <div class="my-6 flex">
+                    <div class="w-1/2">                    
+                        <span class="uppercase font-bold text-xs text-gray-700">
+                            Email
+                        </span>
                     </div>
-                    <div>
+                    <div class="w-1/2">
                         {{ $user->email }}
                     </div>
                 </div>
-
-                <div class="flex justify-between">
-                    <div class="font-bold">
-                        Gender:
+                <div class="my-6 flex">
+                    <div class="w-1/2">                    
+                        <span class="uppercase font-bold text-xs text-gray-700">
+                            Gender
+                        </span>
                     </div>
-                    <div>
+                    <div class="w-1/2">
                         {{ $user->gender }}
                     </div>
                 </div>
-
-                <div class="flex justify-between">
-                    <div class="font-bold">
-                        Age:
+                <div class="my-6 flex">
+                    <div class="w-1/2">                    
+                        <span class="uppercase font-bold text-xs text-gray-700">
+                            Age
+                        </span>
                     </div>
-                    <div>
+                    <div class="w-1/2">
                         {{ $user->age }}
                     </div>
                 </div>
-
-                <div class="flex justify-between">
-                    <div class="font-bold">
-                        Height:
+                <div class="my-6 flex">
+                    <div class="w-1/2">                    
+                        <span class="uppercase font-bold text-xs text-gray-700">
+                            Height
+                        </span>
                     </div>
-                    <div>
+                    <div class="w-1/2">
                         {{ $user->height }} cm
                     </div>
                 </div>
-
-                <div class="flex justify-between">
-                    <div class="font-bold">
-                        Current weight:
+                <div class="my-6 flex">
+                    <div class="w-1/2">                    
+                        <span class="uppercase font-bold text-xs text-gray-700">
+                            Current Weight
+                        </span>
                     </div>
-                    <div>
+                    <div class="w-1/2">
                         {{ $user->current_weight }} kg
                     </div>
                 </div>
-
-                <div class="flex justify-between">
-                    <div class="font-bold">
-                        Activity level:
+                <div class="my-6 flex">
+                    <div class="w-1/2">                    
+                        <span class="uppercase font-bold text-xs text-gray-700">
+                            Activity Level
+                        </span>
                     </div>
-                    <div>
+                    <div class="w-1/2">
                         {{ formatActivityLevel($user->activity_level) }}
                     </div>
                 </div>
-
-                <div class="mt-6">
-                    <div class="flex justify-end">
-                        <div class="mr-3">
-                            <form action="/profile/{{ $user->username }}/edit" method="GET">
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                    type="submit">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                            </form>
-                        </div>
-                        <div class="mr-3">
-                            <form action="/profile/{{ $user->username }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                    type="submit"
-                                    onclick="return confirm('Are you sure you want to delete your account? This action cannot be reversed.');">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="mb-4 text-center">
+                    <a
+                        class="hover:text-orange-400 focus:text-orange-400 text-2xl xl:inline xl:px-3 mb-3"
+                        href="/profile/{{ $user->username }}/edit"
+                    >
+                        <i class="fas fa-edit"></i>
+                    </a>
                 </div>
-
             </div>
         </div>
     </div>
