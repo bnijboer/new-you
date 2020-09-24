@@ -25,7 +25,4 @@
         </main>
     </section>
 
-            
-
-
 </x-master>

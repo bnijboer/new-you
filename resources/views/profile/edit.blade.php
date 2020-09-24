@@ -193,7 +193,7 @@
                             <div class="w-1/2">
                                 <label
                                     for="activity_level"
-                                    class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                    class="uppercase font-bold text-xs text-gray-700"
                                 >
                                     Activity Level
                                 </label>

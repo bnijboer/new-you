@@ -1,55 +1,85 @@
 @extends('layouts.app')
 
-@section('title', 'Create New Diet')
+@section('title', 'Create Diet')
+
+@section('banner-text', 'Create Diet')
 
 @section('content')
 
-    <div class="flex">
-
-        <div class="bg-indigo-100 rounded-lg w-1/3 p-4 mx-auto">
-            <div class="text-center text-2xl py-2">
-                Create New Diet
-            </div>
-
-            <div class="flex justify-center mt-8">
-                <form action="/diets" method="POST">
-                    @csrf
-
-                    <div>
-                        <label for="starting_weight" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+    <div class="lg:w-1/2 xl:w-1/3 bg-white rounded-lg shadow-lg mb-6 mx-auto">
+        <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
+            Diet Specifications
+        </div>
+        <div class="py-4 px-6 text-gray-600">
+            
+            <form action="/diets" method="POST">
+                @csrf
+                
+                <div class="flex my-6 items-center">
+                    <div class="w-1/2">
+                        <label
+                            for="starting_weight"
+                            class="uppercase font-bold text-xs text-gray-700"
+                        >
                             Starting weight in kg
                         </label>
-
-                        <input id="starting_weight" type="number" name="starting_weight" value="{{ currentUser()->current_weight }}" required autocomplete="starting_weight" autofocus>
-
+                    </div>
+                    <div class="w-1/2">
+                        <input
+                            class="border border-gray-400 p-2 w-20"
+                            type="number"
+                            name="starting_weight"
+                            id="starting_weight"
+                            value="{{ currentUser()->current_weight }}"
+                            required
+                        >
+                        
                         @error('starting_weight')
                             <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                         @enderror
                     </div>
-                    
-                    <div class="mt-6">
-                        <label for="target_weight" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                </div>
+                
+                <div class="flex my-6 items-center">
+                    <div class="w-1/2">
+                        <label
+                            for="target_weight"
+                            class="uppercase font-bold text-xs text-gray-700"
+                        >
                             Target weight in kg
                         </label>
-
-                        <input id="target_weight" type="number" name="target_weight" value="{{ old('target_weight') }}" required autocomplete="target_weight" autofocus>
-
+                    </div>
+                    <div class="w-1/2">
+                        <input
+                            class="border border-gray-400 p-2 w-20"
+                            type="number"
+                            name="target_weight"
+                            id="target_weight"
+                            value="{{ old('target_weight') }}"
+                            required
+                        >
+                        
                         @error('target_weight')
                             <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                         @enderror
                     </div>
-
-                    <div class="mt-6">
-                        <label for="activity_level" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                            Current activity level
+                </div>
+                
+                <div class="flex my-6 items-center">
+                    <div class="w-1/2">
+                        <label
+                            for="activity_level"
+                            class="uppercase font-bold text-xs text-gray-700"
+                        >
+                            Activity Level
                         </label>
-                        
+                    </div>
+                    <div class="w-1/2">
                         <select
-                            id="activity_level"
+                            class="border border-gray-400 p-2 w-full"
                             name="activity_level"
+                            id="activity_level"
                             required
-                            autocomplete="activity_level"
-                            autofocus
                         >
                             <option
                                 value="1.2"
@@ -82,40 +112,51 @@
                                 {{ formatActivityLevel(1.9) }}
                             </option>
                         </select>
-
+                        
                         @error('activity_level')
                             <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                         @enderror
                     </div>
-
-                    <div class="mt-6">
-                        <label for="diet_intensity" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                            Preferred diet intensity
+                </div>
+                
+                <div class="flex my-6 items-center">
+                    <div class="w-1/2">
+                        <label
+                            for="diet_intensity"
+                            class="uppercase font-bold text-xs text-gray-700"
+                        >
+                            Preferred Diet Intensity
                         </label>
-                        
+                    </div>
+                    <div class="w-1/2">
                         <input
-                            id="diet_intensity"
+                            class="py-2"
                             type="range"
                             name="diet_intensity"
+                            id="diet_intensity"
+                            value="{{ old('diet_intensity') }}"
                             min="1"
                             max="10"
-                            value="{{ old('diet_intensity') }}"
-                            required autocomplete="diet_intensity"
-                            autofocus>
+                            required
+                        >
                         
                         @error('diet_intensity')
                             <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                         @enderror
                     </div>
-
-                    <div class="flex justify-end mt-6 mb-3">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Add</button>
-                    </div>
-
-                </form>
-            </div>
+                </div>
+                
+                <div class="mt-10 mb-3 text-center">
+                    <button
+                        type="submit"
+                        class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-full uppercase px-5 py-3"
+                    >
+                        Start
+                    </button>
+                </div>
+                
+            </form>
         </div>
-
     </div>
 
 @endsection
