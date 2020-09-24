@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="lg:w-1/3 mb-6 mx-auto">
+    <div class="lg:w-1/2 xl:w-1/3 mb-6 mx-auto">
         <div class="bg-white rounded-lg shadow-lg">
             <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
                 Edit Profile
@@ -17,216 +17,224 @@
                     @csrf
                     @method('patch')
                     
-                    <div class="my-6">
-                        <div class="flex">
-                            <div class="w-1/2">
-                                <label
-                                    for="email"
-                                    class="uppercase font-bold text-xs text-gray-700"
-                                >
-                                    Email
-                                </label>
-                            </div>
-                            <div class="w-1/2">  
-                                <input
-                                    class="border border-gray-400 p-2 w-full"
-                                    type="email"
-                                    name="email"
-                                    autocomplete="email"
-                                    value="{{ $user->email }}"
-                                    required
-                                >
-                            </div>
+                    <div class="flex my-6 items-center">
+                        <div class="w-1/2">
+                            <label
+                                for="username"
+                                class="uppercase font-bold text-xs text-gray-700"
+                            >
+                                Username
+                            </label>
                         </div>
-
-                        @error('email')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                        @enderror
+                        <div class="w-1/2">  
+                            <input
+                                class="border border-gray-400 p-2 w-full"
+                                type="text"
+                                name="username"
+                                value="{{ $user->username }}"
+                                required
+                            >
+                            
+                            @error('username')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     
-                    <div class="my-6">
-                        <div class="flex">
-                            <div class="w-1/2">
-                                <span class="uppercase font-bold text-xs text-gray-700">
-                                    Gender
-                                </span>
-                            </div>
-                            <div class="w-1/2 flex">
-                                <div>
-                                    <label
-                                        for="male"
-                                        class="mr-2 font-semibold text-xs text-gray-700"
-                                    >
-                                        Male
-                                    </label>
-                                    <input
-                                        class="p-2"
-                                        type="radio"
-                                        id="male"
-                                        name="gender"
-                                        value="male"
-                                        @if($user->gender === 'male') {{ "checked" }} @endif
-                                    >
-                                </div>
-                                <div class="ml-10">
-                                    <label
-                                        for="female"
-                                        class="mr-2 font-semibold text-xs text-gray-700"
-                                    >
-                                        Female
-                                    </label>
-                                    <input
-                                        class="p-2"
-                                        type="radio"
-                                        id="female"
-                                        name="gender"
-                                        value="female"
-                                        @if($user->gender === 'female') {{ "checked" }} @endif
-                                    >
-                                </div>
-                            </div>
+                    <div class="flex my-6 items-center">
+                        <div class="w-1/2">
+                            <label
+                                for="email"
+                                class="uppercase font-bold text-xs text-gray-700"
+                            >
+                                Email
+                            </label>
                         </div>
-
-                        @error('gender')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                        @enderror
+                        <div class="w-1/2">  
+                            <input
+                                class="border border-gray-400 p-2 w-full"
+                                type="email"
+                                name="email"
+                                value="{{ $user->email }}"
+                                required
+                            >
+                            
+                            @error('email')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     
-                    <div class="my-6">
-                        <div class="flex">
-                            <div class="w-1/2">
+                    <div class="flex my-6 items-center">
+                        <div class="w-1/2">
+                            <span class="uppercase font-bold text-xs text-gray-700">
+                                Gender
+                            </span>
+                        </div>
+                        <div class="w-1/2 flex">
+                            <div>
                                 <label
-                                    for="age"
-                                    class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                    for="male"
+                                    class="mr-2 font-semibold text-xs text-gray-700"
                                 >
-                                    Age
+                                    Male
                                 </label>
-                            </div>
-                            <div class="w-1/2">
                                 <input
-                                    class="border border-gray-400 p-2 w-20"
-                                    type="number"
-                                    name="age"
-                                    autocomplete="age"
-                                    value="{{ $user->age }}"
-                                    required
+                                    class="p-2"
+                                    type="radio"
+                                    id="male"
+                                    name="gender"
+                                    value="male"
+                                    @if($user->gender === 'male') {{ "checked" }} @endif
                                 >
+                            </div>
+                            <div class="ml-10">
+                                <label
+                                    for="female"
+                                    class="mr-2 font-semibold text-xs text-gray-700"
+                                >
+                                    Female
+                                </label>
+                                <input
+                                    class="p-2"
+                                    type="radio"
+                                    id="female"
+                                    name="gender"
+                                    value="female"
+                                    @if($user->gender === 'female') {{ "checked" }} @endif
+                                >
+                                
+                                @error('gender')
+                                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
-
-                        @error('age')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                        @enderror
                     </div>
                     
-                    <div class="my-6">
-                        <div class="flex">
-                            <div class="w-1/2">
-                                <label
-                                    for="height"
-                                    class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                >
-                                    Height in cm
-                                </label>
-                            </div>
-                            <div class="w-1/2">
-                                <input
-                                    class="border border-gray-400 p-2 w-20"
-                                    type="number"
-                                    name="height"
-                                    autocomplete="height"
-                                    value="{{ $user->height }}"
-                                    required
-                                >
-                            </div>
+                    <div class="flex my-6 items-center">
+                        <div class="w-1/2">
+                            <label
+                                for="age"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
+                                Age
+                            </label>
                         </div>
-
-                        @error('height')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                        @enderror
+                        <div class="w-1/2">
+                            <input
+                                class="border border-gray-400 p-2 w-20"
+                                type="number"
+                                name="age"
+                                value="{{ $user->age }}"
+                                required
+                            >
+                            
+                            @error('age')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     
-                    <div class="my-6">
-                        <div class="flex">
-                            <div class="w-1/2">
-                                <label
-                                    for="current_weight"
-                                    class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                >
-                                    Current Weight in kg
-                                </label>
-                            </div>
-                            <div class="w-1/2">
-                                <input
-                                    class="border border-gray-400 p-2 w-20"
-                                    type="number"
-                                    name="current_weight"
-                                    autocomplete="current_weight"
-                                    value="{{ $user->current_weight }}"
-                                    required
-                                >
-                            </div>
+                    <div class="flex my-6 items-center">
+                        <div class="w-1/2">
+                            <label
+                                for="height"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
+                                Height in cm
+                            </label>
                         </div>
-
-                        @error('current_weight')
-                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                        @enderror
+                        <div class="w-1/2">
+                            <input
+                                class="border border-gray-400 p-2 w-20"
+                                type="number"
+                                name="height"
+                                value="{{ $user->height }}"
+                                required
+                            >
+                            
+                            @error('height')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    
+                    <div class="flex my-6 items-center">
+                        <div class="w-1/2">
+                            <label
+                                for="current_weight"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
+                                Current Weight in kg
+                            </label>
+                        </div>
+                        <div class="w-1/2">
+                            <input
+                                class="border border-gray-400 p-2 w-20"
+                                type="number"
+                                name="current_weight"
+                                value="{{ $user->current_weight }}"
+                                required
+                            >
+                            
+                            @error('current_weight')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
                     
                     @if(!$user->onDiet())
-                        <div class="my-6">
-                            <div class="flex">
-                                <div class="w-1/2">
-                                    <label
-                                        for="activity_level"
-                                        class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                                    >
-                                        Activity Level
-                                    </label>
-                                </div>
-                                <div class="w-1/2">
-                                    <select
-                                        class="border border-gray-400 p-2 w-full"
-                                        name="activity_level"
-                                        required
-                                    >
-                                        <option
-                                            value="1.2"
-                                            @if($user->activity_level === 1.2) {{ "selected='selected'" }} @endif
-                                        >
-                                            {{ formatActivityLevel(1.2) }}
-                                        </option>
-                                        <option
-                                            value="1.375"
-                                            @if($user->activity_level === 1.375) {{ "selected='selected'" }} @endif
-                                        >
-                                            {{ formatActivityLevel(1.375) }}
-                                        </option>
-                                        <option
-                                            value="1.55"
-                                            @if($user->activity_level === 1.55) {{ "selected='selected'" }} @endif
-                                        >
-                                            {{ formatActivityLevel(1.55) }}
-                                        </option>
-                                        <option
-                                            value="1.725"
-                                            @if($user->activity_level === 1.725) {{ "selected='selected'" }} @endif
-                                        >
-                                            {{ formatActivityLevel(1.725) }}
-                                        </option>
-                                        <option
-                                            value="1.9"
-                                            @if($user->activity_level === 1.9) {{ "selected='selected'" }} @endif
-                                        >
-                                            {{ formatActivityLevel(1.9) }}
-                                        </option>
-                                    </select>
-                                </div>
+                        <div class="flex my-6">
+                            <div class="w-1/2">
+                                <label
+                                    for="activity_level"
+                                    class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                                >
+                                    Activity Level
+                                </label>
                             </div>
-                            
-                            @error('activity_level')
-                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                            @enderror
+                            <div class="w-1/2">
+                                <select
+                                    class="border border-gray-400 p-2 w-full"
+                                    name="activity_level"
+                                    required
+                                >
+                                    <option
+                                        value="1.2"
+                                        @if($user->activity_level === 1.2) {{ "selected='selected'" }} @endif
+                                    >
+                                        {{ formatActivityLevel(1.2) }}
+                                    </option>
+                                    <option
+                                        value="1.375"
+                                        @if($user->activity_level === 1.375) {{ "selected='selected'" }} @endif
+                                    >
+                                        {{ formatActivityLevel(1.375) }}
+                                    </option>
+                                    <option
+                                        value="1.55"
+                                        @if($user->activity_level === 1.55) {{ "selected='selected'" }} @endif
+                                    >
+                                        {{ formatActivityLevel(1.55) }}
+                                    </option>
+                                    <option
+                                        value="1.725"
+                                        @if($user->activity_level === 1.725) {{ "selected='selected'" }} @endif
+                                    >
+                                        {{ formatActivityLevel(1.725) }}
+                                    </option>
+                                    <option
+                                        value="1.9"
+                                        @if($user->activity_level === 1.9) {{ "selected='selected'" }} @endif
+                                    >
+                                        {{ formatActivityLevel(1.9) }}
+                                    </option>
+                                </select>
+                                
+                                @error('activity_level')
+                                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
                         </div>
                     @endif
                     

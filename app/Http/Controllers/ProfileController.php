@@ -28,8 +28,8 @@ class ProfileController extends Controller
 	public function update(User $user)
 	{
 		$validatedData = request()->validate([
+            'username' => ['required', 'string', 'alpha_dash', 'max:255', Rule::unique('users')->ignore($user)],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
-            'password'  => ['string', 'required', 'min:8', 'max:255', 'confirmed'],
             'gender' => ['required', 'string', 'max:6', 'alpha'],
             'age' => ['required', 'numeric', 'digits_between:1,3', 'min:0', 'max:127'],
             'height' => ['required', 'numeric', 'digits_between:1,3', 'min:0', 'max:300'],
