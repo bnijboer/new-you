@@ -31,6 +31,7 @@
                                 class="border border-gray-400 p-2 w-full"
                                 type="text"
                                 name="username"
+                                id="username"
                                 value="{{ $user->username }}"
                                 required
                             >
@@ -55,6 +56,7 @@
                                 class="border border-gray-400 p-2 w-full"
                                 type="email"
                                 name="email"
+                                id="email"
                                 value="{{ $user->email }}"
                                 required
                             >
@@ -125,6 +127,7 @@
                                 class="border border-gray-400 p-2 w-20"
                                 type="number"
                                 name="age"
+                                id="age"
                                 value="{{ $user->age }}"
                                 required
                             >
@@ -149,6 +152,7 @@
                                 class="border border-gray-400 p-2 w-20"
                                 type="number"
                                 name="height"
+                                id="height"
                                 value="{{ $user->height }}"
                                 required
                             >
@@ -173,6 +177,7 @@
                                 class="border border-gray-400 p-2 w-20"
                                 type="number"
                                 name="current_weight"
+                                id="current_weight"
                                 value="{{ $user->current_weight }}"
                                 required
                             >
@@ -197,6 +202,7 @@
                                 <select
                                     class="border border-gray-400 p-2 w-full"
                                     name="activity_level"
+                                    id="activity_level"
                                     required
                                 >
                                     <option
@@ -237,6 +243,54 @@
                             </div>
                         </div>
                     @endif
+                    
+                    <div class="flex my-6 items-center">
+                        <div class="w-1/2">
+                            <label
+                                for="password"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
+                                Password
+                            </label>
+                        </div>
+                        <div class="w-1/2">
+                            <input
+                                class="border border-gray-400 p-2"
+                                type="password"
+                                name="password"
+                                id="password"
+                                required
+                            >
+                            
+                            @error('password')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    
+                    <div class="flex my-6 items-center">
+                        <div class="w-1/2">
+                            <label
+                                for="password_confirmation"
+                                class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                            >
+                                Confirm Password
+                            </label>
+                        </div>
+                        <div class="w-1/2">
+                            <input
+                                class="border border-gray-400 p-2"
+                                type="password"
+                                name="password_confirmation"
+                                id="password_confirmation"
+                                required
+                            >
+                            
+                            @error('password_confirmation')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
                     
                     <div class="mt-10 mb-3 text-center">
                         <button
