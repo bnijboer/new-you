@@ -4,61 +4,7 @@
 
 @section('banner-text', 'Dashboard')
 
-@section('content')
-
-    <!-- END OF DIET NOTIFATION -->
-    
-    @if(currentDiet())
-        @if (Carbon\Carbon::parse(currentDiet()->ends_at)->isToday())
-        
-            {{ currentUser()->endDiet() }}
-            
-            <div class="lg:w-1/3 mx-auto text-center bg-green-200 lg:text-lg text-gray-700 font-semibold rounded-full shadow-lg p-4 my-12">
-                
-                <p class="uppercase text-green-700 text-2xl tracking-wider">
-                    Well done!
-                </p>
-                <p class="mt-4">
-                    You have completed your diet!
-                </p>
-                <p class="mt-6">
-                    Would you like to update your current weight?
-                </p>
-                
-                <form
-                    class="mt-3"
-                    action="/update-weight"
-                    method="POST"
-                >
-                    @csrf
-                    @method('patch')
-                    
-                    <input
-                        class="border border-gray-400 p-3 w-20"
-                        type="number"
-                        name="current_weight"
-                        id="current_weight"
-                        value="{{ currentUser()->current_weight }}"
-                        required
-                    >
-                    
-                    @error('current_weight')
-                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                    @enderror
-                    
-                    <div>
-                        <button
-                            type="submit"
-                            class="mt-3 bg-green-500 hover:bg-green-700 text-white font-bold rounded-full uppercase px-5 py-3"
-                        >
-                            Update
-                        </button>
-                    </div>
-                </form>
-            </div>
-        @endif
-    @endif
-    
+@section('content')    
 
     <!-- DATE/TIME BAR -->
     
