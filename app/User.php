@@ -158,9 +158,12 @@ class User extends Authenticatable
             return true;
         }
         
+        return false;
+    }
+    
+    public function endDiet()
+    {
         $this->current_diet = null;
         $this->save();
-        
-        return false;
     }
 }

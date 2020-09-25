@@ -26,7 +26,8 @@ Route::middleware('auth')->group(function ()
     Route::post('/diets', 'DietController@store');
     Route::get('/diets/{diet}', 'DietController@show');
     
-	Route::patch('/diets/end', 'DietEndController');
+	Route::post('/diets/end', 'DietEndController@store');
+	Route::patch('/update-weight', 'DietEndController@update');
     
     Route::post('/dates', 'DateController@store')->name('date');
 });

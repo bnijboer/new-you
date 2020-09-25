@@ -85,7 +85,6 @@
             <div class="mt-12 mb-4 text-center">
                 <form action="/diets/end" method="POST">
                     @csrf
-                    @method('patch')
                     
                     <button
                         type="submit"
