@@ -16,12 +16,7 @@
     
     <section>
         <main class="m-4">
-            <div>
-                @yield('content')
-            </div>
-            <!-- <div class="w-1/6">
-                @include('_statsbar')
-            </div> -->
+            @yield('content')
         </main>
     </section>
 

@@ -24,6 +24,15 @@ class DietController extends Controller
         return redirect()->route('dashboard')->with('success', 'Diet started!');
     }
     
+    public function show(Diet $diet)
+	{
+        abort_if($diet->isNot(currentDiet()), 404);
+        
+		return view('diets.show', [
+			'diet' => $diet
+		]);
+    }
+    
     private function validateDiet()
     {
         return request()->validate([

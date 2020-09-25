@@ -39,12 +39,21 @@
             >
                 Create Log
             </a>
-            <a
-                href="/diets/create"
-                class="lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600"
-            >
-                Create Diet
-            </a>
+            @if(currentUser()->onDiet())
+                <a
+                    href="/diets/{{ currentDiet()->id }}"
+                    class="lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600"
+                >
+                    View Diet
+                </a>
+            @else
+                <a
+                    href="/diets/create"
+                    class="lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600"
+                >
+                    Create Diet
+                </a>
+            @endif
             <a
                 href="/help"
                 class="lg:inline-flex lg:w-auto text-gray-600 font-medium mx-3 py-2 lg:border-b border-white hover:text-gray-900 hover:border-gray-600 focus:border-gray-600"

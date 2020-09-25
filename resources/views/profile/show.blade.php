@@ -67,7 +67,7 @@
                 <div class="my-6 flex">
                     <div class="w-1/2">                    
                         <span class="uppercase font-bold text-xs text-gray-700">
-                            Current Weight
+                            Weight
                         </span>
                     </div>
                     <div class="w-1/2">
@@ -84,12 +84,12 @@
                         {{ formatActivityLevel($user->activity_level) }}
                     </div>
                 </div>
-                <div class="mb-4 text-center">
+                <div class="mt-12 mb-4 text-center">
                     <a
-                        class="hover:text-orange-400 focus:text-orange-400 text-2xl xl:inline xl:px-3 mb-3"
+                        class="bg-orange-400 hover:bg-orange-500 focus:bg-orange-500 text-white font-bold rounded-full uppercase px-5 py-3"
                         href="/profile/{{ $user->username }}/edit"
                     >
-                        <i class="fas fa-edit"></i>
+                        Edit
                     </a>
                 </div>
             </div>

@@ -8,7 +8,7 @@
 
     <div class="lg:w-1/2 xl:w-1/3 bg-white rounded-lg shadow-lg mb-6 mx-auto">
         <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
-            Diet Specifications
+            Diet Settings
         </div>
         <div class="py-4 px-6 text-gray-600">
             
