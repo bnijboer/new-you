@@ -72,7 +72,7 @@
                 </div>                
                 <div class="py-4 px-6 text-gray-700">
                     @forelse($logs as $log)
-                        <div class="{{ $loop->last ? 'mb-2' : 'mb-8' }}">
+                        <div class="{{ $loop->last ? 'mb-2' : 'mb-6' }}">
                             <div class="flex justify-around text-sm md:text-lg lg:text-xl">
                                 <div>
                                     {{ $log->created_at->isoFormat('HH:mm') }}
@@ -87,7 +87,7 @@
                                         - {{ $log->quantity }} g
                                 </div>
                                 <div>
-                                    <button class="details-button text-gray-500 hover:text-blue-600 focus:text-blue-600">
+                                    <button class="details-button text-gray-500 hover:text-blue-600 focus:text-blue-600 pt-2">
                                         <i class="fas fa-level-down-alt"></i>
                                     </button> 
                                 </div>
@@ -127,7 +127,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-center mt-3">
+                                <div class="text-center mt-1">
                                     <a
                                         class="bg-orange-400 hover:bg-orange-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-orange-500"
                                         href="/logs/{{ $log->id }}/edit"
@@ -155,9 +155,8 @@
                         </div>
                     @empty
                         <div class="text-center">
-                            
                             <p>
-                                You have no logs so far.
+                                No logs for this day so far.
                             </p>
                             <p class="mt-8 mb-3">
                                 <a
@@ -167,7 +166,6 @@
                                     Create Log
                                 </a>
                             </p>
-                            
                         </div>
                     @endforelse
                 </div>
@@ -177,25 +175,37 @@
         
         <!-- RATIO CHARTS AND TOTAL/REQUIRED INTAKE TABLES -->
         
-        <div class="lg:w-1/2 bg-gray-100 rounded-lg shadow-lg">
-            <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
+        <div class="lg:w-1/2 rounded-lg shadow-lg">
+            <div class="bg-blue-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
                 Nutritional Intake
             </div>
-            <div class="p-4">
-                <div class="text-center my-4">
+            <div class="text-gray-700 py-4 px-6">
+                <div class="text-center mb-3">
                     @if(currentDiet())
-                        You are currently on a 
-                        <a 
-                            class="font-bold hover:underline"
-                            href="/diets/{{ currentDiet()->id }}"
-                        >
-                            <span>diet</span>
-                        </a>.
+                        <p>
+                            You are currently on a 
+                            <a 
+                                class="font-bold hover:underline"
+                                href="/diets/{{ currentDiet()->id }}"
+                            >
+                                <span>diet</span>
+                            </a>.
+                        </p>
                     @else
-                        Your are currently eating at maintenance.
+                        <p>
+                            Your are currently eating at maintenance.
+                        </p>
+                        <p class="mt-8 mb-3">
+                            <a
+                                href="/diets/create"
+                                class="bg-green-400 hover:bg-green-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-green-500"
+                            >
+                                Create Diet
+                            </a>
+                        </p>
                     @endif
                 </div>
-                <div class="md:flex md:justify-around mx-auto text-gray-700">            
+                <div class="md:flex md:justify-around mx-auto mt-10 text-gray-700">            
                     @if (! $logs->isEmpty())
                         <div class="md:w-1/2 mb-6">
                             <div class="text-center text-lg lg:text-2xl font-semibold py-4">
@@ -219,34 +229,34 @@
                 
                 <div class="xl:flex xl:justify-around my-5">
                     <div class="w-2/3 xl:w-1/3 mt-10 mx-auto">
-                        <table class="w-full table-fixed border border-indigo-200 shadow-sm">
+                        <table class="w-full table-fixed shadow-md">
                             <thead>
-                                <div class="bg-indigo-400 text-center text-xl font-bold text-white uppercase py-2">
+                                <div class="bg-blue-400 text-center text-xl font-bold text-white uppercase py-2">
                                     Current Total
                                 </div>
                             </thead>
                             
-                            <tbody class="bg-indigo-100 text-sm font-semibold text-gray-700">
+                            <tbody class="bg-blue-100 text-sm font-semibold text-gray-700">
                                 <tr>
-                                    <td class="w-39 p-3">Energy:</td>
+                                    <td class="w-39 p-3">Energy</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $totalIntake->energy }} kcal
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Protein:</td>
+                                    <td class="p-3">Protei:</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $totalIntake->protein }} g
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Fat:</td>
+                                    <td class="p-3">Fat</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $totalIntake->fat }} g
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Carbs:</td>
+                                    <td class="p-3">Carbs</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $totalIntake->carbs }} g
                                     </td>
@@ -255,33 +265,33 @@
                         </table>
                     </div>
                     <div class="w-2/3 xl:w-1/3 mt-10 mx-auto">
-                        <table class="w-full table-fixed border border-indigo-200 shadow-sm">
+                        <table class="w-full table-fixed shadow-md">
                             <thead>
-                                <div class="bg-indigo-400 text-center text-xl font-bold text-white uppercase py-2">
+                                <div class="bg-blue-400 text-center text-xl font-bold text-white uppercase py-2">
                                     Required
                                 </div>
                             </thead>
-                            <tbody class="bg-indigo-100 text-sm font-semibold text-gray-700">
+                            <tbody class="bg-blue-100 text-sm font-semibold text-gray-700">
                                 <tr>
-                                    <td class="w-39 p-3">Energy:</td>
+                                    <td class="w-39 p-3">Energy</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $requiredIntake->energy - $totalIntake->energy }} kcal
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Protein:</td>
+                                    <td class="p-3">Protein</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $requiredIntake->protein - $totalIntake->protein }} g
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Fat:</td>
+                                    <td class="p-3">Fat</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $requiredIntake->fat - $totalIntake->fat }} g
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Carbs:</td>
+                                    <td class="p-3">Carbs</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $requiredIntake->carbs - $totalIntake->carbs }} g
                                     </td>

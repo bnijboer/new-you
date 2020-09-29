@@ -12,7 +12,7 @@
             var myPieChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: ['Protein', 'Fat', 'Carbohydrates'],
+                    labels: ['Protein', 'Fat', 'Carbs'],
                     datasets: [{
                         backgroundColor: [
                             '#F78079',
