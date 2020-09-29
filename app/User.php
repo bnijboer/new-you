@@ -45,6 +45,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+    
     // bmr = basal metabolic rate
     // this is the outcome of a formula that determines your energy expenditure per day at rest
     public function bmr()

@@ -63,111 +63,115 @@
     
     <!-- LOG OVERVIEW -->
     
-    <div class="lg:flex">
-        <div class="lg:w-1/2 mb-8 lg:mr-8">
-            <div class="bg-white border border-blue-500">
-                <table class="w-full">
-                    <thead>
-                        <div class="bg-blue-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2">
-                            Logs
-                        </div>
-                    </thead>
-                    <tbody>
-                        @forelse ($logs as $log)
-                            <tr class="w-full text-sm md:text-md lg:text-lg xl:text-xl text-center font-semibold text-gray-700">
-                                <td class="w-1/6 bg-blue-100 py-4">
+    <div class="lg:flex lg:justify-around">
+        
+        <div class="w-full lg:w-1/2 xl:w-1/3 lg:mr-4 mb-8 lg:mb-0">
+            <div class="bg-white rounded-lg shadow-lg">
+                <div class="bg-blue-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
+                    Logs
+                </div>                
+                <div class="py-4 px-6 text-gray-700">
+                    @forelse($logs as $log)
+                        <div class="{{ $loop->last ? 'mb-2' : 'mb-8' }}">
+                            <div class="flex justify-around text-sm md:text-lg lg:text-xl">
+                                <div>
                                     {{ $log->created_at->isoFormat('HH:mm') }}
-                                </td>
-                                <td class="w-2/3 bg-blue-200 p-4">
-                                    {{ $log->product->name }}
-                                    
-                                    @isset($log->product->brand)
-                                        ({{ $log->product->brand }})
-                                    @endisset
-                                    
-                                    - {{ $log->quantity }} g
-                                </td>
-                                <td class="w-1/6 bg-blue-300 text-gray-600 py-4">
-                                    <button class="log-info hover:text-white focus:text-white block xl:inline mx-auto mb-3">
+                                </div>
+                                <div class="w-5/6 text-center">
+                                        {{ $log->product->name }}
+                                        
+                                        @isset($log->product->brand)
+                                            ({{ $log->product->brand }})
+                                        @endisset
+                                        
+                                        - {{ $log->quantity }} g
+                                </div>
+                                <div>
+                                    <button class="details-button text-gray-500 hover:text-blue-600 focus:text-blue-600">
                                         <i class="fas fa-level-down-alt"></i>
-                                    </button>
-                                    
+                                    </button> 
+                                </div>
+                            </div>
+                            <div class="log-details hidden">
+                                <div class="table w-2/3 md:w-1/3 lg:w-1/2 mx-auto text-xs md:text-sm lg:text-md font-light p-4 rounded-lg">
+                                    <div class="table-row">
+                                        <div class="table-cell pl-4 py-2 border-b border-gray-200 w-3/4">
+                                            Energy
+                                        </div>
+                                        <div class="table-cell py-2 border-b border-gray-200">
+                                            {{ $log->energy }} kcal
+                                        </div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell pl-4 py-2 border-b border-gray-200">
+                                            Protein
+                                        </div>
+                                        <div class="table-cell py-2 border-b border-gray-200">
+                                            {{ $log->protein }} g
+                                        </div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell pl-4 py-2 border-b border-gray-200">
+                                            Fat
+                                        </div>
+                                        <div class="table-cell py-2 border-b border-gray-200">
+                                            {{ $log->fat }} g
+                                        </div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell pl-4 py-2 border-b border-gray-200">
+                                            Carbs
+                                        </div>
+                                        <div class="table-cell py-2 border-b border-gray-200">
+                                            {{ $log->carbs }} g
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-3">
                                     <a
-                                        class="hover:text-orange-400 focus:text-orange-400 block xl:inline xl:px-3 mb-3"
+                                        class="bg-orange-400 hover:bg-orange-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-orange-500"
                                         href="/logs/{{ $log->id }}/edit"
                                     >
-                                        <i class="fas fa-edit"></i>
+                                        Edit
                                     </a>
                                     
                                     <form
                                         action="/logs/{{ $log->id }}"
                                         method="POST"
-                                        class="xl:inline"
+                                        class="inline"
                                     >
                                         @csrf
                                         @method('delete')
                                         <button
                                             type="submit"
                                             onclick="return confirm('Are you sure you want to delete this log?');"
-                                            class="hover:text-red-500 focus:text-red-500"
+                                            class="bg-red-400 hover:bg-red-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-red-500 ml-3"
                                         >
-                                            <i class="fas fa-trash"></i>
+                                            Delete
                                         </button>
                                     </form>
-                                </td>
-                            </tr>
-                                <tr class="hidden">
-                                    <td class="w-1/6 bg-blue-100 pb-2"></td>
-                                    <td class="w-2/3 bg-blue-200 pb-2 px-4">
-                                        <table class="w-full font-semibold text-xs md:text-sm text-gray-600">
-                                            <tr>
-                                                <td class="w-1/2">
-                                                    Energy:
-                                                </td>
-                                                <td class="w-1/2">
-                                                    {{ $log->energy }} kcal
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="w-1/2">
-                                                    Protein:
-                                                </td>
-                                                <td class="w-1/2">
-                                                    {{ $log->protein }} g
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="w-1/2">
-                                                    Fat:
-                                                </td class="w-1/2">
-                                                <td>
-                                                    {{ $log->fat }} g
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="w-1/2">
-                                                    Carbs:
-                                                </td>
-                                                <td class="w-1/2">
-                                                    {{ $log->carbs }} g
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <hr class="mt-4">
-                                    </td>
-                                    <td class="w-1/6 bg-blue-300 pb-2"></td>
-                                </tr>
-                        @empty
-                            <tr class="flex justify-center">
-                                <td class="py-4">
-                                    No logs so far.
-                                </td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="text-center">
+                            
+                            <p>
+                                You have no logs so far.
+                            </p>
+                            <p class="mt-8 mb-3">
+                                <a
+                                    class="bg-blue-300 hover:bg-blue-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-blue-500"
+                                    href="{{ route('products') }}"
+                                >
+                                    Create Log
+                                </a>
+                            </p>
+                            
+                        </div>
+                    @endforelse
+                </div>
             </div>
-            
         </div>
         
         
@@ -178,6 +182,19 @@
                 Nutritional Intake
             </div>
             <div class="p-4">
+                <div class="text-center my-4">
+                    @if(currentDiet())
+                        You are currently on a 
+                        <a 
+                            class="font-bold hover:underline"
+                            href="/diets/{{ currentDiet()->id }}"
+                        >
+                            <span>diet</span>
+                        </a>.
+                    @else
+                        Your are currently eating at maintenance.
+                    @endif
+                </div>
                 <div class="md:flex md:justify-around mx-auto text-gray-700">            
                     @if (! $logs->isEmpty())
                         <div class="md:w-1/2 mb-6">
@@ -279,5 +296,6 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('js/log-details.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 @endpush

@@ -2,7 +2,7 @@
 
 @section('title', 'Products')
 
-@section('banner-text', 'Select Product')
+@section('banner-text', 'Select A Product')
 
 @section('content')
 
@@ -183,7 +183,7 @@
                     </div>
                 @else
                     <div class="py-6 text-center">
-                        You haven't stored any products yet!
+                        There aren't any products in the database yet!
                         
                         <a
                             href="/products/create"
