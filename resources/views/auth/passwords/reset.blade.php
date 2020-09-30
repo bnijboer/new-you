@@ -4,10 +4,8 @@
 
 @section('content')
 
-    <div class="flex justify-center text-center">
-        <div class="w-1/3 rounded-lg">
-            @include('_logo')
-        </div>
+    <div class="text-center">
+        @include('_logo')
     </div>
     
     <div class="flex justify-center text-center mt-12">

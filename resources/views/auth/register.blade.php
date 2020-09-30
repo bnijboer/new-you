@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="mx-auto">
+    <div class="text-center">
         @include('_logo')
     </div>
     

@@ -249,7 +249,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3">Protei:</td>
+                                    <td class="p-3">Protein</td>
                                     <td class="p-3 text-gray-600">
                                         {{ $totalIntake->protein }} g
                                     </td>
