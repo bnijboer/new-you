@@ -123,6 +123,8 @@
                                     id="quantity"
                                     name="quantity"
                                     value="{{ $product->quantity }}"
+                                    min="0"
+                                    max="9999"
                                     required
                                 >
                             </div>
