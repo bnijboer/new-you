@@ -233,7 +233,7 @@
                             <select
                                 id="activity_level"
                                 name="activity_level"
-                                class="border border-gray-400 p-2 w-full"
+                                class="bg-white border border-gray-400 p-2 w-full"
                                 autocomplete="activity_level"
                                 required
                             >

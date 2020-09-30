@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', 'PagesController')->name('landing');
+Route::get('/', 'HomeController')->name('landing');
 
 Route::middleware('auth')->group(function ()
 {
@@ -27,7 +27,11 @@ Route::middleware('auth')->group(function ()
     Route::get('/diets/{diet}', 'DietController@show');
     
 	Route::post('/diets/end', 'DietEndController@store');
-	Route::patch('/update-weight', 'DietEndController@update');
+    Route::patch('/update-weight', 'DietEndController@update');
+    
+    Route::get('/assistance', function(){
+        return view('assistance');
+    });
     
     Route::post('/dates', 'DateController@store')->name('date');
 });

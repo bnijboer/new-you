@@ -76,7 +76,7 @@
                     </div>
                     <div class="w-1/2">
                         <select
-                            class="border border-gray-400 p-2 w-full"
+                            class="bg-white border border-gray-400 p-2 w-full"
                             name="activity_level"
                             id="activity_level"
                             required

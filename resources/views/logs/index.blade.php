@@ -8,8 +8,8 @@
 
     <!-- DATE/TIME BAR -->
     
-    <div class="mt-6 mb-8">
-        <div class="mx-auto md:w-1/2 xl:w-1/3 flex justify-between rounded-full border border-gray-200 text-2xl text-gray-700 overflow-hidden">
+    <div class="my-8">
+        <div class="mx-auto md:w-1/2 lg:w-1/3 xl:w-1/4 flex justify-between rounded-full border border-gray-200 text-xl text-gray-700 overflow-hidden">
             
             <form action="/dates" method="POST">
                 @csrf
@@ -19,7 +19,7 @@
                     name="previous"
                     value="{{ $shownDate->toDateString() }}"
                 >
-                    <div class="bg-blue-300 hover:bg-blue-400 py-2 px-4">
+                    <div class="text-white bg-blue-200 hover:bg-blue-300 py-2 px-4">
                         <i class="fas fa-angle-left"></i>
                     </div>
                 </button>
@@ -29,7 +29,7 @@
                 <form action="/dates" method="POST">
                     @csrf
                     <input
-                        class="text-gray-600 hover:text-black focus:text-black focus:outline-none ml-6 xl:ml-16 mt-2"
+                        class="bg-white text-gray-600 hover:text-black focus:text-black focus:outline-none ml-6 xl:ml-16 mt-2"
                         type="date"
                         id="date-picker"
                         name="date"
@@ -51,7 +51,7 @@
                         value="{{ $shownDate->toDateString() }}"
                         {{ $shownDate->isSameDay(currentDate()) ? 'disabled' : '' }}
                     >
-                        <div class="bg-blue-300 hover:bg-blue-400 py-2 px-4">
+                        <div class="text-white bg-blue-200 hover:bg-blue-300 py-2 px-4">
                             <i class="fas fa-angle-right"></i>
                         </div>
                     </button>
@@ -61,10 +61,13 @@
     </div>
     
     
-    <!-- LOG OVERVIEW -->
+    
     
     <div class="lg:flex lg:justify-around">
         
+    
+        <!-- LOG OVERVIEW -->
+    
         <div class="w-full lg:w-1/2 xl:w-1/3 lg:mr-4 mb-8 lg:mb-0">
             <div class="bg-white rounded-lg shadow-lg">
                 <div class="bg-blue-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
@@ -72,12 +75,12 @@
                 </div>                
                 <div class="py-4 px-6 text-gray-700">
                     @forelse($logs as $log)
-                        <div class="{{ $loop->last ? 'mb-2' : 'mb-6' }}">
-                            <div class="flex justify-around text-sm md:text-lg lg:text-xl">
-                                <div>
+                        <div class="{{ $loop->last ? 'mb-2' : 'mb-4' }}">
+                            <div class="flex justify-around text-xs md:text-lg">
+                                <div class="pr-8">
                                     {{ $log->created_at->isoFormat('HH:mm') }}
                                 </div>
-                                <div class="w-5/6 text-center">
+                                <div class="w-5/6">
                                         {{ $log->product->name }}
                                         
                                         @isset($log->product->brand)
@@ -93,7 +96,7 @@
                                 </div>
                             </div>
                             <div class="log-details hidden">
-                                <div class="table w-2/3 md:w-1/3 lg:w-1/2 mx-auto text-xs md:text-sm lg:text-md font-light p-4 rounded-lg">
+                                <div class="table w-3/4 md:w-1/3 lg:w-7/12 xl:w-1/2 mx-auto text-xs md:text-sm lg:text-md font-light p-4 rounded-lg">
                                     <div class="table-row">
                                         <div class="table-cell pl-4 py-2 border-b border-gray-200 w-3/4">
                                             Energy
@@ -127,7 +130,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-center mt-1">
+                                <div class="text-center border-b border-dotted border-gray-300 pb-3 mt-1">
                                     <a
                                         class="bg-orange-400 hover:bg-orange-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-orange-500"
                                         href="/logs/{{ $log->id }}/edit"
@@ -158,16 +161,18 @@
                             <p>
                                 No logs for this day so far.
                             </p>
-                            <p class="mt-8 mb-3">
-                                <a
-                                    class="bg-blue-300 hover:bg-blue-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-blue-500"
-                                    href="{{ route('products') }}"
-                                >
-                                    Create Log
-                                </a>
-                            </p>
                         </div>
                     @endforelse
+                </div>
+                <div class="text-center">
+                    <p class="mt-5 pb-8">
+                        <a
+                            href="{{ route('products') }}"
+                            class="bg-green-400 hover:bg-green-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-green-500"
+                        >
+                            Create Log
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -185,7 +190,7 @@
                         <p>
                             You are currently on a 
                             <a 
-                                class="font-bold hover:underline"
+                                class="font-bold hover:text-gray-900"
                                 href="/diets/{{ currentDiet()->id }}"
                             >
                                 <span>diet</span>
@@ -208,8 +213,8 @@
                 <div class="md:flex md:justify-around mx-auto mt-10 text-gray-700">            
                     @if (! $logs->isEmpty())
                         <div class="md:w-1/2 mb-6">
-                            <div class="text-center text-lg lg:text-2xl font-semibold py-4">
-                                Current Ratio
+                            <div class="text-center text-lg lg:text-2xl font-medium py-4">
+                                Your Ratio
                             </div>
                             <div>
                                 <total-pie-chart :total-intake=@json($totalIntake)></total-pie-chart>
@@ -218,7 +223,7 @@
                     @endif
                     
                     <div class="md:w-1/2 mb-6">
-                        <div class="text-center text-lg lg:text-2xl font-semibold py-4">
+                        <div class="text-center text-lg lg:text-2xl font-medium py-4">
                             Optimal Ratio
                         </div>
                         <div>
@@ -268,7 +273,7 @@
                         <table class="w-full table-fixed shadow-md">
                             <thead>
                                 <div class="bg-blue-400 text-center text-xl font-bold text-white uppercase py-2">
-                                    Required
+                                    Still Required
                                 </div>
                             </thead>
                             <tbody class="bg-blue-100 text-sm font-semibold text-gray-700">

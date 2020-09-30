@@ -184,16 +184,18 @@
                 @else
                     <div class="py-6 text-center">
                         There aren't any products in the database yet!
-                        
+                    </div>
+                @endif
+                <div class="text-center">
+                    <p class="mt-5 pb-8">
                         <a
                             href="/products/create"
-                            class="w-48 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-full uppercase px-5 py-3 mt-8 mx-auto block"
+                            class="bg-green-400 hover:bg-green-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-green-500"
                         >
                             Create Product
                         </a>
-                    </div>
-                @endif
-                
+                    </p>
+                </div>
             </div>
         </div>
     </div>

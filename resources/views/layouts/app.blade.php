@@ -3,7 +3,7 @@
     @include('_navbar')
     
     @if (session('success'))
-        <div class="border-green-300 bg-green-200 tracking-wide text-center text-lg text-gray-800 font-semibold shadow-md py-4">
+        <div class="message hidden border-green-300 bg-green-200 tracking-wide text-center text-lg text-gray-700 font-medium shadow-md py-4">
             {{ session('success') }}
         </div>
     @endif
@@ -73,5 +73,9 @@
             @yield('content')
         </main>
     </section>
+    
+    @push('scripts')
+        <script src="{{ asset('js/message.js') }}"></script>
+    @endpush
 
 </x-master>
