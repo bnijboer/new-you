@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Log;
-use Carbon\Carbon;
 
 class LogController extends Controller
 {
@@ -15,7 +14,7 @@ class LogController extends Controller
                 'date' => ['required', 'date']
             ]);
             
-            $shownDate = Carbon::createFromFormat('Y-m-d', $validated['date']);
+            $shownDate = \Carbon\Carbon::createFromFormat('Y-m-d', $validated['date']);
             
         } else {
             $shownDate = currentDate();

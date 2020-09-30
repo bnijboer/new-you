@@ -10,7 +10,7 @@ class DietController extends Controller
     {
         return view('diets.create');
     }
-    
+     
     public function store()
 	{
         $diet = Diet::make($this->validateDiet());
@@ -19,9 +19,7 @@ class DietController extends Controller
         
         $diet->save();
         
-        $diet->activate();
-        
-        return redirect()->route('dashboard')->with('success', 'Diet started!');
+        return redirect()->route('activate_diet', $diet);
     }
     
     public function show(Diet $diet)
@@ -31,6 +29,17 @@ class DietController extends Controller
 		return view('diets.show', [
 			'diet' => $diet
 		]);
+    }
+    
+    public function update(Diet $diet)
+    {
+        $diet->ends_at = $diet->endDate;
+        
+        $diet->update();
+        
+        currentUser()->activateDiet($diet);
+        
+        return redirect()->route('dashboard')->with('success', 'Diet started!');
     }
     
     private function validateDiet()
