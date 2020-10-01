@@ -50,11 +50,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if ($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
-            abort(404);
-        } elseif (! view()->exists("errors.{$exception->getStatusCode()}")) {
-            return response()->view('errors.default');
-        }
+        // if ($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
+        //     abort(404);
+        // } elseif (! view()->exists("errors.{$exception->getStatusCode()}")) {
+        //     return response()->view('errors.default');
+        // }
 
         return parent::render($request, $exception);
     }
