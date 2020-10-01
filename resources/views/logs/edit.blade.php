@@ -117,6 +117,8 @@
                                 id="quantity"
                                 name="quantity"
                                 value="{{ $log->quantity }}"
+                                min="0"
+                                max="9999"
                                 required
                             >
                             @error('quantity')
