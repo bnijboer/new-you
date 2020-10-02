@@ -9,7 +9,7 @@
         <div class="w-5/6 md:w-1/3 rounded-lg shadow-lg mx-auto">
         
             <div class="bg-indigo-400 text-center text-2xl text-white font-bold tracking-wider uppercase py-2 rounded-t-lg">
-                Enter Product Details
+                Enter Details
             </div>
 
             <div class="py-4 px-6 text-gray-600">
@@ -27,7 +27,7 @@
                         </div>
                         <div class="w-1/2">
                             <input
-                                class="border border-gray-400 p-2"
+                                class="w-full border border-gray-400 p-2"
                                 type="text"
                                 name="name"
                                 id="name"
@@ -52,7 +52,7 @@
                         </div>
                         <div class="w-1/2">
                             <input
-                                class="border border-gray-400 p-2"
+                                class="w-full border border-gray-400 p-2"
                                 type="text"
                                 name="brand"
                                 id="brand"

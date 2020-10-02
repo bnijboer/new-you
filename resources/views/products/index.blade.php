@@ -2,7 +2,7 @@
 
 @section('title', 'Products')
 
-@section('banner-text', 'Select A Product')
+@section('banner-text', 'Select Product')
 
 @section('content')
 
