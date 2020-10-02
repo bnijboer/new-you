@@ -114,14 +114,14 @@
                         </button>
                     </div>
                     
-                    <div class="flex justify-center mb-4">
+                    <!-- <div class="flex justify-center mb-4">
                         <a
                             href="{{ route('password.request') }}"
                             class="text-xs text-gray-700"
                         >
                             Forgot Your Password?
                         </a>
-                    </div>
+                    </div> -->
 
                 </form>
             </div>
