@@ -69,7 +69,7 @@
     </section>
     
     <section>
-        <main class="m-4">
+        <main class="mt-4 mx-4 mb-16">
             @yield('content')
         </main>
     </section>

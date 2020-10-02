@@ -33,6 +33,7 @@
                                 name="username"
                                 id="username"
                                 value="{{ $user->username }}"
+                                autocomplete="username"
                                 required
                             >
                             
@@ -259,6 +260,7 @@
                                 type="password"
                                 name="password"
                                 id="password"
+                                autocomplete="current-password"
                                 required
                             >
                             
@@ -283,6 +285,7 @@
                                 type="password"
                                 name="password_confirmation"
                                 id="password_confirmation"
+                                autocomplete="current-password"
                                 required
                             >
                             

@@ -51,6 +51,7 @@
                             name="username"
                             id="username"
                             value="{{ old('username') }}"
+                            autocomplete="username"
                             required
                         >
 
@@ -72,6 +73,7 @@
                             type="password"
                             name="password"
                             id="password"
+                            autocomplete="current-password"
                             required
                         >
 

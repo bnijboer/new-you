@@ -14,8 +14,28 @@
     @stack('scripts')
 </head>
 
-<body>
+<body class="min-h-screen flex flex-col justify-between">
     <div id="app">
         {{ $slot }}
     </div>
+    
+    <footer class="bg-gray-200 bg-opacity-75 tracking-wide text-gray-600 text-center py-4">
+        Brendan Nijboer ©
+        <div class="inline pl-3">
+            <a
+                href="https://github.com/bnijboer/new-you"
+                class="hover:text-gray-900"
+                target="_blank"
+            >
+                <i class="fab fa-github"></i>
+            </a>
+            <a
+                href="https://www.linkedin.com/in/brendan-nijboer-3966a1108/"
+                class="hover:text-gray-900 pl-1"
+                target="_blank"
+            >
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </footer>
 </body>
