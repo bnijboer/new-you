@@ -1,18 +1,42 @@
 # New You
 
---- WORK IN PROGRESS ---
 
-This project I'm currently working on is first and foremost aimed at getting a basic understanding of Laravel.
-As nutrition is a personal interest of mine, I was inspired by the popular MyFitnessPal app and I decided to create my own version of it.
+**URL:**
 
-The gist of it is that a user can log their food intake and monitor the amount of calories and nutrients they consume.
-By using the 'diet' feature, a user can set a 'weight goal', to which the app will calculate how long users will need to consume a certain number of calories/nutrients in order to achieve that goal.
+[New You](http://phplaravel-481691-1516217.cloudwaysapps.com/).
 
-I've been trying to design this project according to the MVC model, using the lessons over at Laracasts as guidance.
-This project is meant to reflect most of what I've learned over the past half year, including CRUD, authentication, as well as basic frontend skills: JavaScript, jQuery, responsive design and CSS frameworks (TailwindCSS in this case).
 
-As this is still work in progress, I have included some screenshots for now, but a deploy will soon follow. 
 
+
+**Aim:**
+
+This is my first Laravel web app. Since nutrition is a personal interest of mine, I was inspired by the popular MyFitnessPal app and I decided to create my own version of it.
+I made this app with the aim of getting familiar with Laravel and backend development in general.
+
+This project is meant to reflect most of what I've learned over the past half year, including CRUD, authentication, as well as basic frontend skills in JavaScript/jQuery, responsive design and using CSS frameworks (TailwindCSS in this case).
+
+
+
+
+**Description:**
+
+With this app, users can log their food intake and monitor the amount of calories and nutrients they consume.
+By using the *diet* feature, a user can set a *weight goal*, to which the app will calculate how long users will need to consume a certain number of calories/nutrients in order to achieve that goal.
+
+
+
+
+**Languages/systems/frameworks used:**
+
+- Laravel/PHP
+- JavaScript/jQuery/Vue.js
+- CSS/TailwindCSS
+- MySQL
+
+
+
+
+**Screenshots**
 
 ![Alt text](/screenshots/newyou0.jpg?raw=true "preview")
 
@@ -23,3 +47,5 @@ As this is still work in progress, I have included some screenshots for now, but
 ![Alt text](/screenshots/newyou3.jpg?raw=true "preview")
 
 ![Alt text](/screenshots/newyou4.jpg?raw=true "preview")
+
+![Alt text](/screenshots/newyou5.jpg?raw=true "preview")
