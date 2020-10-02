@@ -36,7 +36,7 @@ By using the *diet* feature, a user can set a *weight goal*, to which the app wi
 
 
 
-**Screenshots**
+**Screenshots:**
 
 ![Alt text](/screenshots/newyou0.jpg?raw=true "preview")
 
