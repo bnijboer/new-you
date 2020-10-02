@@ -50,7 +50,6 @@
                             type="text"
                             name="username"
                             id="username"
-                            autocomplete="username"
                             value="{{ old('username') }}"
                             required
                         >
@@ -73,7 +72,6 @@
                             type="password"
                             name="password"
                             id="password"
-                            autocomplete="current-password"
                             required
                         >
 

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 use App\Diet;
 
@@ -45,9 +46,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function setPasswordAttribute($value)
+    public function setPasswordAttribute($password)
     {
-        $this->attributes['password'] = bcrypt($value);
+        $this->attributes['password'] = Hash::needsRehash($password) ? bcrypt($password) : $password;
     }
     
     // bmr = basal metabolic rate
