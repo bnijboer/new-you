@@ -3,7 +3,7 @@
 
 **URL:**
 
-[New You](http://phplaravel-481691-1516217.cloudwaysapps.com/).
+[New You](http://phplaravel-481691-1516217.cloudwaysapps.com/)
 
 
 
