@@ -21,12 +21,14 @@ class Diet extends Model
         return $this->starting_weight - $this->target_weight;
     }
     
+    // The total caloric deficit or surplus needed to reach your dietary goal
     public function getNetEnergyAttribute()
     {
-        // 1 kg of body fat equals 7700 calories.
-        return $this->goal * 7700;
+        return $this->goal * 7700;  // 1 kg of body fat equals 7700 calories.
     }
     
+    // diet_intensity determines the length of a diet.
+    // Ex.: Increasing diet_intensity means more calories will be burned/consumed each day, shortening the duration of a diet.
     public function getDurationAttribute()
     {
         // $dietIntensity serves as a 100x multiplier to set the caloric surplus or deficit of a diet.

@@ -52,15 +52,17 @@ class User extends Authenticatable
     }
     
     // bmr = basal metabolic rate
-    // this is the outcome of a formula that determines your energy expenditure per day at rest
+    // this is the outcome of a formula that determines your energy expenditure per day at rest, based on your gender
     public function bmr()
     {
+        $expenditure = 10 * $this->current_weight + 6.25 * $this->height - 5 * $this->age;
+        
         switch ($this->gender) {
             case "female":
-                return 10 * $this->current_weight + 6.25 * $this->height - 5 * $this->age - 161;
+                return $expenditure - 161;
                 break;
             case "male":
-                return 10 * $this->current_weight + 6.25 * $this->height - 5 * $this->age + 5;
+                return $expenditure + 5;
                 break;
         }
     }
@@ -74,18 +76,28 @@ class User extends Authenticatable
             
             $diet = $this->diet();
             
+            $dailyDeficit = $diet->netEnergy / $diet->duration;
+            
+            // The deficit for macronutrients is based on the amount of calories per gram of a particular nutrient as well as the ratio between macronutrients.
+            // Ratio's can vary depending on diet type (ex. keto, paleo, atkins), but for now this app uses a fixed ratio of 3:3:4 aimed at developing lean muscle mass.
+            
+            // Calories per gram:
+            // - Protein:         4 kcal
+            // - Fat:             9 kcal
+            // - Carbohydrates:   4 kcal
+            
             $deficit = (object) [
                 'energy' => round(
-                    $diet->netEnergy / $diet->duration
+                    $dailyDeficit
                 ),
                 'protein' => round(
-                    $diet->netEnergy / $diet->duration / 4 * 0.3
+                    $dailyDeficit / 4 * 0.3
                 ),
                 'fat' => round(
-                    $diet->netEnergy / $diet->duration / 9 * 0.3
+                    $dailyDeficit / 9 * 0.3
                 ),
                 'carbs' => round(
-                    $diet->netEnergy / $diet->duration / 4 * 0.4
+                    $dailyDeficit / 4 * 0.4
                 )
             ];
             
