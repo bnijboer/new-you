@@ -171,7 +171,7 @@
                                 for="quantity"
                                 class="block mb-2 uppercase font-bold text-xs text-gray-700"
                             >
-                                Quantity in kcal
+                                Quantity in grams
                             </label>
                         </div>
                         <div class="w-1/2">
