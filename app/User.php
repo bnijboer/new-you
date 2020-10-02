@@ -52,7 +52,7 @@ class User extends Authenticatable
     }
     
     // bmr = basal metabolic rate
-    // this is the outcome of a formula that determines your energy expenditure per day at rest, based on your gender
+    // This is the outcome of a formula that determines your energy expenditure per day at rest, based on your gender
     public function bmr()
     {
         $expenditure = 10 * $this->current_weight + 6.25 * $this->height - 5 * $this->age;
@@ -67,9 +67,11 @@ class User extends Authenticatable
         }
     }
     
-    // tdee = total daily energy expenditure, this takes into account a user's level of activity
+    
     public function requiredIntake($bmr)
     {
+        // tdee = total daily energy expenditure
+        // This factors in a multiplier (1.2, 1.375, 1.55, 1.725, or 1.9) corresponding with a user's current activity_level.
         $tdee = $bmr * $this->activity_level;
         
         if ($this->onDiet()) {
@@ -78,14 +80,15 @@ class User extends Authenticatable
             
             $dailyDeficit = $diet->netEnergy / $diet->duration;
             
-            // The deficit for macronutrients is based on the amount of calories per gram of a particular nutrient as well as the ratio between macronutrients.
-            // Ratio's can vary depending on diet type (ex. keto, paleo, atkins), but for now this app uses a fixed ratio of 3:3:4 aimed at developing lean muscle mass.
-            
-            // Calories per gram:
-            // - Protein:         4 kcal
-            // - Fat:             9 kcal
-            // - Carbohydrates:   4 kcal
-            
+            /**
+            * The deficit for macronutrients is based on the amount of calories per gram of a particular nutrient as well as the ratio between macronutrients.
+            * Ratio's can vary depending on diet type (ex. keto, paleo, atkins), but for now this app uses a fixed ratio of 3:3:4 aimed at developing lean muscle mass.
+            * 
+            * Calories per gram:
+            * Protein:         4 kcal
+            * Fat:             9 kcal
+            * Carbohydrates:   4 kcal
+             */
             $deficit = (object) [
                 'energy' => round(
                     $dailyDeficit

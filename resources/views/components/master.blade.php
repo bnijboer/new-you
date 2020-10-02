@@ -20,7 +20,9 @@
     </div>
     
     <footer class="bg-gray-200 bg-opacity-75 tracking-wide text-gray-600 text-center py-4">
+        
         Brendan Nijboer ©
+        
         <div class="inline pl-3">
             <a
                 href="https://github.com/bnijboer/new-you"
