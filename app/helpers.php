@@ -15,6 +15,8 @@ function currentDiet()
     return currentUser()->diet();
 }
 
+// $value determined by a user's activity level.
+// It is a multiplier that is factored in when calculating their required intake.
 function formatActivityLevel($value)
 {
     switch ($value) {

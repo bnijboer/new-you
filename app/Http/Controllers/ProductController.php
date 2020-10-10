@@ -6,6 +6,7 @@ use App\Product;
 
 class ProductController extends Controller
 {
+    // Handles both the indexing of all Products and the Product search function.
     public function index()
     {
         $products = Product::all();

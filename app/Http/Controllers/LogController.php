@@ -28,6 +28,7 @@ class LogController extends Controller
         ]);
     }
     
+    // This is a POST route, it requires a Product serving as a template from which Logs are created by adjusting the consumed quantity.
     public function create()
     {
         return view('logs.create', [

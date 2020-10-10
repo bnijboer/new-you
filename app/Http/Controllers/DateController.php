@@ -6,6 +6,7 @@ use Carbon\Carbon;
 
 class DateController extends Controller
 {
+    // Date selector bar on the Dashboard
     public function store()
     {
         if (request()->previous) {

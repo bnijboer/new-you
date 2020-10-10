@@ -159,6 +159,7 @@ class User extends Authenticatable
         return $this->hasMany(Diet::class);
     }
     
+    // A user can have many diets, but only one can be active.
     public function diet()
     {
         return Diet::find($this->current_diet);
@@ -182,6 +183,8 @@ class User extends Authenticatable
         return false;
     }
     
+    // Ended diets effectively become detached from the user. They are not deleted from the database.
+    // I did this on purpose in case I plan to write the option for a user to get an overview of their past diets (should they wish to monitor their success rate).
     public function endDiet()
     {
         $this->current_diet = null;

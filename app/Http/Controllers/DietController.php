@@ -19,6 +19,7 @@ class DietController extends Controller
         
         $diet->save();
         
+        // Diet activation is handled in a separate controller action, in case I add the option of users being able to create a diet and select a date on which the diet should be activated. 
         return redirect()->route('activate_diet', $diet);
     }
     

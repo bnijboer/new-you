@@ -8,7 +8,7 @@
         </div>
     @endif
     
-    <!-- DIET ENDS NOTIFATION -->
+    <!-- DIET ENDS NOTIFICATION -->
     <section>
         @if(currentDiet())
             @if (Carbon\Carbon::parse(currentDiet()->ends_at)->isToday())
