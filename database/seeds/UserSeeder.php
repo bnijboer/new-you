@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
             ->insert([
                 'username' => 'demo',
                 'email' => 'demo@example.com',
-                'password' => 'demopass',
+                'password' => Hash::make('demopass'),
                 'gender' => 'male',
                 'age' => '30',
                 'height' => '182',
