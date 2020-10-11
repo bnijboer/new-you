@@ -38,7 +38,9 @@ By using the *diet* feature, a user can set a *weight goal*, to which the app wi
 *Note: When running locally, make sure to seed the database first by running `php artisan db:seed`, or include the `--seed` flag when running migrations. Doing so saves the hassle of registering and creating Products.*
 
 Either create a new account, or (if seeded) login by using a demonstration account with the following credentials:
+
 *Username*: demo
+
 *Password*: demopass
 
 You can then start a Log by clicking the *Create Log* button.
