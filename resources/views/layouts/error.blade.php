@@ -21,7 +21,7 @@
                     
                     <div>
                         <a
-                            href="{{ url()->previous() }}"
+                            href="{{ route('dashboard') }}"
                             class="mx-auto bg-gray-400 hover:bg-gray-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-gray-500"
                         >
                             Go Back

@@ -20,10 +20,10 @@
                                 <input
                                     class="pl-2 py-2 ml-4 mr-2 my-2"
                                     type="text"
-                                    name="query"
+                                    name="search"
                                     placeholder="Enter keyword(s)"
-                                    @isset($_GET['query'])
-                                        value = "{{ $_GET['query'] }}"
+                                    @isset($_GET['search'])
+                                        value = "{{ $_GET['search'] }}"
                                     @endisset
                                     required
                                 >
@@ -43,7 +43,7 @@
                 @isset($results)
                     <div class="text-center">
                         <div class="font-semibold text-gray-700">
-                            Search results for '{{ $_GET['query'] }}':
+                            Search results for: '{{ $_GET['search'] }}':
                         </div>
                         <div class="py-6 text-gray-700 hover:text-gray-900">
                             @forelse ($results as $result)
@@ -121,7 +121,7 @@
                 </div>
                 
                 @if (! $products->isEmpty())
-                    <div class="py-6">
+                    <div class="pt-6 pb-3">
                         @foreach($products as $product)
                             <div>
                                 <form action="/logs/create" method="POST">
@@ -182,12 +182,34 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="py-6 text-center">
+                    <div class="pt-6 pb-3 text-center">
                         There aren't any products in the database yet!
                     </div>
                 @endif
+                <div class="flex justify-center text-gray-600 text-4xl font-bold uppercase py-2">
+                    <div class="pr-8">
+                        @if($products->previousPageUrl())
+                            <a
+                                href="{{ $products->previousPageUrl() }}"
+                                class="bg-gray-500 hover:bg-gray-700 text-white rounded-full shadow-lg px-4 pb-1"
+                            >
+                                <i class="fas fa-angle-left"></i>
+                            </a>
+                        @endif
+                    </div>
+                    <div>
+                        @if($products->nextPageUrl())
+                            <a
+                                href="{{ $products->nextPageUrl() }}"
+                                class="bg-gray-500 hover:bg-gray-700 text-white rounded-full shadow-lg px-4 pb-1"
+                            >
+                                <i class="fas fa-angle-right"></i>
+                            </a>
+                        @endif
+                    </div>
+                </div>
                 <div class="text-center">
-                    <p class="mt-5 pb-8">
+                    <p class="mt-8 pb-8">
                         <a
                             href="/products/create"
                             class="bg-green-400 hover:bg-green-500 text-white font-bold rounded-full uppercase px-5 py-3 focus:bg-green-500"

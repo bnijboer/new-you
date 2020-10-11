@@ -12,7 +12,7 @@ $factory->define(Product::class, function (Faker $faker)
     $faker->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($faker));
 
     return [
-        'name' => $faker->unique()->randomElement($categories = [
+        'name' => $faker->randomElement($categories = [
                     $faker->beverageName(),
                     $faker->dairyName(),
                     $faker->vegetableName(),
@@ -20,10 +20,10 @@ $factory->define(Product::class, function (Faker $faker)
                     $faker->meatName(),
                     $faker->sauceName()
                 ]),
-        'energy' => $faker->numberBetween($min = 0, $max = 1000),
-        'protein' => $faker->numberBetween($min = 0, $max = 100),
-        'fat' => $faker->numberBetween($min = 0, $max = 80),
-        'carbs' => $faker->numberBetween($min = 0, $max = 120),
-        'quantity' => $faker->numberBetween($min = 1, $max = 1000),
+        'energy' => $faker->numberBetween($min = 0, $max = 500),
+        'protein' => $faker->numberBetween($min = 0, $max = 25),
+        'fat' => $faker->numberBetween($min = 0, $max = 12),
+        'carbs' => $faker->numberBetween($min = 0, $max = 25),
+        'quantity' => $faker->numberBetween($min = 1, $max = 100),
     ];
 });

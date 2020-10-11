@@ -9,10 +9,11 @@ class ProductController extends Controller
     // Handles both the indexing of all Products and the Product search function.
     public function index()
     {
-        $products = Product::all();
+        $products = Product::simplePaginate(5);
         
-        if(request()->query()) {
-            $query = request()->query('query');
+        if(request()->query('search')) {
+            
+            $query = request()->query('search');
             $results = Product::where('name','LIKE','%' . $query . '%')->get();
             
             return view('products.index', [
