@@ -1,11 +1,11 @@
-##URL:##
+## URL: ##
 
 [New You](http://phplaravel-485066-1528101.cloudwaysapps.com/)
 
 
 
 
-##Aim:##
+## Aim: ##
 
 This is my first Laravel web app. Since nutrition is a personal interest of mine, I was inspired by the popular MyFitnessPal app and I decided to create my own version of it.
 I made this app with the aim of getting familiar with Laravel and backend development in general.
@@ -15,7 +15,7 @@ This project is meant to reflect most of what I've learned over the past half ye
 
 
 
-##Description:##
+## Description: ##
 
 With this app, users can log their food intake and monitor the amount of calories and nutrients they consume.
 By using the *diet* feature, a user can set a *weight goal*, to which the app will calculate how long users will need to consume a certain number of calories/nutrients in order to achieve that goal.
@@ -23,7 +23,7 @@ By using the *diet* feature, a user can set a *weight goal*, to which the app wi
 
 
 
-##Languages/systems/frameworks used:##
+## Languages/systems/frameworks used: ##
 
 - Laravel/PHP
 - JavaScript/jQuery/Vue.js
@@ -33,7 +33,7 @@ By using the *diet* feature, a user can set a *weight goal*, to which the app wi
 
 
 
-##Instructions:##
+## Instructions: ##
 
 *Note: When running locally, make sure to seed the database first by running `php artisan db:seed`, or include the `--seed` flag when running migrations. Doing so saves the hassle of registering and creating Products.*
 
@@ -56,7 +56,7 @@ Diets end automatically once the end date has been met, but they can also be end
 
 
 
-##Screenshots:##
+## Screenshots: ##
 
 ![Alt text](/screenshots/newyou0.jpg?raw=true "preview")
 
