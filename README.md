@@ -28,7 +28,16 @@ By using the *diet* feature, a user can set a *weight goal*, to which the app wi
 
 ## Instructions: ##
 
-*Note: When running locally, make sure to seed the database first by running `php artisan db:seed`, or include the `--seed` flag when running migrations. Doing so saves the hassle of registering and creating Products.*
+- `git clone repo`
+- `npm install && npm update`
+- `composer install && composer update`
+- Rename `.env.exampl`e to `.env`
+- `php artisan key:generate
+- Create database
+- Add database name and credentials to `.env`
+- `php artisan migrate:fresh --seed`
+- `npm run dev`
+- `php artisan serve`
 
 Either create a new account, or (if seeded) login by using a demonstration account with the following credentials:
 
