@@ -28,7 +28,7 @@ By using the *diet* feature, a user can set a *weight goal*, to which the app wi
 
 ## Instructions: ##
 
-- `git clone` repo
+- `git clone https://github.com/bnijboer/new-you.git`
 - `npm install && npm update`
 - `composer install && composer update`
 - Rename `.env.example` to `.env`
