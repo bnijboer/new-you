@@ -1,10 +1,3 @@
-## URL: ##
-
-[New You](http://phplaravel-485066-1528101.cloudwaysapps.com/)
-
-
-
-
 ## Aim: ##
 
 This is my first Laravel web app. Since nutrition is a personal interest of mine, I was inspired by the popular MyFitnessPal app and I decided to create my own version of it.
