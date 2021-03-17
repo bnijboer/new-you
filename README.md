@@ -32,7 +32,7 @@ By using the *diet* feature, a user can set a *weight goal*, to which the app wi
 - `npm install && npm update`
 - `composer install && composer update`
 - Rename `.env.exampl`e to `.env`
-- `php artisan key:generate
+- `php artisan key:generate`
 - Create database
 - Add database name and credentials to `.env`
 - `php artisan migrate:fresh --seed`
